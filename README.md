@@ -174,3 +174,7 @@ Identity:
 * cenário de investigação
 
 Próxima etapa: converter Kubernetes Lab e Microsoft Security para o mesmo formato reproduzível.
+
+
+### V12.3
+Kubernetes Lab e Microsoft Security convertidos para guias reproduzíveis. Próxima etapa: Endpoint Security e Automation Lab, seguida de revisão transversal dos Projetos.

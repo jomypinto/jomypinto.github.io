@@ -1,134 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Laboratório para testar exposição de serviços, namespaces, deployments, observabilidade e segurança operacional." />
-  <title>Kubernetes Lab | Laboratório | Jorge Pinto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-
-  <meta name="author" content="Jorge Pinto" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jorgepinto.pt/laboratorio/kubernetes/" />
-  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_PT" />
-  <meta property="og:site_name" content="Jorge Pinto" />
-  <meta property="og:title" content="Kubernetes Lab | Laboratório | Jorge Pinto" />
-  <meta property="og:description" content="Laboratório para testar exposição de serviços, namespaces, deployments, observabilidade e segurança operacional." />
-  <meta property="og:url" content="https://jorgepinto.pt/laboratorio/kubernetes/" />
-  <meta property="og:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kubernetes Lab | Laboratório | Jorge Pinto" />
-  <meta name="twitter:description" content="Laboratório para testar exposição de serviços, namespaces, deployments, observabilidade e segurança operacional." />
-  <meta name="twitter:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
-</head>
-<body>
-<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
-
-<header class="site-header">
-  <div class="container nav-wrap">
-      <a class="site-wordmark" href="/">Jorge Pinto</a>
-<button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="/sobre/">Sobre</a>
-      <a href="/projetos/">Projetos</a>
-      <a href="/laboratorio/" class="active">Laboratório</a>
-      <a href="/publicacoes/">Publicações</a>
-      <a href="/contacto/">Contacto</a>
-    </nav>
-  </div>
-</header>
-
-<main id="conteudo">
-  <section class="lab-detail-hero">
-    <div class="container lab-detail-grid">
-      <div class="reveal">
-        <p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a> / Kubernetes Lab</p>
-        <p class="eyebrow">LAB DETAIL</p>
-        <h1>Kubernetes Lab</h1>
-        <p class="project-subtitle">Containers, serviços e observabilidade</p>
-        <p class="lead">Laboratório para testar exposição de serviços, namespaces, deployments, observabilidade e segurança operacional.</p>
-        <div class="tag-list"><span>Kubernetes</span><span>Docker</span><span>Ingress</span><span>Prometheus</span><span>Grafana</span><span>Argo CD</span></div>
-      </div>
-      <div class="flow-diagram reveal">
-        <div>Git</div>
-<span>↓</span>
-<div>Argo CD</div>
-<span>↓</span>
-<div>Kubernetes</div>
-<span>↓</span>
-<div>Service</div>
-<span>↓</span>
-<div>Ingress</div>
-<span>↓</span>
-<div>Monitoring</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-muted">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow">MÉTODO</p>
-        <h2>Como o laboratório é trabalhado</h2>
-      </div>
-      <div class="lab-step reveal"><div class="step-no">01</div><div><h3>Preparar</h3><p>Definir cenário, componentes e objetivo técnico.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">02</div><div><h3>Implementar</h3><p>Configurar serviços, integrações e políticas.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">03</div><div><h3>Testar</h3><p>Executar um cenário controlado e confirmar o comportamento esperado.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">04</div><div><h3>Documentar</h3><p>Guardar evidências, logs, capturas e limitações encontradas.</p></div></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container grid-2">
-      <div class="reveal">
-        <p class="eyebrow">EVIDÊNCIAS</p>
-        <h2>O que deve ficar demonstrado</h2>
-        <p class="lead">Estas páginas ficam preparadas para receber provas reais do laboratório. Não são utilizadas capturas fictícias.</p>
-      </div>
-      <div class="lab-evidence-list">
-        <article class="lab-evidence-item reveal"><h3>kubectl</h3><p>Estado real de pods, services e namespaces.</p></article><article class="lab-evidence-item reveal"><h3>Ingress</h3><p>Regras de exposição e encaminhamento de tráfego.</p></article><article class="lab-evidence-item reveal"><h3>Grafana</h3><p>Métricas de saúde e disponibilidade do ambiente.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-muted">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow">CAPTURAS REAIS</p>
-        <h2>Área preparada para documentação visual</h2>
-        <p>Quando existirem capturas anonimizadas, estas áreas podem ser substituídas diretamente por imagens reais.</p>
-      </div>
-      <div class="evidence-grid">
-        <div class="capture-placeholder reveal"><div><strong>Captura 01</strong>Vista principal do serviço ou consola do laboratório.</div></div>
-        <div class="capture-placeholder reveal"><div><strong>Captura 02</strong>Evento, configuração ou resultado do teste.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container reveal">
-      <p class="eyebrow">PRÓXIMO PASSO</p>
-      <h2>Substituir placeholders por evidência real.</h2>
-      <p class="lead">O valor aumenta quando cada laboratório inclui comandos, outputs, screenshots, diagramas e resultados reproduzíveis.</p>
-      <a class="project-back" href="/laboratorio/">← Voltar ao Laboratório</a>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <p>Cibersegurança · Sistemas · Cloud · Automação</p>
-    <p>© <span id="year"></span> Jorge Pinto</p>
-  </div>
-</footer>
-<script src="/assets/js/script.js" defer></script>
-<button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
-</body>
-</html>
+<!DOCTYPE html><html lang="pt-PT"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Cluster, workloads, networking, observabilidade, GitOps e segurança operacional."><title>Kubernetes Lab | Jorge Pinto</title><link rel="icon" href="/assets/images/favicon.svg"><link rel="stylesheet" href="/assets/css/styles.css"></head><body><a class="skip-link" href="#conteudo">Saltar para o conteúdo</a><header class="site-header"><div class="container nav-wrap"><a class="site-wordmark" href="/">Jorge Pinto</a><button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span></button><nav class="main-nav"><a href="/sobre/">Sobre</a><a href="/projetos/">Projetos</a><a href="/laboratorio/" class="active">Laboratório</a><a href="/publicacoes/">Publicações</a><a href="/contacto/">Contacto</a></nav></div></header><main id="conteudo"><section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a></p><p class="eyebrow">GUIA TÉCNICO · V12</p><h1>Kubernetes Lab</h1><p class="lead">Cluster, workloads, networking, observabilidade, GitOps e segurança operacional.</p></div></section><section class="section"><div class="container doc-layout"><aside class="doc-nav"><strong>Neste guia</strong><a href="#objetivo">Objetivo</a><a href="#arquitetura">Arquitetura</a><a href="#requisitos">Pré requisitos</a><a href="#namespaces">Namespaces</a><a href="#deployment">Deployment</a><a href="#service">Service</a><a href="#ingress">Ingress</a><a href="#observabilidade">Observabilidade</a><a href="#argocd">Argo CD</a><a href="#seguranca">Segurança</a><a href="#exercicio">Exercício</a><a href="#troubleshooting">Troubleshooting</a><a href="#checklist">Checklist</a></aside><article class="doc-content"><section class="doc-section" id="objetivo"><p class="eyebrow">01 · OBJETIVO</p><h2>Construir um cluster observável e administrável</h2><p>Do namespace à exposição, observabilidade e GitOps.</p></section><section class="doc-section" id="arquitetura"><p class="eyebrow">02 · ARQUITETURA</p><h2>Git → Argo CD → Kubernetes → Service → Ingress → Monitoring</h2></section><section class="doc-section" id="requisitos"><p class="eyebrow">03 · PRÉ REQUISITOS</p><h2>Preparar o ambiente</h2><ul><li>Cluster funcional.</li><li>kubectl configurado.</li><li>DNS e conectividade.</li><li>Recursos adequados.</li></ul><div class="command"><div class="command-label">VALIDAÇÃO</div><pre>kubectl cluster-info
+kubectl get nodes -o wide
+kubectl get pods -A</pre></div></section><section class="doc-section" id="namespaces"><p class="eyebrow">04 · NAMESPACES</p><h2>Separar workloads</h2><div class="command"><div class="command-label">CRIAR</div><pre>kubectl create namespace lab-app
+kubectl get namespace lab-app</pre></div></section><section class="doc-section" id="deployment"><p class="eyebrow">05 · DEPLOYMENT</p><h2>Publicar uma aplicação</h2><div class="command"><div class="command-label">COMANDOS</div><pre>kubectl create deployment web-lab --image=nginx:stable -n lab-app
+kubectl scale deployment web-lab --replicas=2 -n lab-app
+kubectl rollout status deployment/web-lab -n lab-app</pre></div></section><section class="doc-section" id="service"><p class="eyebrow">06 · SERVICE</p><h2>Criar endpoint estável</h2><div class="command"><div class="command-label">SERVICE</div><pre>kubectl expose deployment web-lab --name web-lab --port 80 --target-port 80 -n lab-app
+kubectl get svc,endpoints -n lab-app</pre></div></section><section class="doc-section" id="ingress"><p class="eyebrow">07 · INGRESS</p><h2>Expor a aplicação</h2><p>Com Ingress Controller instalado, cria uma regra para um hostname de laboratório.</p><div class="command"><div class="command-label">DIAGNÓSTICO</div><pre>kubectl get ingress -A
+kubectl describe ingress -n lab-app
+kubectl get svc,endpoints -n lab-app</pre></div><div class='doc-warning'>Em produção usa TLS válido e não exponhas dashboards administrativos.</div></section><section class="doc-section" id="observabilidade"><p class="eyebrow">08 · OBSERVABILIDADE</p><h2>Prometheus e Grafana</h2><p>Observa CPU, memória, reinícios e disponibilidade.</p><div class="command"><div class="command-label">RECURSOS</div><pre>kubectl top nodes
+kubectl top pods -A</pre></div></section><section class="doc-section" id="argocd"><p class="eyebrow">09 · ARGO CD</p><h2>Introduzir GitOps</h2><p>Versiona manifestos e compara estado desejado com estado real.</p><div class="command"><div class="command-label">VALIDAR</div><pre>kubectl get pods -n argocd
+kubectl get applications -n argocd 2&gt;/dev/null || true</pre></div></section><section class="doc-section" id="seguranca"><p class="eyebrow">10 · SEGURANÇA</p><h2>Reduzir privilégios</h2><ul><li>Evitar privileged.</li><li>Requests e limits.</li><li>RBAC mínimo.</li><li>Service accounts separadas.</li><li>NetworkPolicies.</li><li>Não versionar segredos.</li></ul></section><section class="doc-section" id="exercicio"><p class="eyebrow">11 · EXERCÍCIO</p><h2>Do Git até à aplicação</h2><ol><li>Namespace.</li><li>Deployment.</li><li>Service.</li><li>Ingress.</li><li>Métricas.</li><li>Alteração Git.</li><li>Sync Argo CD.</li><li>Documentar rollout.</li></ol></section><section class="doc-section" id="troubleshooting"><p class="eyebrow">12 · TROUBLESHOOTING</p><h2>Diagnosticar por camadas</h2><div class="command"><div class="command-label">SEQUÊNCIA</div><pre>kubectl get pods -n lab-app
+kubectl describe pod -n lab-app &lt;pod&gt;
+kubectl logs -n lab-app &lt;pod&gt;
+kubectl get svc,endpoints,ingress -n lab-app
+kubectl get events -n lab-app --sort-by=.lastTimestamp</pre></div></section><section class="doc-section" id="checklist"><p class="eyebrow">13 · CHECKLIST</p><h2>Critérios de conclusão</h2><ul class='checklist'><li>Cluster saudável</li><li>Deployment funcional</li><li>Service com endpoints</li><li>Ingress validado</li><li>Métricas observáveis</li><li>GitOps validado</li><li>Segurança documentada</li></ul></section></article></div></section></main><footer class="site-footer"><div class="container footer-grid"><p>Cibersegurança · Sistemas · Cloud · Automação</p><p>© <span id="year"></span> Jorge Pinto</p></div></footer><button class="back-to-top" aria-label="Voltar ao topo">↑</button><script src="/assets/js/script.js" defer></script></body></html>
