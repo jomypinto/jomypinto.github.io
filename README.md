@@ -55,3 +55,13 @@ Não foram fabricadas capturas de ecrã. Os exemplos de logs e JSON estão expli
 /laboratorio/automation-lab/
 
 Cada laboratório inclui objetivo, fluxo, método, evidências esperadas e espaços para screenshots reais.
+
+
+## V6, páginas individuais de publicações
+
+/publicacoes/wazuh-virustotal/
+/publicacoes/keycloak-active-directory/
+/publicacoes/empresa-escola-ciberseguranca/
+/publicacoes/hardening-intune-defender/
+
+As páginas incluem problema, arquitetura, implementação, validação, exemplo técnico e ligação ao projeto ou laboratório relacionado.
