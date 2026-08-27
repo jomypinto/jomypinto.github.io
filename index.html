@@ -50,6 +50,7 @@
 
 </head>
 <body>
+<a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -64,7 +65,7 @@
   </div>
 </header>
 
-<main>
+<main id="conteudo">
 
 <section class="hero section" id="inicio">
   <div class="container hero-grid">
@@ -78,7 +79,14 @@
       </div>
       <div class="tech-line">
         <span>Linux</span><span>Microsoft 365</span><span>Kubernetes</span><span>Wazuh</span><span>Keycloak</span><span>Cloudflare</span>
-      </div>
+      
+<div class="hero-proof reveal" aria-label="Áreas de foco">
+  <div class="hero-proof-item"><strong>Segurança aplicada</strong><span>SIEM, endpoints, hardening e deteção.</span></div>
+  <div class="hero-proof-item"><strong>Infraestrutura integrada</strong><span>Linux, Windows, cloud, identidade e containers.</span></div>
+  <div class="hero-proof-item"><strong>Automação operacional</strong><span>Workflows, APIs e integração entre plataformas.</span></div>
+</div>
+
+</div>
     </div>
     <div class="hero-visual reveal">
       <div class="architecture-card">
@@ -89,6 +97,15 @@
         <div class="arch-node node-automation">AUTOMATION</div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="utility-strip">
+  <div class="container utility-grid">
+    <div class="utility-item"><span>Website</span><strong>jorgepinto.pt</strong></div>
+    <div class="utility-item"><span>Contacto</span><strong>contacto@jorgepinto.pt</strong></div>
+    <div class="utility-item"><span>GitHub</span><strong>github.com/jomypinto</strong></div>
+    <div class="utility-item"><span>Localização</span><strong>Portugal</strong></div>
   </div>
 </section>
 
@@ -118,7 +135,7 @@
     <div class="projects-list">
       <article class="project-card featured reveal">
         <div class="project-copy">
-          <p class="card-label">FEATURED PROJECT / 01</p>
+          <div class="project-index">Projeto em destaque</div><p class="card-label">FEATURED PROJECT / 01</p>
           <h3>Automated Malware Defense</h3>
           <p class="project-subtitle">Wazuh SIEM + VirusTotal</p>
           <p>Pipeline para deteção e análise automática de ficheiros suspeitos, enriquecimento de eventos e apoio à resposta a incidentes.</p>
@@ -188,5 +205,6 @@
 </footer>
 
 <script src="/assets/js/script.js" defer></script>
+<button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
 </body>
 </html>

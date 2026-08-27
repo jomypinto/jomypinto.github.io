@@ -30,3 +30,22 @@ revealItems.forEach(item => observer.observe(item));
 
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
+
+
+const siteHeader = document.querySelector(".site-header");
+const backToTop = document.querySelector(".back-to-top");
+
+const updateScrollUI = () => {
+  const y = window.scrollY || document.documentElement.scrollTop;
+  if (siteHeader) siteHeader.classList.toggle("is-scrolled", y > 12);
+  if (backToTop) backToTop.classList.toggle("visible", y > 500);
+};
+
+window.addEventListener("scroll", updateScrollUI, { passive: true });
+updateScrollUI();
+
+if (backToTop) {
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}

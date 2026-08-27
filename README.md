@@ -124,3 +124,21 @@ Alterações principais:
 * melhor experiência mobile
 
 A V10 muda deliberadamente de um visual escuro de laboratório técnico para uma apresentação mais profissional e transversal, mantendo os conteúdos de cibersegurança e infraestrutura.
+
+
+## V11, refinamento profissional
+
+A V11 não altera radicalmente a identidade da V10. Refina a composição e a experiência:
+
+* melhor hierarquia na homepage
+* bloco de foco profissional no hero
+* faixa informativa com website, contacto, GitHub e localização
+* cabeçalho com comportamento ao fazer scroll
+* botão voltar ao topo
+* skip link e melhorias de acessibilidade
+* melhor leitura nas páginas de artigos
+* tratamento mais consistente dos projetos
+* contacto reorganizado
+* responsividade refinada
+
+Esta versão deve ser avaliada no site publicado antes de acrescentar novas funcionalidades.
