@@ -109,3 +109,18 @@ Alterações:
 10. Depois da publicação, validar PageSpeed, sitemap.xml, robots.txt e 404.html.
 
 Nota: GitHub Pages não permite definir headers HTTP personalizados no repositório. CSP, HSTS e outros headers devem ser tratados na Cloudflare.
+
+
+## V10, visual executivo
+
+Alterações principais:
+* removido o símbolo JP. do header em todas as páginas
+* introduzido um wordmark discreto "Jorge Pinto"
+* novo sistema visual claro, profissional e moderno
+* melhor legibilidade e contraste
+* cartões mais sóbrios
+* navegação mais institucional
+* diagramas e blocos técnicos adaptados ao novo tema
+* melhor experiência mobile
+
+A V10 muda deliberadamente de um visual escuro de laboratório técnico para uma apresentação mais profissional e transversal, mantendo os conteúdos de cibersegurança e infraestrutura.
