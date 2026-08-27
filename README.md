@@ -153,3 +153,24 @@ Primeira fase concluída:
 * exemplos públicos evitam segredos e dados internos
 
 A próxima fase V12 deve aprofundar agentes Windows/Sysmon/VirusTotal e SSO/MFA/RBAC, antes de converter Kubernetes e Microsoft Security.
+
+### V12.2, aprofundamento
+
+Wazuh:
+* agente Windows
+* Sysmon
+* regra personalizada
+* FIM
+* VirusTotal
+* Active Response com abordagem segura
+
+Identity:
+* SSO
+* MFA
+* RBAC
+* cliente OIDC
+* eventos Keycloak
+* recolha pelo Wazuh
+* cenário de investigação
+
+Próxima etapa: converter Kubernetes Lab e Microsoft Security para o mesmo formato reproduzível.

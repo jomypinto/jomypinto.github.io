@@ -8,7 +8,14 @@
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 <header class="site-header"><div class="container nav-wrap"><a class="site-wordmark" href="/">Jorge Pinto</a><button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button><nav class="main-nav"><a href="/sobre/">Sobre</a><a href="/projetos/">Projetos</a><a href="/laboratorio/" class="active">Laboratório</a><a href="/publicacoes/">Publicações</a><a href="/contacto/">Contacto</a></nav></div></header>
 <main id="conteudo"><section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a></p><p class="eyebrow">GUIA TÉCNICO · V12</p><h1>Wazuh SIEM</h1><p class="lead">Instalação, configuração, validação e primeiro laboratório prático.</p></div></section>
-<section class="section"><div class="container doc-layout"><aside class="doc-nav"><strong>Neste guia</strong><a href="#objetivo">Objetivo</a><a href="#arquitetura">Arquitetura</a><a href="#requisitos">Pré requisitos</a><a href="#instalacao">Instalação</a><a href="#agente">Agente Linux</a><a href="#validacao">Validação</a><a href="#laboratorio">Laboratório prático</a><a href="#troubleshooting">Troubleshooting</a><a href="#seguranca">Segurança</a><a href="#checklist">Checklist</a></aside><article class="doc-content">
+<section class="section"><div class="container doc-layout"><aside class="doc-nav"><strong>Neste guia</strong><a href="#objetivo">Objetivo</a><a href="#arquitetura">Arquitetura</a><a href="#requisitos">Pré requisitos</a><a href="#instalacao">Instalação</a><a href="#agente">Agente Linux</a><a href="#validacao">Validação</a><a href="#laboratorio">Laboratório prático</a><a href="#troubleshooting">Troubleshooting</a><a href="#seguranca">Segurança</a>
+<a href="#windows">Agente Windows</a>
+<a href="#sysmon">Sysmon</a>
+<a href="#regras">Regras personalizadas</a>
+<a href="#fim">FIM</a>
+<a href="#virustotal">VirusTotal</a>
+<a href="#active-response">Active Response</a>
+<a href="#checklist">Checklist</a></aside><article class="doc-content">
 <section class="doc-section" id="objetivo"><p class="eyebrow">01 · OBJETIVO</p><h2>Construir uma base Wazuh reproduzível</h2><p>Este guia cria a base de um laboratório SIEM. O objetivo não é apenas instalar a plataforma, mas perceber o percurso do evento desde o endpoint até ao alerta.</p><div class="doc-note">Ambiente de referência: WAZUH-SRV01 em Ubuntu Server, LINUX-SRV01 em Ubuntu e clientes adicionais Windows preparados para fases seguintes.</div></section>
 <section class="doc-section" id="arquitetura"><p class="eyebrow">02 · ARQUITETURA</p><h2>Fluxo inicial</h2><div class="lab-series"><div><span>01</span>LINUX-SRV01 gera eventos</div><div><span>02</span>Wazuh Agent recolhe</div><div><span>03</span>WAZUH-SRV01 analisa</div><div><span>04</span>Dashboard apresenta alertas</div></div></section>
 <section class="doc-section" id="requisitos"><p class="eyebrow">03 · PRÉ REQUISITOS</p><h2>Antes de instalar</h2><ul><li>Ubuntu Server atualizado para o servidor Wazuh.</li><li>Resolução DNS e sincronização horária funcionais.</li><li>Endereço IP estável no servidor.</li><li>Acesso administrativo por sudo.</li><li>Recursos dimensionados de acordo com o número de agentes e retenção pretendida.</li></ul><div class="command"><div class="command-label">VERIFICAÇÃO</div><pre>hostnamectl
@@ -24,6 +31,76 @@ sudo grep -n &#x27;&lt;address&gt;&#x27; /var/ossec/etc/ossec.conf</pre></div><d
 <section class="doc-section" id="laboratorio"><p class="eyebrow">07 · LABORATÓRIO</p><h2>Gerar um evento controlado</h2><ol><li>Confirma que LINUX-SRV01 está ativo.</li><li>Executa uma autenticação inválida controlada no sistema.</li><li>Observa os logs locais.</li><li>Procura o evento correspondente no Wazuh Dashboard.</li><li>Regista rule.id, agente, timestamp e severidade.</li></ol><p>O objetivo é provar a cadeia completa, não provocar atividade maliciosa.</p></section>
 <section class="doc-section" id="troubleshooting"><p class="eyebrow">08 · TROUBLESHOOTING</p><h2>Quando o agente não aparece</h2><ul><li>Confirmar serviço wazuh-agent.</li><li>Confirmar endereço do manager em ossec.conf.</li><li>Validar DNS, routing e firewall.</li><li>Consultar ossec.log antes de alterar configurações.</li><li>Confirmar que a versão do agente é compatível.</li></ul></section>
 <section class="doc-section" id="seguranca"><p class="eyebrow">09 · SEGURANÇA</p><h2>Laboratório não é produção</h2><p>Em produção, aplica segmentação de rede, TLS corretamente validado, controlo administrativo, backups, retenção definida, gestão segura de segredos e monitorização dos próprios componentes Wazuh.</p></section>
-<section class="doc-section" id="checklist"><p class="eyebrow">10 · CHECKLIST</p><h2>Critérios de conclusão</h2><ul class="checklist"><li>WAZUH-SRV01 operacional</li><li>Dashboard acessível</li><li>LINUX-SRV01 registado</li><li>Agente ativo</li><li>Evento controlado visível</li><li>Logs de diagnóstico identificados</li></ul><p><strong>Continuação:</strong> agentes Windows, Sysmon, regras personalizadas, FIM, VirusTotal e Active Response.</p></section></article></div></section></main>
+
+<section class="doc-section" id="windows">
+<p class="eyebrow">11 · WINDOWS AGENT</p><h2>Adicionar um endpoint Windows</h2>
+<p>Cria um endpoint de laboratório, por exemplo WIN-ENDPOINT-01. No Wazuh Dashboard utiliza Deploy new agent, escolhe Windows e gera o comando correspondente ao teu manager. Depois confirma localmente que o serviço está ativo.</p>
+<div class="command"><div class="command-label">POWERSHELL</div><pre>Get-Service WazuhSvc
+Get-Content &quot;C:\\Program Files (x86)\\ossec-agent\\ossec.log&quot; -Tail 30</pre></div>
+<p>No manager, confirma que o novo endpoint aparece registado e ativo.</p>
+<div class="command"><div class="command-label">MANAGER</div><pre>sudo /var/ossec/bin/agent_control -l</pre></div>
+</section>
+
+<section class="doc-section" id="sysmon">
+<p class="eyebrow">12 · SYSMON</p><h2>Aumentar a telemetria do Windows</h2>
+<p>Sysmon acrescenta eventos de criação de processos, ligações de rede, alterações de ficheiros e outras atividades úteis para deteção. A configuração deve ser controlada para evitar recolher ruído sem valor.</p>
+<p>Depois de instalares Sysmon no endpoint com uma configuração adequada ao laboratório, adiciona o canal ao agente Wazuh.</p>
+<div class="command"><div class="command-label">OSSEC.CONF</div><pre>&lt;localfile&gt;
+  &lt;location&gt;Microsoft-Windows-Sysmon/Operational&lt;/location&gt;
+  &lt;log_format&gt;eventchannel&lt;/log_format&gt;
+&lt;/localfile&gt;</pre></div>
+<div class="command"><div class="command-label">REINICIAR AGENTE</div><pre>Restart-Service WazuhSvc</pre></div>
+<div class="doc-note">Valida primeiro alguns Event IDs concretos no Event Viewer. Só depois começa a criar deteções próprias.</div>
+</section>
+
+<section class="doc-section" id="regras">
+<p class="eyebrow">13 · REGRAS</p><h2>Criar uma regra personalizada</h2>
+<p>As regras locais permitem transformar eventos relevantes para o teu ambiente em alertas próprios. Mantém IDs personalizados numa gama reservada para regras locais e documenta a finalidade de cada regra.</p>
+<div class="command"><div class="command-label">LOCAL_RULES.XML</div><pre>&lt;group name=&quot;local,windows,&quot;&gt;
+  &lt;rule id=&quot;100100&quot; level=&quot;8&quot;&gt;
+    &lt;if_group&gt;sysmon_event1&lt;/if_group&gt;
+    &lt;field name=&quot;win.eventdata.image&quot; type=&quot;pcre2&quot;&gt;(?i)\\powershell.exe$&lt;/field&gt;
+    &lt;description&gt;Laboratório: execução de PowerShell observada pelo Sysmon&lt;/description&gt;
+  &lt;/rule&gt;
+&lt;/group&gt;</pre></div>
+<div class="command"><div class="command-label">TESTAR REGRA</div><pre>sudo /var/ossec/bin/wazuh-logtest</pre></div>
+<p>O exemplo é pedagógico. Em produção, alertar para toda execução de PowerShell criaria demasiado ruído. A deteção deve incluir contexto, argumentos, utilizador, parent process ou outros indicadores.</p>
+</section>
+
+<section class="doc-section" id="fim">
+<p class="eyebrow">14 · FIM</p><h2>File Integrity Monitoring</h2>
+<p>O FIM permite observar alterações em ficheiros e diretórios selecionados. Não monitorizes indiscriminadamente todo o disco.</p>
+<div class="command"><div class="command-label">EXEMPLO LINUX</div><pre>&lt;syscheck&gt;
+  &lt;directories check_all=&quot;yes&quot; realtime=&quot;yes&quot;&gt;/opt/lab/config&lt;/directories&gt;
+&lt;/syscheck&gt;</pre></div>
+<p>Cria um ficheiro de teste, altera o conteúdo e confirma no Dashboard que a modificação é identificada. O exercício deve registar caminho, timestamp, agente e tipo de alteração.</p>
+</section>
+
+<section class="doc-section" id="virustotal">
+<p class="eyebrow">15 · VIRUSTOTAL</p><h2>Enriquecer deteções com reputação</h2>
+<p>A integração com VirusTotal deve ser usada como enriquecimento. Um resultado externo não substitui a análise do evento.</p>
+<div class="command"><div class="command-label">ESTRUTURA</div><pre>Evento FIM
+  -&gt; hash do ficheiro
+  -&gt; integração Wazuh
+  -&gt; VirusTotal API
+  -&gt; resultado de reputação
+  -&gt; alerta enriquecido</pre></div>
+<div class="doc-warning">Nunca publiques a API key. Guarda o segredo apenas no servidor e respeita os limites e condições da API utilizada.</div>
+<p>O teste deve usar um ficheiro de laboratório conhecido e não malware real. Confirma que o hash é calculado, consultado e associado ao alerta original.</p>
+</section>
+
+<section class="doc-section" id="active-response">
+<p class="eyebrow">16 · ACTIVE RESPONSE</p><h2>Automatizar sem perder controlo</h2>
+<p>Active Response pode executar ações quando determinadas regras disparam. É também uma das áreas onde uma configuração precipitada pode provocar indisponibilidade.</p>
+<ol>
+<li>Começa por uma ação sem impacto ou apenas de logging.</li>
+<li>Associa a resposta a uma regra de laboratório muito específica.</li>
+<li>Testa o comportamento e o rollback.</li>
+<li>Só depois considera bloqueios ou isolamento.</li>
+</ol>
+<div class="doc-warning">Não automatizes bloqueios de rede, eliminação de ficheiros ou isolamento de sistemas com base numa deteção genérica. Primeiro mede falsos positivos e garante recuperação.</div>
+</section>
+
+<section class="doc-section" id="checklist"><p class="eyebrow">10 · CHECKLIST</p><h2>Critérios de conclusão</h2><ul class="checklist"><li>WAZUH-SRV01 operacional</li><li>Dashboard acessível</li><li>LINUX-SRV01 registado</li><li>Agente ativo</li><li>Evento controlado visível</li><li>Logs de diagnóstico identificados</li><li>Endpoint Windows registado</li><li>Sysmon recolhido pelo Wazuh</li><li>Regra local testada</li><li>FIM validado</li><li>Fluxo VirusTotal compreendido</li><li>Active Response testado sem impacto</li></ul><p><strong>Continuação:</strong> agentes Windows, Sysmon, regras personalizadas, FIM, VirusTotal e Active Response.</p></section></article></div></section></main>
 <footer class="site-footer"><div class="container footer-grid"><p>Cibersegurança · Sistemas · Cloud · Automação</p><p>© <span id="year"></span> Jorge Pinto</p></div></footer>
 <button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button><script src="/assets/js/script.js" defer></script></body></html>
