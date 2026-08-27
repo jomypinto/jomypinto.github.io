@@ -1,21 +1,30 @@
-# jorgepinto.pt, versão estática v1
+# jorgepinto.pt, versão 2
 
-Versão inicial da homepage para publicação em GitHub Pages.
+Versão multipágina estática, pronta para GitHub Pages.
 
-## Ficheiros
+## Estrutura
 
-index.html  
-styles.css  
-script.js
+/
+index.html
+sobre/index.html
+projetos/index.html
+laboratorio/index.html
+publicacoes/index.html
+contacto/index.html
+assets/css/styles.css
+assets/js/script.js
 
 ## Publicação
 
-Copie os três ficheiros para a raiz do repositório `jomypinto.github.io` e faça commit para a branch `main`.
+1. Faça backup do conteúdo atual do repositório.
+2. Copie todo o conteúdo deste pacote para a raiz de `jomypinto.github.io`.
+3. Faça commit para a branch `main`.
+4. Aguarde o GitHub Pages atualizar `https://jorgepinto.pt`.
 
-O GitHub Pages publicará automaticamente a nova versão em `https://jorgepinto.pt`.
+## Alterações principais
 
-## Notas
-
-Os links de projetos e publicações são provisórios nesta primeira versão.  
-O contacto já aponta para `contacto@jorgepinto.pt`.  
-O link GitHub aponta para `https://github.com/jomypinto`.
+A homepage passa a funcionar como resumo.
+Projetos, Laboratório, Publicações, Sobre e Contacto passam a páginas próprias.
+CSS e JavaScript foram movidos para `/assets`.
+A navegação usa URLs limpas e funciona em desktop e mobile.
+Os artigos continuam marcados como "Em preparação" ou "Planeado".
