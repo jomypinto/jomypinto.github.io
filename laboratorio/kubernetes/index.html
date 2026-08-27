@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Laboratório para testar exposição de serviços, namespaces, deployments, observabilidade e segurança operacional." />
+  <title>Kubernetes Lab | Laboratório | Jorge Pinto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="Jorge Pinto, início">JP.</a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="/sobre/">Sobre</a>
+      <a href="/projetos/">Projetos</a>
+      <a href="/laboratorio/" class="active">Laboratório</a>
+      <a href="/publicacoes/">Publicações</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="lab-detail-hero">
+    <div class="container lab-detail-grid">
+      <div class="reveal">
+        <p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a> / Kubernetes Lab</p>
+        <p class="eyebrow">LAB DETAIL</p>
+        <h1>Kubernetes Lab</h1>
+        <p class="project-subtitle">Containers, serviços e observabilidade</p>
+        <p class="lead">Laboratório para testar exposição de serviços, namespaces, deployments, observabilidade e segurança operacional.</p>
+        <div class="tag-list"><span>Kubernetes</span><span>Docker</span><span>Ingress</span><span>Prometheus</span><span>Grafana</span><span>Argo CD</span></div>
+      </div>
+      <div class="flow-diagram reveal">
+        <div>Git</div>
+<span>↓</span>
+<div>Argo CD</div>
+<span>↓</span>
+<div>Kubernetes</div>
+<span>↓</span>
+<div>Service</div>
+<span>↓</span>
+<div>Ingress</div>
+<span>↓</span>
+<div>Monitoring</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">MÉTODO</p>
+        <h2>Como o laboratório é trabalhado</h2>
+      </div>
+      <div class="lab-step reveal"><div class="step-no">01</div><div><h3>Preparar</h3><p>Definir cenário, componentes e objetivo técnico.</p></div></div>
+      <div class="lab-step reveal"><div class="step-no">02</div><div><h3>Implementar</h3><p>Configurar serviços, integrações e políticas.</p></div></div>
+      <div class="lab-step reveal"><div class="step-no">03</div><div><h3>Testar</h3><p>Executar um cenário controlado e confirmar o comportamento esperado.</p></div></div>
+      <div class="lab-step reveal"><div class="step-no">04</div><div><h3>Documentar</h3><p>Guardar evidências, logs, capturas e limitações encontradas.</p></div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid-2">
+      <div class="reveal">
+        <p class="eyebrow">EVIDÊNCIAS</p>
+        <h2>O que deve ficar demonstrado</h2>
+        <p class="lead">Estas páginas ficam preparadas para receber provas reais do laboratório. Não são utilizadas capturas fictícias.</p>
+      </div>
+      <div class="lab-evidence-list">
+        <article class="lab-evidence-item reveal"><h3>kubectl</h3><p>Estado real de pods, services e namespaces.</p></article><article class="lab-evidence-item reveal"><h3>Ingress</h3><p>Regras de exposição e encaminhamento de tráfego.</p></article><article class="lab-evidence-item reveal"><h3>Grafana</h3><p>Métricas de saúde e disponibilidade do ambiente.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-muted">
+    <div class="container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">CAPTURAS REAIS</p>
+        <h2>Área preparada para documentação visual</h2>
+        <p>Quando existirem capturas anonimizadas, estas áreas podem ser substituídas diretamente por imagens reais.</p>
+      </div>
+      <div class="evidence-grid">
+        <div class="capture-placeholder reveal"><div><strong>Captura 01</strong>Vista principal do serviço ou consola do laboratório.</div></div>
+        <div class="capture-placeholder reveal"><div><strong>Captura 02</strong>Evento, configuração ou resultado do teste.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container reveal">
+      <p class="eyebrow">PRÓXIMO PASSO</p>
+      <h2>Substituir placeholders por evidência real.</h2>
+      <p class="lead">O valor aumenta quando cada laboratório inclui comandos, outputs, screenshots, diagramas e resultados reproduzíveis.</p>
+      <a class="project-back" href="/laboratorio/">← Voltar ao Laboratório</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand" href="/">JP.</a><p>Jorge Pinto</p></div>
+    <p>Cibersegurança · Sistemas · Cloud · Automação</p>
+    <p>© <span id="year"></span> Jorge Pinto</p>
+  </div>
+</footer>
+<script src="/assets/js/script.js"></script>
+</body>
+</html>

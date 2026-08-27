@@ -43,3 +43,15 @@ A listagem de projetos e a homepage já apontam para estas páginas.
 As três páginas individuais de projeto passam a incluir diagramas SVG, exemplos técnicos, estados, fluxos e áreas reservadas para screenshots reais.
 
 Não foram fabricadas capturas de ecrã. Os exemplos de logs e JSON estão explicitamente identificados como demonstrativos.
+
+
+## V5, páginas individuais de laboratório
+
+/laboratorio/wazuh-siem/
+/laboratorio/identity-lab/
+/laboratorio/kubernetes/
+/laboratorio/microsoft-security/
+/laboratorio/endpoint-security/
+/laboratorio/automation-lab/
+
+Cada laboratório inclui objetivo, fluxo, método, evidências esperadas e espaços para screenshots reais.
