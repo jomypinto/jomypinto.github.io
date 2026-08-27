@@ -82,3 +82,30 @@ Incluído:
 * dados estruturados Schema.org na homepage
 
 Nota: para compatibilidade máxima nas partilhas sociais, o social-preview.svg deverá futuramente ser exportado também para PNG 1200x630 e o og:image atualizado para esse PNG.
+
+
+## V8, visual profissional e preparação de produção
+
+Alterações:
+* removido do footer o bloco "JP. / Jorge Pinto"
+* novo sistema visual, mais sóbrio e profissional
+* cartões com melhor hierarquia e profundidade
+* navegação mais refinada
+* hero e páginas internas com maior contraste e legibilidade
+* melhor comportamento mobile
+* JavaScript carregado com `defer`
+
+### Cloudflare, recomendações de produção
+
+1. SSL/TLS: Full (strict), quando aplicável ao origin.
+2. Always Use HTTPS: ativo.
+3. Automatic HTTPS Rewrites: ativo.
+4. Brotli: ativo.
+5. HTTP/3: ativo.
+6. Early Hints: ativo.
+7. Browser Cache TTL: manter Auto inicialmente.
+8. Criar Redirect Rule permanente de `www.jorgepinto.pt/*` para `https://jorgepinto.pt/$1`.
+9. Não aplicar Cache Everything a HTML nesta fase.
+10. Depois da publicação, validar PageSpeed, sitemap.xml, robots.txt e 404.html.
+
+Nota: GitHub Pages não permite definir headers HTTP personalizados no repositório. CSP, HSTS e outros headers devem ser tratados na Cloudflare.
