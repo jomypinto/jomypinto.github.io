@@ -65,3 +65,20 @@ Cada laboratório inclui objetivo, fluxo, método, evidências esperadas e espa�
 /publicacoes/hardening-intune-defender/
 
 As páginas incluem problema, arquitetura, implementação, validação, exemplo técnico e ligação ao projeto ou laboratório relacionado.
+
+
+## V7, SEO e acabamento técnico
+
+Incluído:
+* metadados SEO por página
+* canonical URLs
+* Open Graph
+* Twitter Cards
+* favicon SVG
+* social preview SVG
+* sitemap.xml
+* robots.txt
+* 404.html
+* dados estruturados Schema.org na homepage
+
+Nota: para compatibilidade máxima nas partilhas sociais, o social-preview.svg deverá futuramente ser exportado também para PNG 1200x630 e o og:image atualizado para esse PNG.
