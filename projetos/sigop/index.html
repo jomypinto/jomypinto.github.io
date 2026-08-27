@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistema para gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas." />
+  <title>SIGOP | Jorge Pinto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="Jorge Pinto, início">JP.</a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="/sobre/">Sobre</a>
+      <a href="/projetos/" class="active">Projetos</a>
+      <a href="/laboratorio/">Laboratório</a>
+      <a href="/publicacoes/">Publicações</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="project-detail-hero">
+    <div class="container project-detail-grid">
+      <div class="reveal">
+        <p class="breadcrumbs"><a href="/">Início</a> / <a href="/projetos/">Projetos</a> / SIGOP</p>
+        <p class="eyebrow">PROJECT DETAIL</p>
+        <h1>SIGOP</h1>
+        <p class="project-subtitle">Gestão de ações, oportunidades e processos</p>
+        <p class="lead">Sistema para gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas.</p>
+        <div class="project-detail-meta"><span>Workflow</span><span>Aplicações Web</span><span>Automação</span><span>Gestão de Processos</span><span>GitHub</span></div>
+      </div>
+      <div class="flow-diagram reveal">
+        <div>RA</div><span>↓</span><div>OP</div><span>↓</span><div>PRP</div><span>↓</span><div>Contrato</div><span>↓</span><div>Processo</div><span>↓</span><div>Tarefas</div>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="project-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <p class="eyebrow">DIAGRAMA</p>
+      <h2>Fluxo operacional</h2>
+      <p>O ciclo principal liga o Registo de Ação às entidades seguintes sem perder contexto nem histórico.</p>
+    </div>
+    
+<div class="visual-arch reveal">
+<svg viewBox="0 0 1100 330" role="img" aria-label="Fluxo do SIGOP">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6"></path>
+    </marker>
+  </defs>
+  <rect class="node" x="30" y="110" rx="16" width="140" height="80"></rect>
+  <text class="label" x="100" y="143" text-anchor="middle">RA</text>
+  <text class="sub" x="100" y="165" text-anchor="middle">Registo de Ação</text>
+
+  <rect class="node" x="210" y="110" rx="16" width="140" height="80"></rect>
+  <text class="label" x="280" y="143" text-anchor="middle">OP</text>
+  <text class="sub" x="280" y="165" text-anchor="middle">Oportunidade</text>
+
+  <rect class="node" x="390" y="110" rx="16" width="140" height="80"></rect>
+  <text class="label" x="460" y="143" text-anchor="middle">PRP</text>
+  <text class="sub" x="460" y="165" text-anchor="middle">Proposta</text>
+
+  <rect class="node" x="570" y="110" rx="16" width="150" height="80"></rect>
+  <text class="label" x="645" y="143" text-anchor="middle">Contrato</text>
+  <text class="sub" x="645" y="165" text-anchor="middle">Ativo</text>
+
+  <rect class="node" x="760" y="110" rx="16" width="150" height="80"></rect>
+  <text class="label" x="835" y="143" text-anchor="middle">Processo</text>
+  <text class="sub" x="835" y="165" text-anchor="middle">Execução</text>
+
+  <rect class="node" x="950" y="110" rx="16" width="120" height="80"></rect>
+  <text class="label" x="1010" y="143" text-anchor="middle">Tarefas</text>
+  <text class="sub" x="1010" y="165" text-anchor="middle">Operação</text>
+
+  <path class="line" d="M170 150 L210 150"></path>
+  <path class="line" d="M350 150 L390 150"></path>
+  <path class="line" d="M530 150 L570 150"></path>
+  <path class="line" d="M720 150 L760 150"></path>
+  <path class="line" d="M910 150 L950 150"></path>
+</svg>
+</div>
+
+  </div>
+</section>
+
+<section class="project-section section-muted">
+  <div class="container">
+    <div class="section-heading reveal">
+      <p class="eyebrow">VALIDAÇÃO</p>
+      <h2>Estados e regras já demonstráveis</h2>
+    </div>
+    <div class="status-row reveal">
+      <span class="status-pill ok">RA → OP</span>
+      <span class="status-pill ok">OP → PRP</span>
+      <span class="status-pill ok">PRP → Adjudicada</span>
+      <span class="status-pill ok">Contrato</span>
+      <span class="status-pill ok">Persistência</span>
+      <span class="status-pill ok">Histórico</span>
+      <span class="status-pill info">Processo → Tarefas</span>
+    </div>
+
+    <div class="evidence-grid" style="margin-top:28px">
+      <article class="evidence-card reveal">
+        <div class="card-head"><span>EXEMPLO DE OBJETO</span><span>JSON</span></div>
+        <pre class="code-block">{
+  &quot;ra&quot;: &quot;RA-2026-000123&quot;,
+  &quot;estado&quot;: &quot;Em tratamento&quot;,
+  &quot;oportunidade&quot;: &quot;OP-2026-000047&quot;,
+  &quot;proposta&quot;: &quot;PRP-2026-000019&quot;,
+  &quot;proposta_estado&quot;: &quot;Adjudicada&quot;
+}</pre>
+      </article>
+
+      <article class="evidence-card reveal">
+        <div class="card-head"><span>REGRA DE NEGÓCIO</span><span>FLOW</span></div>
+        <pre class="code-block">PRP Adjudicada
+  -&gt; permite criar Contrato
+
+PRP Não adjudicada
+  -&gt; não cria Contrato
+
+PRP Cancelada
+  -&gt; estado terminal</pre>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="container">
+    <div class="section-heading reveal"><p class="eyebrow">CAPTURAS</p><h2>Evidências a adicionar</h2></div>
+    <div class="evidence-grid">
+      <div class="capture-placeholder reveal"><div><strong>Ficha RA</strong>Estado, entidade, contacto e navegação para OP.</div></div>
+      <div class="capture-placeholder reveal"><div><strong>Histórico</strong>Transições de estado, datas, motivos e utilizador responsável.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section section-muted">
+    <div class="container grid-2">
+      <div class="reveal">
+        <p class="eyebrow">PROBLEMA</p>
+        <h2>Porque este projeto existe</h2>
+        <p>Fluxos operacionais dispersos criam perda de contexto, estados inconsistentes e dificuldade em perceber a evolução de cada processo.</p>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">ABORDAGEM</p>
+        <h2>Como foi estruturado</h2>
+        <p>O SIGOP organiza o ciclo de vida desde o Registo de Ação até ao processo e tarefas, com estados controlados, histórico e navegação entre entidades.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">ARQUITETURA</p>
+        <h2>Fluxo técnico</h2>
+        <p>A arquitetura é apresentada de forma simples nesta primeira versão. Mais tarde pode evoluir para diagramas próprios, capturas e configurações reais.</p>
+      </div>
+      <div class="flow-diagram horizontal reveal">
+        <div>RA</div><span>→</span><div>OP</div><span>→</span><div>PRP</div><span>→</span><div>Contrato</div><span>→</span><div>Processo</div><span>→</span><div>Tarefas</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-section section-muted">
+    <div class="container grid-2">
+      <div class="reveal">
+        <p class="eyebrow">RESULTADOS</p>
+        <h2>O que demonstra</h2>
+        <p>Esta secção deve evoluir com métricas, evidências, logs, capturas e decisões técnicas sempre que existirem dados concretos.</p>
+      </div>
+      <ul class="outcome-list reveal">
+        <li>Estados e transições explícitas.</li><li>Rastreabilidade entre entidades.</li><li>Histórico de alterações.</li><li>Base para evolução para faturação e reporting.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="container reveal">
+      <p class="eyebrow">PRÓXIMA EVOLUÇÃO</p>
+      <h2>Transformar descrição em evidência técnica.</h2>
+      <p class="lead">A próxima camada deve incluir diagramas profissionais, screenshots reais, exemplos de configuração, logs e resultados de testes. Isso aumenta muito mais o valor do projeto do que acrescentar texto genérico.</p>
+      <a class="project-back" href="/projetos/">← Voltar a Projetos</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand" href="/">JP.</a><p>Jorge Pinto</p></div>
+    <p>Cibersegurança · Sistemas · Cloud · Automação</p>
+    <p>© <span id="year"></span> Jorge Pinto</p>
+  </div>
+</footer>
+<script src="/assets/js/script.js"></script>
+</body>
+</html>

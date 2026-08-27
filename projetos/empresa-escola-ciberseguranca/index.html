@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Laboratório empresarial para trabalhar identidade, autenticação, monitorização e resposta a incidentes num cenário próximo de uma organização real." />
+  <title>Empresa Escola de Cibersegurança | Jorge Pinto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="Jorge Pinto, início">JP.</a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="/sobre/">Sobre</a>
+      <a href="/projetos/" class="active">Projetos</a>
+      <a href="/laboratorio/">Laboratório</a>
+      <a href="/publicacoes/">Publicações</a>
+      <a href="/contacto/">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="project-detail-hero">
+    <div class="container project-detail-grid">
+      <div class="reveal">
+        <p class="breadcrumbs"><a href="/">Início</a> / <a href="/projetos/">Projetos</a> / Empresa Escola de Cibersegurança</p>
+        <p class="eyebrow">PROJECT DETAIL</p>
+        <h1>Empresa Escola de Cibersegurança</h1>
+        <p class="project-subtitle">Identidade, IAM, SIEM e operação realista</p>
+        <p class="lead">Laboratório empresarial para trabalhar identidade, autenticação, monitorização e resposta a incidentes num cenário próximo de uma organização real.</p>
+        <div class="project-detail-meta"><span>Samba AD</span><span>Keycloak</span><span>Wazuh</span><span>Linux</span><span>Windows</span><span>SSO</span><span>MFA</span><span>RBAC</span></div>
+      </div>
+      <div class="flow-diagram reveal">
+        <div>Samba AD</div><span>↓</span><div>Keycloak</div><span>↓</span><div>Aplicações</div><span>↓</span><div>Endpoints</div><span>↓</span><div>Logs</div><span>↓</span><div>Wazuh</div><span>↓</span><div>SOC / Incidente</div>
+      </div>
+    </div>
+  </section>
+
+  
+<section class="project-section">
+  <div class="container">
+    <div class="section-heading reveal">
+      <p class="eyebrow">DIAGRAMA</p>
+      <h2>Arquitetura visual</h2>
+      <p>O laboratório aproxima identidade, aplicações, endpoints e SIEM dentro do mesmo cenário.</p>
+    </div>
+    
+<div class="visual-arch reveal">
+<svg viewBox="0 0 980 500" role="img" aria-label="Arquitetura da Empresa Escola de Cibersegurança">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6"></path>
+    </marker>
+  </defs>
+
+  <rect class="node" x="50" y="70" rx="16" width="190" height="90"></rect>
+  <text class="label" x="145" y="105" text-anchor="middle">Samba AD</text>
+  <text class="sub" x="145" y="127" text-anchor="middle">Users · Groups · Policies</text>
+
+  <rect class="node" x="395" y="70" rx="16" width="190" height="90"></rect>
+  <text class="label" x="490" y="105" text-anchor="middle">Keycloak</text>
+  <text class="sub" x="490" y="127" text-anchor="middle">SSO · MFA · RBAC</text>
+
+  <rect class="node-soft" x="740" y="70" rx="16" width="190" height="90"></rect>
+  <text class="label" x="835" y="105" text-anchor="middle">Apps</text>
+  <text class="sub" x="835" y="127" text-anchor="middle">Services · Portals</text>
+
+  <rect class="node-soft" x="200" y="300" rx="16" width="190" height="90"></rect>
+  <text class="label" x="295" y="335" text-anchor="middle">Endpoints</text>
+  <text class="sub" x="295" y="357" text-anchor="middle">Windows · Linux</text>
+
+  <rect class="node" x="520" y="300" rx="16" width="190" height="90"></rect>
+  <text class="label" x="615" y="335" text-anchor="middle">Wazuh SIEM</text>
+  <text class="sub" x="615" y="357" text-anchor="middle">Logs · Correlation</text>
+
+  <rect class="node" x="760" y="300" rx="16" width="170" height="90"></rect>
+  <text class="label" x="845" y="335" text-anchor="middle">SOC</text>
+  <text class="sub" x="845" y="357" text-anchor="middle">Incident handling</text>
+
+  <path class="line" d="M240 115 L395 115"></path>
+  <path class="line" d="M585 115 L740 115"></path>
+  <path class="line" d="M490 160 C480 220 360 240 320 300"></path>
+  <path class="line" d="M390 345 L520 345"></path>
+  <path class="line" d="M710 345 L760 345"></path>
+  <path class="line" d="M835 160 C820 220 730 260 690 300"></path>
+</svg>
+</div>
+
+  </div>
+</section>
+
+<section class="project-section section-muted">
+  <div class="container grid-2">
+    <div class="reveal">
+      <p class="eyebrow">CENÁRIO</p>
+      <h2>Exemplo de exercício</h2>
+      <div class="timeline">
+        <div class="timeline-item"><div class="timeline-dot">01</div><div class="timeline-copy"><h3>Criar utilizador</h3><p>Conta criada no Samba AD e associada aos grupos adequados.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot">02</div><div class="timeline-copy"><h3>Autenticar</h3><p>Keycloak gere autenticação, SSO e política MFA.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot">03</div><div class="timeline-copy"><h3>Gerar falha</h3><p>São reproduzidas falhas de login ou violações de política.</p></div></div>
+        <div class="timeline-item"><div class="timeline-dot">04</div><div class="timeline-copy"><h3>Correlacionar</h3><p>Wazuh recolhe os eventos e permite analisar o incidente.</p></div></div>
+      </div>
+    </div>
+    <article class="evidence-card reveal">
+      <div class="card-head"><span>EXEMPLO DE EVENTO</span><span>AUTH</span></div>
+      <pre class="code-block">{
+  &quot;event&quot;: &quot;LOGIN_ERROR&quot;,
+  &quot;realm&quot;: &quot;empresa-escola&quot;,
+  &quot;client&quot;: &quot;portal-interno&quot;,
+  &quot;user&quot;: &quot;lab.user&quot;,
+  &quot;source_ip&quot;: &quot;10.10.20.45&quot;,
+  &quot;reason&quot;: &quot;invalid_user_credentials&quot;
+}</pre>
+    </article>
+  </div>
+</section>
+
+<section class="project-section">
+  <div class="container">
+    <div class="section-heading reveal"><p class="eyebrow">CAPTURAS</p><h2>Evidências a recolher</h2></div>
+    <div class="evidence-grid">
+      <div class="capture-placeholder reveal"><div><strong>Keycloak</strong>Realm, cliente, MFA ou evento de autenticação.</div></div>
+      <div class="capture-placeholder reveal"><div><strong>Wazuh</strong>Evento correlacionado com utilizador, origem e severidade.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="project-section section-muted">
+    <div class="container grid-2">
+      <div class="reveal">
+        <p class="eyebrow">PROBLEMA</p>
+        <h2>Porque este projeto existe</h2>
+        <p>Muitos laboratórios isolam tecnologias. Isso dificulta perceber como identidade, aplicações, endpoints e SIEM se relacionam durante um incidente real.</p>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">ABORDAGEM</p>
+        <h2>Como foi estruturado</h2>
+        <p>A arquitetura aproxima o laboratório de uma empresa funcional, com domínio, IAM, serviços, utilizadores, logs e monitorização centralizada.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="container">
+      <div class="section-heading reveal">
+        <p class="eyebrow">ARQUITETURA</p>
+        <h2>Fluxo técnico</h2>
+        <p>A arquitetura é apresentada de forma simples nesta primeira versão. Mais tarde pode evoluir para diagramas próprios, capturas e configurações reais.</p>
+      </div>
+      <div class="flow-diagram horizontal reveal">
+        <div>Samba AD</div><span>→</span><div>Keycloak</div><span>→</span><div>Aplicações</div><span>→</span><div>Endpoints</div><span>→</span><div>Logs</div><span>→</span><div>Wazuh</div><span>→</span><div>SOC / Incidente</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-section section-muted">
+    <div class="container grid-2">
+      <div class="reveal">
+        <p class="eyebrow">RESULTADOS</p>
+        <h2>O que demonstra</h2>
+        <p>Esta secção deve evoluir com métricas, evidências, logs, capturas e decisões técnicas sempre que existirem dados concretos.</p>
+      </div>
+      <ul class="outcome-list reveal">
+        <li>Cenários de autenticação e controlo de acessos.</li><li>Testes de SSO, MFA e RBAC.</li><li>Correlação de falhas de autenticação no SIEM.</li><li>Base para exercícios de deteção e resposta.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="project-section">
+    <div class="container reveal">
+      <p class="eyebrow">PRÓXIMA EVOLUÇÃO</p>
+      <h2>Transformar descrição em evidência técnica.</h2>
+      <p class="lead">A próxima camada deve incluir diagramas profissionais, screenshots reais, exemplos de configuração, logs e resultados de testes. Isso aumenta muito mais o valor do projeto do que acrescentar texto genérico.</p>
+      <a class="project-back" href="/projetos/">← Voltar a Projetos</a>
+    </div>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand" href="/">JP.</a><p>Jorge Pinto</p></div>
+    <p>Cibersegurança · Sistemas · Cloud · Automação</p>
+    <p>© <span id="year"></span> Jorge Pinto</p>
+  </div>
+</footer>
+<script src="/assets/js/script.js"></script>
+</body>
+</html>

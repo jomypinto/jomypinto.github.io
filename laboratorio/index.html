@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Laboratórios técnicos de cibersegurança e infraestrutura." />
+  <title>Laboratório | Jorge Pinto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="Jorge Pinto, início">JP.</a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="/sobre/" class="">Sobre</a>
+<a href="/projetos/" class="">Projetos</a>
+<a href="/laboratorio/" class="active">Laboratório</a>
+<a href="/publicacoes/" class="">Publicações</a>
+<a href="/contacto/" class="">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="page-hero">
+  <div class="container reveal">
+    <p class="breadcrumbs"><a href="/">Início</a> / Laboratório</p>
+    <p class="eyebrow">LABORATÓRIO</p>
+    <h1>Ambientes para testar antes de assumir.</h1>
+    <p class="lead">O laboratório serve para reproduzir cenários, validar integrações e compreender dependências técnicas antes de as levar para produção.</p>
+  </div>
+</section>
+
+<section class="section lab-section">
+  <div class="container">
+    <div class="grid-3">
+      <article class="lab-card reveal"><span>LAB 01</span><h3>Wazuh SIEM</h3><p>Deteção, correlação, enriquecimento e resposta.</p><small>SIEM · Logs · Detection</small></article>
+      <article class="lab-card reveal"><span>LAB 02</span><h3>Identity Lab</h3><p>Samba AD, Keycloak, SSO, MFA e RBAC.</p><small>IAM · SSO · RBAC</small></article>
+      <article class="lab-card reveal"><span>LAB 03</span><h3>Kubernetes</h3><p>Serviços, observabilidade, exposição e segurança.</p><small>K8S · Docker · DevSecOps</small></article>
+      <article class="lab-card reveal"><span>LAB 04</span><h3>Microsoft Security</h3><p>Microsoft 365, Intune, Defender e políticas de endpoint.</p><small>M365 · Endpoint · Hardening</small></article>
+      <article class="lab-card reveal"><span>LAB 05</span><h3>Endpoint Security</h3><p>EDR, políticas, resposta e análise de eventos.</p><small>EDR · XDR · Detection</small></article>
+      <article class="lab-card reveal"><span>LAB 06</span><h3>Automation Lab</h3><p>APIs, workflows e automatização de tarefas operacionais.</p><small>n8n · Power Automate · API</small></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-heading reveal"><p class="eyebrow">MODELO</p><h2>Como cada laboratório será documentado</h2></div>
+    <div class="grid-4">
+      <article class="content-card reveal"><h3>01. Objetivo</h3><p>O problema ou cenário que o laboratório pretende reproduzir.</p></article>
+      <article class="content-card reveal"><h3>02. Arquitetura</h3><p>Componentes, relações, fluxos e dependências.</p></article>
+      <article class="content-card reveal"><h3>03. Implementação</h3><p>Configuração, comandos, testes e evidências.</p></article>
+      <article class="content-card reveal"><h3>04. Resultado</h3><p>Conclusões, limitações e próximos passos.</p></article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div><a class="brand" href="/">JP.</a><p>Jorge Pinto</p></div>
+    <p>Cibersegurança · Sistemas · Cloud · Automação</p>
+    <p>© <span id="year"></span> Jorge Pinto</p>
+  </div>
+</footer>
+
+<script src="/assets/js/script.js"></script>
+</body>
+</html>
