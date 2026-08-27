@@ -36,3 +36,10 @@ Os artigos continuam marcados como "Em preparação" ou "Planeado".
 /projetos/sigop/
 
 A listagem de projetos e a homepage já apontam para estas páginas.
+
+
+## V4, evidência técnica e diagramas
+
+As três páginas individuais de projeto passam a incluir diagramas SVG, exemplos técnicos, estados, fluxos e áreas reservadas para screenshots reais.
+
+Não foram fabricadas capturas de ecrã. Os exemplos de logs e JSON estão explicitamente identificados como demonstrativos.
