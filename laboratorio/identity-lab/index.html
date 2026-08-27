@@ -1,134 +1,32 @@
-<!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ambiente para testar gestão de identidades, autenticação, federação, políticas de acesso e eventos de login." />
-  <title>Identity Lab | Laboratório | Jorge Pinto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-
-  <meta name="author" content="Jorge Pinto" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jorgepinto.pt/laboratorio/identity-lab/" />
-  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_PT" />
-  <meta property="og:site_name" content="Jorge Pinto" />
-  <meta property="og:title" content="Identity Lab | Laboratório | Jorge Pinto" />
-  <meta property="og:description" content="Ambiente para testar gestão de identidades, autenticação, federação, políticas de acesso e eventos de login." />
-  <meta property="og:url" content="https://jorgepinto.pt/laboratorio/identity-lab/" />
-  <meta property="og:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Identity Lab | Laboratório | Jorge Pinto" />
-  <meta name="twitter:description" content="Ambiente para testar gestão de identidades, autenticação, federação, políticas de acesso e eventos de login." />
-  <meta name="twitter:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
-</head>
-<body>
+<!DOCTYPE html><html lang="pt-PT"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Samba AD, Keycloak, federação de identidade, SSO e validação operacional."><title>Identity Lab | Jorge Pinto</title>
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css"></head><body>
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
-
-<header class="site-header">
-  <div class="container nav-wrap">
-      <a class="site-wordmark" href="/">Jorge Pinto</a>
-<button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="/sobre/">Sobre</a>
-      <a href="/projetos/">Projetos</a>
-      <a href="/laboratorio/" class="active">Laboratório</a>
-      <a href="/publicacoes/">Publicações</a>
-      <a href="/contacto/">Contacto</a>
-    </nav>
-  </div>
-</header>
-
-<main id="conteudo">
-  <section class="lab-detail-hero">
-    <div class="container lab-detail-grid">
-      <div class="reveal">
-        <p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a> / Identity Lab</p>
-        <p class="eyebrow">LAB DETAIL</p>
-        <h1>Identity Lab</h1>
-        <p class="project-subtitle">Samba AD + Keycloak + SSO + MFA</p>
-        <p class="lead">Ambiente para testar gestão de identidades, autenticação, federação, políticas de acesso e eventos de login.</p>
-        <div class="tag-list"><span>Samba AD</span><span>Keycloak</span><span>SSO</span><span>MFA</span><span>RBAC</span><span>LDAP</span></div>
-      </div>
-      <div class="flow-diagram reveal">
-        <div>Utilizador</div>
-<span>↓</span>
-<div>Samba AD</div>
-<span>↓</span>
-<div>Keycloak</div>
-<span>↓</span>
-<div>Aplicação</div>
-<span>↓</span>
-<div>Evento</div>
-<span>↓</span>
-<div>SIEM</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-muted">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow">MÉTODO</p>
-        <h2>Como o laboratório é trabalhado</h2>
-      </div>
-      <div class="lab-step reveal"><div class="step-no">01</div><div><h3>Preparar</h3><p>Definir cenário, componentes e objetivo técnico.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">02</div><div><h3>Implementar</h3><p>Configurar serviços, integrações e políticas.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">03</div><div><h3>Testar</h3><p>Executar um cenário controlado e confirmar o comportamento esperado.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">04</div><div><h3>Documentar</h3><p>Guardar evidências, logs, capturas e limitações encontradas.</p></div></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container grid-2">
-      <div class="reveal">
-        <p class="eyebrow">EVIDÊNCIAS</p>
-        <h2>O que deve ficar demonstrado</h2>
-        <p class="lead">Estas páginas ficam preparadas para receber provas reais do laboratório. Não são utilizadas capturas fictícias.</p>
-      </div>
-      <div class="lab-evidence-list">
-        <article class="lab-evidence-item reveal"><h3>Keycloak Realm</h3><p>Realm, cliente e fluxo de autenticação configurado.</p></article><article class="lab-evidence-item reveal"><h3>Grupo AD</h3><p>Utilizador associado a grupo ou função de acesso.</p></article><article class="lab-evidence-item reveal"><h3>Falha de login</h3><p>Evento de autenticação inválida encaminhado para o SIEM.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-muted">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow">CAPTURAS REAIS</p>
-        <h2>Área preparada para documentação visual</h2>
-        <p>Quando existirem capturas anonimizadas, estas áreas podem ser substituídas diretamente por imagens reais.</p>
-      </div>
-      <div class="evidence-grid">
-        <div class="capture-placeholder reveal"><div><strong>Captura 01</strong>Vista principal do serviço ou consola do laboratório.</div></div>
-        <div class="capture-placeholder reveal"><div><strong>Captura 02</strong>Evento, configuração ou resultado do teste.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container reveal">
-      <p class="eyebrow">PRÓXIMO PASSO</p>
-      <h2>Substituir placeholders por evidência real.</h2>
-      <p class="lead">O valor aumenta quando cada laboratório inclui comandos, outputs, screenshots, diagramas e resultados reproduzíveis.</p>
-      <a class="project-back" href="/laboratorio/">← Voltar ao Laboratório</a>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <p>Cibersegurança · Sistemas · Cloud · Automação</p>
-    <p>© <span id="year"></span> Jorge Pinto</p>
-  </div>
-</footer>
-<script src="/assets/js/script.js" defer></script>
-<button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
-</body>
-</html>
+<header class="site-header"><div class="container nav-wrap"><a class="site-wordmark" href="/">Jorge Pinto</a><button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button><nav class="main-nav"><a href="/sobre/">Sobre</a><a href="/projetos/">Projetos</a><a href="/laboratorio/" class="active">Laboratório</a><a href="/publicacoes/">Publicações</a><a href="/contacto/">Contacto</a></nav></div></header>
+<main id="conteudo"><section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a></p><p class="eyebrow">GUIA TÉCNICO · V12</p><h1>Identity Lab</h1><p class="lead">Samba AD, Keycloak, federação de identidade, SSO e validação operacional.</p></div></section>
+<section class="section"><div class="container doc-layout"><aside class="doc-nav"><strong>Neste guia</strong><a href="#objetivo">Objetivo</a><a href="#arquitetura">Arquitetura</a><a href="#samba">Samba AD</a><a href="#dns">DNS e domínio</a><a href="#utilizadores">Utilizadores</a><a href="#keycloak">Keycloak</a><a href="#federacao">Federação LDAP</a><a href="#validacao">Validação</a><a href="#incidente">Cenário prático</a><a href="#checklist">Checklist</a></aside><article class="doc-content">
+<section class="doc-section" id="objetivo"><p class="eyebrow">01 · OBJETIVO</p><h2>Identidade corporativa num laboratório realista</h2><p>O objetivo é criar uma cadeia de identidade em que Samba AD mantém utilizadores e grupos e Keycloak fornece a camada de IAM para aplicações, SSO, MFA e RBAC.</p></section>
+<section class="doc-section" id="arquitetura"><p class="eyebrow">02 · ARQUITETURA</p><h2>Separar diretório de autenticação aplicacional</h2><div class="lab-series"><div><span>01</span>Samba AD · diretório</div><div><span>02</span>DNS · domínio</div><div><span>03</span>Keycloak · IAM</div><div><span>04</span>Aplicação · SSO</div><div><span>05</span>Wazuh · eventos</div><div><span>06</span>Analista · investigação</div></div></section>
+<section class="doc-section" id="samba"><p class="eyebrow">03 · SAMBA AD</p><h2>Preparar o controlador de domínio</h2><p>Usa uma VM dedicada, hostname estável, IP fixo e DNS coerente. O exemplo abaixo mostra os pacotes base em Ubuntu.</p><div class="command"><div class="command-label">PACOTES</div><pre>sudo apt update
+sudo apt install samba krb5-user winbind smbclient dnsutils</pre></div><div class="command"><div class="command-label">VERSÕES</div><pre>samba --version
+krb5-config --version 2&gt;/dev/null || true</pre></div><div class="doc-warning">O provisionamento de um domínio altera configuração Samba e DNS. Executa esta fase numa VM dedicada e com snapshot ou backup antes da alteração.</div></section>
+<section class="doc-section" id="dns"><p class="eyebrow">04 · DNS E DOMÍNIO</p><h2>DNS é parte da identidade</h2><p>Antes de integrar Keycloak, confirma que o domínio resolve corretamente e que Kerberos não sofre desvios de hora.</p><div class="command"><div class="command-label">TESTES</div><pre>hostname -f
+resolvectl status
+host -t SRV _ldap._tcp.SEUDOMINIO.LOCAL
+host -t SRV _kerberos._udp.SEUDOMINIO.LOCAL
+timedatectl</pre></div></section>
+<section class="doc-section" id="utilizadores"><p class="eyebrow">05 · UTILIZADORES E GRUPOS</p><h2>Criar identidade de laboratório</h2><div class="command"><div class="command-label">EXEMPLO</div><pre>sudo samba-tool user create lab.user
+sudo samba-tool group add LAB-APP-USERS
+sudo samba-tool group addmembers LAB-APP-USERS lab.user</pre></div><div class="command"><div class="command-label">VALIDAR</div><pre>sudo samba-tool user show lab.user
+sudo samba-tool group listmembers LAB-APP-USERS</pre></div><p>Evita usar contas administrativas nos testes funcionais. O laboratório deve distinguir utilizador normal, operador e administrador.</p></section>
+<section class="doc-section" id="keycloak"><p class="eyebrow">06 · KEYCLOAK</p><h2>Adicionar a camada IAM</h2><p>Keycloak deve correr num serviço separado do controlador de domínio. Para documentação pública, usa nomes e endereços exemplificativos, não dados internos.</p><ol><li>Instalar Keycloak de acordo com o método escolhido para o laboratório.</li><li>Criar um realm dedicado.</li><li>Criar o cliente da aplicação.</li><li>Configurar redirect URIs de forma restritiva.</li><li>Ativar MFA quando o fluxo base estiver validado.</li></ol></section>
+<section class="doc-section" id="federacao"><p class="eyebrow">07 · FEDERAÇÃO</p><h2>Ligar Keycloak ao Samba AD</h2><p>No realm, configura User Federation com provider LDAP. Define Vendor como Active Directory, Connection URL LDAP/LDAPS, Bind DN dedicado e Base DN adequada.</p><div class="doc-note">A password da conta de bind nunca deve aparecer no repositório ou numa captura pública. Em produção, prefere LDAPS e uma conta com privilégios mínimos.</div><p>Depois da ligação, testa a conexão, autenticação e sincronização. Só depois adiciona mappers para grupos ou atributos.</p></section>
+<section class="doc-section" id="validacao"><p class="eyebrow">08 · VALIDAÇÃO</p><h2>Testar por camadas</h2><ol><li>Utilizador existe no AD.</li><li>DNS e Kerberos funcionam.</li><li>Keycloak consegue consultar LDAP.</li><li>Utilizador aparece no realm.</li><li>Login funciona na aplicação.</li><li>Utilizador sem role é bloqueado onde deve.</li><li>MFA funciona sem quebrar o fluxo.</li></ol></section>
+<section class="doc-section" id="incidente"><p class="eyebrow">09 · CENÁRIO PRÁTICO</p><h2>Falha de autenticação até ao SIEM</h2><p>Cria uma tentativa de login inválida numa conta de laboratório. Confirma o evento no Keycloak, encaminha os logs para o Wazuh e correlaciona utilizador, aplicação, origem e timestamp. O resultado esperado é conseguir reconstruir o evento sem depender apenas da interface da aplicação.</p></section>
+<section class="doc-section" id="checklist"><p class="eyebrow">10 · CHECKLIST</p><h2>Critérios de conclusão</h2><ul class="checklist"><li>Samba AD responde por DNS</li><li>Kerberos e hora validados</li><li>Utilizador e grupo de teste criados</li><li>Realm Keycloak criado</li><li>LDAP ligado ao diretório</li><li>Login federado validado</li><li>Role ou grupo testado</li><li>Evento de falha identificável</li></ul><p><strong>Continuação:</strong> SSO, MFA, RBAC, integração de aplicações e envio estruturado de eventos para Wazuh.</p></section></article></div></section></main>
+<footer class="site-footer"><div class="container footer-grid"><p>Cibersegurança · Sistemas · Cloud · Automação</p><p>© <span id="year"></span> Jorge Pinto</p></div></footer>
+<button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button><script src="/assets/js/script.js" defer></script></body></html>

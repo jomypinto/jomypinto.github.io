@@ -142,3 +142,14 @@ A V11 não altera radicalmente a identidade da V10. Refina a composição e a ex
 * responsividade refinada
 
 Esta versão deve ser avaliada no site publicado antes de acrescentar novas funcionalidades.
+
+## V12, documentação técnica reproduzível
+
+Primeira fase concluída:
+* Wazuh SIEM convertido em guia técnico
+* Identity Lab convertido em guia técnico
+* objetivos, arquitetura, pré requisitos, instalação, configuração, validação, laboratório, troubleshooting, segurança e checklist
+* projetos relacionados passam a ligar para os guias técnicos
+* exemplos públicos evitam segredos e dados internos
+
+A próxima fase V12 deve aprofundar agentes Windows/Sysmon/VirusTotal e SSO/MFA/RBAC, antes de converter Kubernetes e Microsoft Security.

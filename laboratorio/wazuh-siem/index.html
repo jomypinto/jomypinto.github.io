@@ -1,134 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Laboratório dedicado à recolha de eventos, criação de regras, análise de alertas e integração com fontes externas." />
-  <title>Wazuh SIEM | Laboratório | Jorge Pinto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css" />
-
-  <meta name="author" content="Jorge Pinto" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://jorgepinto.pt/laboratorio/wazuh-siem/" />
-  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
-
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="pt_PT" />
-  <meta property="og:site_name" content="Jorge Pinto" />
-  <meta property="og:title" content="Wazuh SIEM | Laboratório | Jorge Pinto" />
-  <meta property="og:description" content="Laboratório dedicado à recolha de eventos, criação de regras, análise de alertas e integração com fontes externas." />
-  <meta property="og:url" content="https://jorgepinto.pt/laboratorio/wazuh-siem/" />
-  <meta property="og:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Wazuh SIEM | Laboratório | Jorge Pinto" />
-  <meta name="twitter:description" content="Laboratório dedicado à recolha de eventos, criação de regras, análise de alertas e integração com fontes externas." />
-  <meta name="twitter:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
-</head>
-<body>
+<!DOCTYPE html><html lang="pt-PT"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Instalação, configuração, validação e primeiro laboratório prático."><title>Wazuh SIEM | Jorge Pinto</title>
+<link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/styles.css"></head><body>
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
-
-<header class="site-header">
-  <div class="container nav-wrap">
-      <a class="site-wordmark" href="/">Jorge Pinto</a>
-<button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
-    <nav class="main-nav" aria-label="Navegação principal">
-      <a href="/sobre/">Sobre</a>
-      <a href="/projetos/">Projetos</a>
-      <a href="/laboratorio/" class="active">Laboratório</a>
-      <a href="/publicacoes/">Publicações</a>
-      <a href="/contacto/">Contacto</a>
-    </nav>
-  </div>
-</header>
-
-<main id="conteudo">
-  <section class="lab-detail-hero">
-    <div class="container lab-detail-grid">
-      <div class="reveal">
-        <p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a> / Wazuh SIEM</p>
-        <p class="eyebrow">LAB DETAIL</p>
-        <h1>Wazuh SIEM</h1>
-        <p class="project-subtitle">Deteção, correlação e resposta</p>
-        <p class="lead">Laboratório dedicado à recolha de eventos, criação de regras, análise de alertas e integração com fontes externas.</p>
-        <div class="tag-list"><span>Wazuh</span><span>Linux</span><span>Sysmon</span><span>VirusTotal</span><span>JSON</span></div>
-      </div>
-      <div class="flow-diagram reveal">
-        <div>Endpoint</div>
-<span>↓</span>
-<div>Agent</div>
-<span>↓</span>
-<div>Manager</div>
-<span>↓</span>
-<div>Rules</div>
-<span>↓</span>
-<div>Dashboard</div>
-<span>↓</span>
-<div>Incident</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-muted">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow">MÉTODO</p>
-        <h2>Como o laboratório é trabalhado</h2>
-      </div>
-      <div class="lab-step reveal"><div class="step-no">01</div><div><h3>Preparar</h3><p>Definir cenário, componentes e objetivo técnico.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">02</div><div><h3>Implementar</h3><p>Configurar serviços, integrações e políticas.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">03</div><div><h3>Testar</h3><p>Executar um cenário controlado e confirmar o comportamento esperado.</p></div></div>
-      <div class="lab-step reveal"><div class="step-no">04</div><div><h3>Documentar</h3><p>Guardar evidências, logs, capturas e limitações encontradas.</p></div></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container grid-2">
-      <div class="reveal">
-        <p class="eyebrow">EVIDÊNCIAS</p>
-        <h2>O que deve ficar demonstrado</h2>
-        <p class="lead">Estas páginas ficam preparadas para receber provas reais do laboratório. Não são utilizadas capturas fictícias.</p>
-      </div>
-      <div class="lab-evidence-list">
-        <article class="lab-evidence-item reveal"><h3>Alerta Wazuh</h3><p>Dashboard com rule.id, severidade, agente e timestamp.</p></article><article class="lab-evidence-item reveal"><h3>Regra customizada</h3><p>Exemplo de decoder ou regra personalizada usada no laboratório.</p></article><article class="lab-evidence-item reveal"><h3>Teste de deteção</h3><p>Evento controlado que confirma que a regra dispara como esperado.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-muted">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow">CAPTURAS REAIS</p>
-        <h2>Área preparada para documentação visual</h2>
-        <p>Quando existirem capturas anonimizadas, estas áreas podem ser substituídas diretamente por imagens reais.</p>
-      </div>
-      <div class="evidence-grid">
-        <div class="capture-placeholder reveal"><div><strong>Captura 01</strong>Vista principal do serviço ou consola do laboratório.</div></div>
-        <div class="capture-placeholder reveal"><div><strong>Captura 02</strong>Evento, configuração ou resultado do teste.</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container reveal">
-      <p class="eyebrow">PRÓXIMO PASSO</p>
-      <h2>Substituir placeholders por evidência real.</h2>
-      <p class="lead">O valor aumenta quando cada laboratório inclui comandos, outputs, screenshots, diagramas e resultados reproduzíveis.</p>
-      <a class="project-back" href="/laboratorio/">← Voltar ao Laboratório</a>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container footer-grid">
-    <p>Cibersegurança · Sistemas · Cloud · Automação</p>
-    <p>© <span id="year"></span> Jorge Pinto</p>
-  </div>
-</footer>
-<script src="/assets/js/script.js" defer></script>
-<button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
-</body>
-</html>
+<header class="site-header"><div class="container nav-wrap"><a class="site-wordmark" href="/">Jorge Pinto</a><button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button><nav class="main-nav"><a href="/sobre/">Sobre</a><a href="/projetos/">Projetos</a><a href="/laboratorio/" class="active">Laboratório</a><a href="/publicacoes/">Publicações</a><a href="/contacto/">Contacto</a></nav></div></header>
+<main id="conteudo"><section class="page-hero"><div class="container"><p class="breadcrumbs"><a href="/">Início</a> / <a href="/laboratorio/">Laboratório</a></p><p class="eyebrow">GUIA TÉCNICO · V12</p><h1>Wazuh SIEM</h1><p class="lead">Instalação, configuração, validação e primeiro laboratório prático.</p></div></section>
+<section class="section"><div class="container doc-layout"><aside class="doc-nav"><strong>Neste guia</strong><a href="#objetivo">Objetivo</a><a href="#arquitetura">Arquitetura</a><a href="#requisitos">Pré requisitos</a><a href="#instalacao">Instalação</a><a href="#agente">Agente Linux</a><a href="#validacao">Validação</a><a href="#laboratorio">Laboratório prático</a><a href="#troubleshooting">Troubleshooting</a><a href="#seguranca">Segurança</a><a href="#checklist">Checklist</a></aside><article class="doc-content">
+<section class="doc-section" id="objetivo"><p class="eyebrow">01 · OBJETIVO</p><h2>Construir uma base Wazuh reproduzível</h2><p>Este guia cria a base de um laboratório SIEM. O objetivo não é apenas instalar a plataforma, mas perceber o percurso do evento desde o endpoint até ao alerta.</p><div class="doc-note">Ambiente de referência: WAZUH-SRV01 em Ubuntu Server, LINUX-SRV01 em Ubuntu e clientes adicionais Windows preparados para fases seguintes.</div></section>
+<section class="doc-section" id="arquitetura"><p class="eyebrow">02 · ARQUITETURA</p><h2>Fluxo inicial</h2><div class="lab-series"><div><span>01</span>LINUX-SRV01 gera eventos</div><div><span>02</span>Wazuh Agent recolhe</div><div><span>03</span>WAZUH-SRV01 analisa</div><div><span>04</span>Dashboard apresenta alertas</div></div></section>
+<section class="doc-section" id="requisitos"><p class="eyebrow">03 · PRÉ REQUISITOS</p><h2>Antes de instalar</h2><ul><li>Ubuntu Server atualizado para o servidor Wazuh.</li><li>Resolução DNS e sincronização horária funcionais.</li><li>Endereço IP estável no servidor.</li><li>Acesso administrativo por sudo.</li><li>Recursos dimensionados de acordo com o número de agentes e retenção pretendida.</li></ul><div class="command"><div class="command-label">VERIFICAÇÃO</div><pre>hostnamectl
+ip addr
+ip route
+timedatectl</pre></div></section>
+<section class="doc-section" id="instalacao"><p class="eyebrow">04 · INSTALAÇÃO</p><h2>Wazuh all in one</h2><p>Para laboratório, a instalação assistida permite colocar manager, indexer e dashboard no mesmo servidor. Em produção, a arquitetura deve ser dimensionada e separada conforme carga e disponibilidade.</p><div class="command"><div class="command-label">DOWNLOAD</div><pre>curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh</pre></div><div class="command"><div class="command-label">INSTALAÇÃO</div><pre>sudo bash ./wazuh-install.sh -a</pre></div><p>No final, guarda as credenciais apresentadas pelo instalador e valida o estado dos serviços.</p><div class="command"><div class="command-label">SERVIÇOS</div><pre>sudo systemctl status wazuh-manager
+sudo systemctl status wazuh-indexer
+sudo systemctl status wazuh-dashboard</pre></div></section>
+<section class="doc-section" id="agente"><p class="eyebrow">05 · AGENTE</p><h2>Adicionar LINUX-SRV01</h2><p>No Dashboard, abre a área de agentes e utiliza o assistente de deployment para obter o comando correspondente à distribuição e ao endereço do manager.</p><div class="command"><div class="command-label">VALIDAR AGENTE</div><pre>sudo systemctl status wazuh-agent
+sudo grep -n &#x27;&lt;address&gt;&#x27; /var/ossec/etc/ossec.conf</pre></div><div class="doc-warning">Não copies tokens, passwords, chaves de registo ou endereços internos sensíveis para documentação pública.</div></section>
+<section class="doc-section" id="validacao"><p class="eyebrow">06 · VALIDAÇÃO</p><h2>Confirmar o percurso do evento</h2><div class="command"><div class="command-label">MANAGER</div><pre>sudo /var/ossec/bin/agent_control -l</pre></div><div class="command"><div class="command-label">LOG DO AGENTE</div><pre>sudo tail -f /var/ossec/logs/ossec.log</pre></div><p>O agente deve aparecer como ativo no manager e no Dashboard. Só depois desta validação faz sentido avançar para regras, Sysmon, FIM ou integrações externas.</p></section>
+<section class="doc-section" id="laboratorio"><p class="eyebrow">07 · LABORATÓRIO</p><h2>Gerar um evento controlado</h2><ol><li>Confirma que LINUX-SRV01 está ativo.</li><li>Executa uma autenticação inválida controlada no sistema.</li><li>Observa os logs locais.</li><li>Procura o evento correspondente no Wazuh Dashboard.</li><li>Regista rule.id, agente, timestamp e severidade.</li></ol><p>O objetivo é provar a cadeia completa, não provocar atividade maliciosa.</p></section>
+<section class="doc-section" id="troubleshooting"><p class="eyebrow">08 · TROUBLESHOOTING</p><h2>Quando o agente não aparece</h2><ul><li>Confirmar serviço wazuh-agent.</li><li>Confirmar endereço do manager em ossec.conf.</li><li>Validar DNS, routing e firewall.</li><li>Consultar ossec.log antes de alterar configurações.</li><li>Confirmar que a versão do agente é compatível.</li></ul></section>
+<section class="doc-section" id="seguranca"><p class="eyebrow">09 · SEGURANÇA</p><h2>Laboratório não é produção</h2><p>Em produção, aplica segmentação de rede, TLS corretamente validado, controlo administrativo, backups, retenção definida, gestão segura de segredos e monitorização dos próprios componentes Wazuh.</p></section>
+<section class="doc-section" id="checklist"><p class="eyebrow">10 · CHECKLIST</p><h2>Critérios de conclusão</h2><ul class="checklist"><li>WAZUH-SRV01 operacional</li><li>Dashboard acessível</li><li>LINUX-SRV01 registado</li><li>Agente ativo</li><li>Evento controlado visível</li><li>Logs de diagnóstico identificados</li></ul><p><strong>Continuação:</strong> agentes Windows, Sysmon, regras personalizadas, FIM, VirusTotal e Active Response.</p></section></article></div></section></main>
+<footer class="site-footer"><div class="container footer-grid"><p>Cibersegurança · Sistemas · Cloud · Automação</p><p>© <span id="year"></span> Jorge Pinto</p></div></footer>
+<button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button><script src="/assets/js/script.js" defer></script></body></html>

@@ -1823,3 +1823,29 @@ body::before {
     bottom: 14px;
   }
 }
+
+/* V12 technical documentation */
+.doc-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;align-items:start}
+.doc-nav{position:sticky;top:105px;padding:20px;border:1px solid var(--border);border-radius:16px;background:#fff}
+.doc-nav strong{display:block;margin-bottom:12px;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}
+.doc-nav a{display:block;padding:8px 0;color:#64748b;font-size:.88rem}
+.doc-nav a:hover{color:#1f5eff}
+.doc-content{max-width:860px}
+.doc-section{padding:38px 0;border-top:1px solid var(--border)}
+.doc-section:first-child{border-top:0;padding-top:0}
+.doc-section h2{font-size:clamp(1.8rem,3vw,2.6rem);letter-spacing:-.04em}
+.doc-section h3{margin-top:28px}
+.doc-section p,.doc-section li{color:#5f6b7a;line-height:1.75}
+.doc-section ul,.doc-section ol{padding-left:22px}
+.command{margin:18px 0;border:1px solid #1e293b;border-radius:14px;overflow:hidden}
+.command-label{padding:9px 14px;background:#1e293b;color:#94a3b8;font:600 .72rem "JetBrains Mono",monospace;letter-spacing:.08em}
+.command pre{margin:0;padding:18px;background:#0f172a;color:#e2e8f0;overflow:auto;font: .82rem/1.65 "JetBrains Mono",monospace}
+.doc-note{padding:16px 18px;border-left:3px solid #1f5eff;background:rgba(31,94,255,.06);border-radius:0 12px 12px 0}
+.doc-warning{padding:16px 18px;border-left:3px solid #d97706;background:rgba(217,119,6,.07);border-radius:0 12px 12px 0}
+.checklist{display:grid;gap:10px;padding:0!important;list-style:none}
+.checklist li{padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#fff}
+.checklist li::before{content:"✓";margin-right:10px;color:#15803d;font-weight:700}
+.lab-series{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.lab-series div{padding:16px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.lab-series span{display:block;color:#1f5eff;font:600 .72rem "JetBrains Mono",monospace;margin-bottom:5px}
+@media(max-width:900px){.doc-layout{grid-template-columns:1fr}.doc-nav{position:static}.lab-series{grid-template-columns:1fr}}
