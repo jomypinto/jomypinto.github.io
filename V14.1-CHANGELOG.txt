@@ -1,0 +1,12 @@
+V14.1 · HOMEPAGE PROFISSIONAL
+
+- Novo posicionamento profissional na homepage.
+- Resumo imediato do perfil.
+- Percurso Competências → Projetos → Laboratórios → Publicações.
+- Dois case studies em destaque.
+- Acesso direto aos seis laboratórios técnicos.
+- Secção dedicada à evidência técnica.
+- CTA profissional para contacto.
+- SEO básico da homepage revisto.
+- Responsividade específica para os novos componentes.
+- SIGOP permanece excluído.

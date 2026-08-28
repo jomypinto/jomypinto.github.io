@@ -1,0 +1,12 @@
+V14.1 LOCAL AUDIT
+
+Posicionamento: OK
+Perfil: OK
+Percurso: OK
+2 case studies: OK
+6 laboratórios: OK
+Evidência: OK
+SIGOP excluído: OK
+Links internos: OK
+HTML: 20
+Links quebrados: 0
