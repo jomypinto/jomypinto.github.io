@@ -1,0 +1,11 @@
+V14.2.1 · AUDITORIA LOCAL
+
+ficheiros essenciais: OK
+Biblioteca Técnica: OK
+SIEM & Detection: OK
+Identity & Access: OK
+Endpoint Security: OK
+Cloud & Containers: OK
+Automation: OK
+Microsoft Security: OK
+SIGOP ausente: OK

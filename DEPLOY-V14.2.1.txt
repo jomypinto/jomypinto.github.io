@@ -1,0 +1,23 @@
+V14.2.1 · CORREÇÃO TOTAL
+
+OBJETIVO
+Garantir que a V14.2 é publicada integralmente, incluindo a nova Biblioteca Técnica.
+
+PUBLICAÇÃO RECOMENDADA
+1. Extrair este ZIP.
+2. Substituir TODO o conteúdo publicado no ramo main pela estrutura deste pacote.
+3. Confirmar que publicacoes/index.html contém a expressão:
+   BIBLIOTECA TÉCNICA
+4. Confirmar que VERSION contém:
+   V14.2.1
+5. Confirmar que version.json contém:
+   "version": "V14.2.1"
+6. Fazer commit e aguardar a conclusão do deployment do GitHub Pages.
+
+VALIDAÇÃO ESPERADA
+Homepage: V14.1
+Perfil Profissional: V14.0
+Publicações: V14.2 Biblioteca Técnica
+Projetos: 2 case studies
+Laboratórios: 6
+SIGOP: ausente
