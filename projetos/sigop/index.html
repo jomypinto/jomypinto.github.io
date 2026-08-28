@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <meta name="author" content="Jorge Pinto" />
   <meta name="robots" content="index, follow" />
-  <meta name="build-version" content="V13.0" />
+  <meta name="build-version" content="V13.1" />
   <link rel="canonical" href="https://jorgepinto.pt/projetos/sigop/" />
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
   <meta property="og:type" content="article" />
@@ -47,6 +47,26 @@
 <section class="doc-section" id="fluxos"><p class="eyebrow">FLUXOS PRINCIPAIS</p><h2>Percursos que estruturam a aplicação</h2><h3>Interno</h3><p>RA: Aberto → Em tratamento → Encerrado. As tarefas evoluem de Atribuída → Em execução → Concluída. O encerramento do RA exige tarefas concluídas e observação final.</p><h3>Comercial</h3><p>RA Externo → OP Comercial → PRP. A proposta percorre Em elaboração → Enviada → Em negociação e termina em Adjudicada, Não adjudicada ou Cancelada. Apenas a adjudicação permite avançar para Contrato.</p><h3>Incentivo/Inovação</h3><p>Em elaboração → Submetida → Não aprovada ou Aprovada. A aprovação é terminal nesta fase do desenho.</p><h3>Parceria</h3><p>Em análise → Em negociação → Formalizada → Ativa → Inativa.</p><h3>Formação</h3><p>Fluxo independente com financiamento, sessões, formadores, formandos, presenças, avaliações, certificados e conclusão.</p></section>
 <section class="doc-section" id="validacao"><p class="eyebrow">VALIDAÇÃO</p><h2>O que já foi testado funcionalmente</h2><div class="status-row"><span class="status-pill ok">Interno → Tarefa → Conclusão</span><span class="status-pill ok">Externo → Sem seguimento</span><span class="status-pill ok">OP → PRP → Adjudicada</span><span class="status-pill ok">Inovação → Aprovada</span><span class="status-pill ok">Parceria → Ativa</span><span class="status-pill ok">Persistência</span><span class="status-pill ok">Histórico</span></div><p>Os testes verificaram criação, herança de contexto, transições, datas, motivos, navegação entre entidades e persistência. Estes resultados são funcionais. Não equivalem ainda a testes de carga, segurança, acessibilidade ou exploração em produção.</p></section>
 <section class="doc-section" id="dificuldades"><p class="eyebrow">DIFICULDADES</p><h2>Onde o desenho exigiu mais disciplina</h2><ul><li>Evitar que a interface permitisse caminhos que as regras de negócio não suportavam.</li><li>Manter o mesmo estado visível em ficha, listagem, dashboard, pesquisa e histórico.</li><li>Evitar fechos automáticos que retirassem controlo ao utilizador.</li><li>Separar ramos independentes sem perder a ligação ao RA original.</li><li>Evoluir o modelo por fases sem quebrar fluxos já validados.</li></ul></section>
+
+<section class="doc-section" id="evidencia">
+<p class="eyebrow">EVIDÊNCIA DE VALIDAÇÃO</p>
+<h2>Resultados funcionais já registados</h2>
+<p>Ao contrário dos exemplos puramente demonstrativos, estes estados correspondem aos testes funcionais já concluídos durante a evolução do SIGOP.</p>
+<div class="evidence-register">
+  <div class="evidence-item"><strong>Percurso Adjudicada</strong><p>Fluxo RA → OP → PRP → Adjudicada validado, com continuidade para Contrato.</p><span class="evidence-state validated">OK</span></div>
+  <div class="evidence-item"><strong>Não adjudicada</strong><p>Estado terminal validado, sem criação de Contrato.</p><span class="evidence-state validated">OK</span></div>
+  <div class="evidence-item"><strong>Cancelada</strong><p>Estado terminal e respetivo comportamento validados.</p><span class="evidence-state validated">OK</span></div>
+  <div class="evidence-item"><strong>Relações e navegação</strong><p>Relações entre RA, OP e PRP, navegação e persistência validadas.</p><span class="evidence-state validated">OK</span></div>
+  <div class="evidence-item"><strong>Histórico</strong><p>Transições, estados e persistência do histórico validados nos testes funcionais.</p><span class="evidence-state validated">OK</span></div>
+  <div class="evidence-item"><strong>Documentos</strong><p>Associação e persistência documental validadas no fluxo testado.</p><span class="evidence-state validated">OK</span></div>
+</div>
+<div class="architecture-map">
+  <div class="arch-node"><b>Entrada</b><small>RA Interno ou Externo, contexto e contacto.</small></div>
+  <div class="arch-node"><b>Decisão</b><small>OP, PRP e estados controlados por regras de negócio.</small></div>
+  <div class="arch-node"><b>Execução</b><small>Contrato, Processo, Tarefas, histórico e documentação.</small></div>
+</div>
+</section>
+
 <section class="doc-section" id="limitacoes"><p class="eyebrow">LIMITAÇÕES</p><h2>O projeto continua em evolução</h2><p>A faturação não faz parte desta versão do case study. Também não são apresentados indicadores de produtividade ou poupança de tempo sem dados medidos. O foco atual é consistência funcional, rastreabilidade e desenho do ciclo de vida.</p></section>
 <section class="doc-section" id="evolucao"><p class="eyebrow">EVOLUÇÃO</p><h2>Próximas camadas</h2><ul><li>Consolidar Contrato → Processo → Tarefas.</li><li>Introduzir faturação apenas depois dos fluxos precedentes estarem estáveis.</li><li>Adicionar reporting operacional e indicadores baseados em dados reais.</li><li>Reforçar permissões, auditoria e testes de segurança.</li><li>Documentar arquitetura técnica, integrações e custos na área administrativa.</li></ul><a class="project-back" href="/projetos/">← Voltar a Projetos</a></section>
 </div></div></section>

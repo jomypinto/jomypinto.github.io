@@ -1,0 +1,9 @@
+V13.1 LOCAL RELEASE AUDIT
+
+V13.1 build version: OK
+AMD evidence section: OK
+Empresa Escola evidence section: OK
+SIGOP validated results: OK
+Broken internal links: OK
+HTML files checked: 21
+Broken internal links: 0

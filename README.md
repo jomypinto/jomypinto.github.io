@@ -201,3 +201,14 @@ Endpoint Security e Automation Lab convertidos para guias técnicos reproduzíve
 * SIGOP reestruturado como case study.
 * Separação explícita entre Projeto, que explica problema e decisões, e Laboratório, que explica implementação reproduzível.
 * Sem métricas ou evidências inventadas.
+
+
+## V13.1 — evidência técnica
+
+A V13.1 reforça os três case studies com uma distinção explícita entre:
+* conteúdo técnico documentado;
+* validação efetivamente observada;
+* evidência ainda por recolher;
+* métricas ainda por medir.
+
+Não são fabricadas screenshots, métricas ou resultados. O SIGOP inclui os resultados funcionais já registados como OK.
