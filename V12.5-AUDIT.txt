@@ -1,0 +1,9 @@
+V12.5 CONSOLIDATION AUDIT
+
+HTML files checked: 21
+Legacy automation references outside redirect: 0
+Potential broken internal paths: 0
+
+No legacy automation references remain outside the redirect.
+
+No obvious broken internal page paths found.

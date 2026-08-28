@@ -182,3 +182,13 @@ Kubernetes Lab e Microsoft Security convertidos para guias reproduzíveis. Próx
 
 ### V12.4
 Endpoint Security e Automation Lab convertidos para guias técnicos reproduzíveis. A fase seguinte deve rever Projetos como case studies e ligar cada decisão técnica aos laboratórios correspondentes.
+
+
+## V12.5, consolidação
+
+* `/laboratorio/automation-lab/` é o URL canónico do Automation Lab.
+* `/laboratorio/automation/` permanece apenas como redirecionamento.
+* links internos normalizados.
+* sitemap.xml atualizado.
+* canonical URLs revistos nos seis laboratórios.
+* verificação global dos caminhos internos.
