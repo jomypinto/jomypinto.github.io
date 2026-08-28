@@ -3,39 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sistema para gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas." />
+  <meta name="description" content="Case study do SIGOP, sistema de gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas." />
   <title>SIGOP | Jorge Pinto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css" />
-
   <meta name="author" content="Jorge Pinto" />
   <meta name="robots" content="index, follow" />
+  <meta name="build-version" content="V13.0" />
   <link rel="canonical" href="https://jorgepinto.pt/projetos/sigop/" />
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
-
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   <meta property="og:locale" content="pt_PT" />
   <meta property="og:site_name" content="Jorge Pinto" />
   <meta property="og:title" content="SIGOP | Jorge Pinto" />
-  <meta property="og:description" content="Sistema para gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas." />
+  <meta property="og:description" content="Case study do SIGOP, sistema de gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas." />
   <meta property="og:url" content="https://jorgepinto.pt/projetos/sigop/" />
   <meta property="og:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="SIGOP | Jorge Pinto" />
-  <meta name="twitter:description" content="Sistema para gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas." />
-  <meta name="twitter:image" content="https://jorgepinto.pt/assets/images/social-preview.svg" />
-
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
-
 <header class="site-header">
   <div class="container nav-wrap">
-      <a class="site-wordmark" href="/">Jorge Pinto</a>
-<button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+    <a class="site-wordmark" href="/">Jorge Pinto</a>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
     <nav class="main-nav" aria-label="Navegação principal">
       <a href="/sobre/">Sobre</a>
       <a href="/projetos/" class="active">Projetos</a>
@@ -45,177 +38,18 @@
     </nav>
   </div>
 </header>
-
 <main id="conteudo">
-  <section class="project-detail-hero">
-    <div class="container project-detail-grid">
-      <div class="reveal">
-        <p class="breadcrumbs"><a href="/">Início</a> / <a href="/projetos/">Projetos</a> / SIGOP</p>
-        <p class="eyebrow">PROJECT DETAIL</p>
-        <h1>SIGOP</h1>
-        <p class="project-subtitle">Gestão de ações, oportunidades e processos</p>
-        <p class="lead">Sistema para gestão integrada de ações, oportunidades, propostas, contratos, processos e tarefas.</p>
-        <div class="project-detail-meta"><span>Workflow</span><span>Aplicações Web</span><span>Automação</span><span>Gestão de Processos</span><span>GitHub</span></div>
-      </div>
-      <div class="flow-diagram reveal">
-        <div>RA</div><span>↓</span><div>OP</div><span>↓</span><div>PRP</div><span>↓</span><div>Contrato</div><span>↓</span><div>Processo</div><span>↓</span><div>Tarefas</div>
-      </div>
-    </div>
-  </section>
-
-  
-<section class="project-section">
-  <div class="container">
-    <div class="section-heading reveal">
-      <p class="eyebrow">DIAGRAMA</p>
-      <h2>Fluxo operacional</h2>
-      <p>O ciclo principal liga o Registo de Ação às entidades seguintes sem perder contexto nem histórico.</p>
-    </div>
-    
-<div class="visual-arch reveal">
-<svg viewBox="0 0 1100 330" role="img" aria-label="Fluxo do SIGOP">
-  <defs>
-    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6"></path>
-    </marker>
-  </defs>
-  <rect class="node" x="30" y="110" rx="16" width="140" height="80"></rect>
-  <text class="label" x="100" y="143" text-anchor="middle">RA</text>
-  <text class="sub" x="100" y="165" text-anchor="middle">Registo de Ação</text>
-
-  <rect class="node" x="210" y="110" rx="16" width="140" height="80"></rect>
-  <text class="label" x="280" y="143" text-anchor="middle">OP</text>
-  <text class="sub" x="280" y="165" text-anchor="middle">Oportunidade</text>
-
-  <rect class="node" x="390" y="110" rx="16" width="140" height="80"></rect>
-  <text class="label" x="460" y="143" text-anchor="middle">PRP</text>
-  <text class="sub" x="460" y="165" text-anchor="middle">Proposta</text>
-
-  <rect class="node" x="570" y="110" rx="16" width="150" height="80"></rect>
-  <text class="label" x="645" y="143" text-anchor="middle">Contrato</text>
-  <text class="sub" x="645" y="165" text-anchor="middle">Ativo</text>
-
-  <rect class="node" x="760" y="110" rx="16" width="150" height="80"></rect>
-  <text class="label" x="835" y="143" text-anchor="middle">Processo</text>
-  <text class="sub" x="835" y="165" text-anchor="middle">Execução</text>
-
-  <rect class="node" x="950" y="110" rx="16" width="120" height="80"></rect>
-  <text class="label" x="1010" y="143" text-anchor="middle">Tarefas</text>
-  <text class="sub" x="1010" y="165" text-anchor="middle">Operação</text>
-
-  <path class="line" d="M170 150 L210 150"></path>
-  <path class="line" d="M350 150 L390 150"></path>
-  <path class="line" d="M530 150 L570 150"></path>
-  <path class="line" d="M720 150 L760 150"></path>
-  <path class="line" d="M910 150 L950 150"></path>
-</svg>
-</div>
-
-  </div>
-</section>
-
-<section class="project-section section-muted">
-  <div class="container">
-    <div class="section-heading reveal">
-      <p class="eyebrow">VALIDAÇÃO</p>
-      <h2>Estados e regras já demonstráveis</h2>
-    </div>
-    <div class="status-row reveal">
-      <span class="status-pill ok">RA → OP</span>
-      <span class="status-pill ok">OP → PRP</span>
-      <span class="status-pill ok">PRP → Adjudicada</span>
-      <span class="status-pill ok">Contrato</span>
-      <span class="status-pill ok">Persistência</span>
-      <span class="status-pill ok">Histórico</span>
-      <span class="status-pill info">Processo → Tarefas</span>
-    </div>
-
-    <div class="evidence-grid" style="margin-top:28px">
-      <article class="evidence-card reveal">
-        <div class="card-head"><span>EXEMPLO DE OBJETO</span><span>JSON</span></div>
-        <pre class="code-block">{
-  &quot;ra&quot;: &quot;RA-2026-000123&quot;,
-  &quot;estado&quot;: &quot;Em tratamento&quot;,
-  &quot;oportunidade&quot;: &quot;OP-2026-000047&quot;,
-  &quot;proposta&quot;: &quot;PRP-2026-000019&quot;,
-  &quot;proposta_estado&quot;: &quot;Adjudicada&quot;
-}</pre>
-      </article>
-
-      <article class="evidence-card reveal">
-        <div class="card-head"><span>REGRA DE NEGÓCIO</span><span>FLOW</span></div>
-        <pre class="code-block">PRP Adjudicada
-  -&gt; permite criar Contrato
-
-PRP Não adjudicada
-  -&gt; não cria Contrato
-
-PRP Cancelada
-  -&gt; estado terminal</pre>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="project-section">
-  <div class="container">
-    <div class="section-heading reveal"><p class="eyebrow">CAPTURAS</p><h2>Evidências a adicionar</h2></div>
-    <div class="evidence-grid">
-      <div class="capture-placeholder reveal"><div><strong>Ficha RA</strong>Estado, entidade, contacto e navegação para OP.</div></div>
-      <div class="capture-placeholder reveal"><div><strong>Histórico</strong>Transições de estado, datas, motivos e utilizador responsável.</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="project-section section-muted">
-    <div class="container grid-2">
-      <div class="reveal">
-        <p class="eyebrow">PROBLEMA</p>
-        <h2>Porque este projeto existe</h2>
-        <p>Fluxos operacionais dispersos criam perda de contexto, estados inconsistentes e dificuldade em perceber a evolução de cada processo.</p>
-      </div>
-      <div class="reveal">
-        <p class="eyebrow">ABORDAGEM</p>
-        <h2>Como foi estruturado</h2>
-        <p>O SIGOP organiza o ciclo de vida desde o Registo de Ação até ao processo e tarefas, com estados controlados, histórico e navegação entre entidades.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="project-section">
-    <div class="container">
-      <div class="section-heading reveal">
-        <p class="eyebrow">ARQUITETURA</p>
-        <h2>Fluxo técnico</h2>
-        <p>A arquitetura é apresentada de forma simples nesta primeira versão. Mais tarde pode evoluir para diagramas próprios, capturas e configurações reais.</p>
-      </div>
-      <div class="flow-diagram horizontal reveal">
-        <div>RA</div><span>→</span><div>OP</div><span>→</span><div>PRP</div><span>→</span><div>Contrato</div><span>→</span><div>Processo</div><span>→</span><div>Tarefas</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="project-section section-muted">
-    <div class="container grid-2">
-      <div class="reveal">
-        <p class="eyebrow">RESULTADOS</p>
-        <h2>O que demonstra</h2>
-        <p>Esta secção deve evoluir com métricas, evidências, logs, capturas e decisões técnicas sempre que existirem dados concretos.</p>
-      </div>
-      <ul class="outcome-list reveal">
-        <li>Estados e transições explícitas.</li><li>Rastreabilidade entre entidades.</li><li>Histórico de alterações.</li><li>Base para evolução para faturação e reporting.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="project-section">
-    <div class="container reveal">
-      <p class="eyebrow">PRÓXIMA EVOLUÇÃO</p>
-      <h2>Transformar descrição em evidência técnica.</h2>
-      <p class="lead">A próxima camada deve incluir diagramas profissionais, screenshots reais, exemplos de configuração, logs e resultados de testes. Isso aumenta muito mais o valor do projeto do que acrescentar texto genérico.</p>
-      <a class="project-back" href="/projetos/">← Voltar a Projetos</a>
-    </div>
-  </section>
+<section class="project-detail-hero"><div class="container project-detail-grid"><div class="reveal"><p class="breadcrumbs"><a href="/">Início</a> / <a href="/projetos/">Projetos</a> / SIGOP</p><p class="eyebrow">CASE STUDY / 03</p><h1>SIGOP</h1><p class="project-subtitle">Gestão integrada de ações, oportunidades e processos</p><p class="lead">Aplicação web orientada a workflow para ligar registos de ação, oportunidades, propostas, contratos, processos e tarefas sem perder estado, histórico ou contexto.</p><div class="project-detail-meta"><span>Workflow</span><span>Aplicação Web</span><span>Processos</span><span>Histórico</span><span>Automação</span><span>GitHub</span></div></div><div class="flow-diagram reveal"><div>RA</div><span>↓</span><div>OP</div><span>↓</span><div>PRP</div><span>↓</span><div>Contrato</div><span>↓</span><div>Processo</div><span>↓</span><div>Tarefas</div></div></div></section>
+<section class="project-section"><div class="container doc-layout"><aside class="doc-nav reveal"><strong>Neste case study</strong><a href="#problema">Problema</a><a href="#modelo">Modelo</a><a href="#decisoes">Decisões</a><a href="#fluxos">Fluxos</a><a href="#validacao">Validação</a><a href="#dificuldades">Dificuldades</a><a href="#limitacoes">Limitações</a><a href="#evolucao">Evolução</a></aside><div class="doc-content">
+<section class="doc-section" id="problema"><p class="eyebrow">PROBLEMA</p><h2>Processos dispersos perdem contexto</h2><p>Quando ações, oportunidades, propostas e execução são tratadas em registos separados, torna-se difícil perceber de onde surgiu um processo, em que estado está e quem tomou cada decisão. O SIGOP foi desenhado para manter essas relações explícitas e navegáveis.</p></section>
+<section class="doc-section" id="modelo"><p class="eyebrow">MODELO FUNCIONAL</p><h2>Um registo inicial, vários percursos controlados</h2><p>O RA, Registo de Ação, é o ponto de entrada. A partir dele o sistema distingue percursos internos e externos. No ramo externo, a oportunidade pode evoluir para Comercial, Incentivo/Inovação, Parceria ou Formação, cada um com estados próprios.</p><div class="flow-diagram horizontal"><div>RA</div><span>→</span><div>OP</div><span>→</span><div>PRP</div><span>→</span><div>Contrato</div><span>→</span><div>Processo</div><span>→</span><div>Tarefas</div></div></section>
+<section class="doc-section" id="decisoes"><p class="eyebrow">DECISÕES DE DESENHO</p><h2>Regras antes da interface</h2><ul><li>IDs únicos por entidade para preservar rastreabilidade.</li><li>Estados explícitos e transições limitadas por regra de negócio.</li><li>Estados terminais bloqueados para evitar alterações incoerentes.</li><li>Motivo obrigatório quando uma proposta é cancelada ou não adjudicada.</li><li>RA não encerra automaticamente quando existem tarefas pendentes.</li><li>Histórico e persistência fazem parte do fluxo, não são um complemento posterior.</li></ul></section>
+<section class="doc-section" id="fluxos"><p class="eyebrow">FLUXOS PRINCIPAIS</p><h2>Percursos que estruturam a aplicação</h2><h3>Interno</h3><p>RA: Aberto → Em tratamento → Encerrado. As tarefas evoluem de Atribuída → Em execução → Concluída. O encerramento do RA exige tarefas concluídas e observação final.</p><h3>Comercial</h3><p>RA Externo → OP Comercial → PRP. A proposta percorre Em elaboração → Enviada → Em negociação e termina em Adjudicada, Não adjudicada ou Cancelada. Apenas a adjudicação permite avançar para Contrato.</p><h3>Incentivo/Inovação</h3><p>Em elaboração → Submetida → Não aprovada ou Aprovada. A aprovação é terminal nesta fase do desenho.</p><h3>Parceria</h3><p>Em análise → Em negociação → Formalizada → Ativa → Inativa.</p><h3>Formação</h3><p>Fluxo independente com financiamento, sessões, formadores, formandos, presenças, avaliações, certificados e conclusão.</p></section>
+<section class="doc-section" id="validacao"><p class="eyebrow">VALIDAÇÃO</p><h2>O que já foi testado funcionalmente</h2><div class="status-row"><span class="status-pill ok">Interno → Tarefa → Conclusão</span><span class="status-pill ok">Externo → Sem seguimento</span><span class="status-pill ok">OP → PRP → Adjudicada</span><span class="status-pill ok">Inovação → Aprovada</span><span class="status-pill ok">Parceria → Ativa</span><span class="status-pill ok">Persistência</span><span class="status-pill ok">Histórico</span></div><p>Os testes verificaram criação, herança de contexto, transições, datas, motivos, navegação entre entidades e persistência. Estes resultados são funcionais. Não equivalem ainda a testes de carga, segurança, acessibilidade ou exploração em produção.</p></section>
+<section class="doc-section" id="dificuldades"><p class="eyebrow">DIFICULDADES</p><h2>Onde o desenho exigiu mais disciplina</h2><ul><li>Evitar que a interface permitisse caminhos que as regras de negócio não suportavam.</li><li>Manter o mesmo estado visível em ficha, listagem, dashboard, pesquisa e histórico.</li><li>Evitar fechos automáticos que retirassem controlo ao utilizador.</li><li>Separar ramos independentes sem perder a ligação ao RA original.</li><li>Evoluir o modelo por fases sem quebrar fluxos já validados.</li></ul></section>
+<section class="doc-section" id="limitacoes"><p class="eyebrow">LIMITAÇÕES</p><h2>O projeto continua em evolução</h2><p>A faturação não faz parte desta versão do case study. Também não são apresentados indicadores de produtividade ou poupança de tempo sem dados medidos. O foco atual é consistência funcional, rastreabilidade e desenho do ciclo de vida.</p></section>
+<section class="doc-section" id="evolucao"><p class="eyebrow">EVOLUÇÃO</p><h2>Próximas camadas</h2><ul><li>Consolidar Contrato → Processo → Tarefas.</li><li>Introduzir faturação apenas depois dos fluxos precedentes estarem estáveis.</li><li>Adicionar reporting operacional e indicadores baseados em dados reais.</li><li>Reforçar permissões, auditoria e testes de segurança.</li><li>Documentar arquitetura técnica, integrações e custos na área administrativa.</li></ul><a class="project-back" href="/projetos/">← Voltar a Projetos</a></section>
+</div></div></section>
 </main>
 <footer class="site-footer">
   <div class="container footer-grid">

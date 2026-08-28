@@ -1849,3 +1849,14 @@ body::before {
 .lab-series div{padding:16px;border:1px solid var(--border);border-radius:12px;background:#fff}
 .lab-series span{display:block;color:#1f5eff;font:600 .72rem "JetBrains Mono",monospace;margin-bottom:5px}
 @media(max-width:900px){.doc-layout{grid-template-columns:1fr}.doc-nav{position:static}.lab-series{grid-template-columns:1fr}}
+
+
+/* V13 case studies */
+.doc-content code{font-family:"JetBrains Mono",monospace;font-size:.9em;background:rgba(31,94,255,.06);padding:.12em .38em;border-radius:5px;color:#1e3a8a}
+.doc-section .status-row{margin-top:20px}
+.doc-section .flow-diagram.horizontal{margin:24px 0}
+.doc-section .evidence-grid{margin-top:22px}
+.doc-nav a{border-bottom:1px solid rgba(15,23,42,.06)}
+.doc-nav a:last-child{border-bottom:0}
+@media(max-width:900px){.doc-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 18px}.doc-nav strong{grid-column:1/-1}.doc-nav a{padding:9px 0}}
+@media(max-width:560px){.doc-nav{grid-template-columns:1fr}}

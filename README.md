@@ -192,3 +192,12 @@ Endpoint Security e Automation Lab convertidos para guias técnicos reproduzíve
 * sitemap.xml atualizado.
 * canonical URLs revistos nos seis laboratórios.
 * verificação global dos caminhos internos.
+
+
+## V13.0, Projetos como case studies
+
+* Automated Malware Defense reestruturado como case study.
+* Empresa Escola de Cibersegurança reestruturada como case study.
+* SIGOP reestruturado como case study.
+* Separação explícita entre Projeto, que explica problema e decisões, e Laboratório, que explica implementação reproduzível.
+* Sem métricas ou evidências inventadas.

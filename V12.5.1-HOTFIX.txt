@@ -1,0 +1,14 @@
+V12.5.1 HOTFIX
+
+Objetivo: corrigir exclusivamente o Automation Lab.
+
+URL canónico: /laboratorio/automation-lab/
+URL legado: /laboratorio/automation/ -> redirecionamento
+
+canonical: OK
+webhook: OK
+api: OK
+logging: OK
+troubleshooting: OK
+old_placeholder_absent: OK
+Legacy references outside redirect: 0
