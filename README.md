@@ -178,3 +178,7 @@ Próxima etapa: converter Kubernetes Lab e Microsoft Security para o mesmo forma
 
 ### V12.3
 Kubernetes Lab e Microsoft Security convertidos para guias reproduzíveis. Próxima etapa: Endpoint Security e Automation Lab, seguida de revisão transversal dos Projetos.
+
+
+### V12.4
+Endpoint Security e Automation Lab convertidos para guias técnicos reproduzíveis. A fase seguinte deve rever Projetos como case studies e ligar cada decisão técnica aos laboratórios correspondentes.
