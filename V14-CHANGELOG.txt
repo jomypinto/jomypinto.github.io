@@ -1,0 +1,18 @@
+V14.0 · PERFIL PROFISSIONAL
+
+Objetivo:
+Reforçar o site como portefólio profissional, ligando competências, stack tecnológica,
+projetos, laboratórios e publicações.
+
+Alterações:
+- Página Sobre transformada em Perfil Profissional.
+- Competências técnicas organizadas por áreas.
+- Stack tecnológica apresentada por domínio.
+- Método de trabalho em cinco etapas.
+- Ligações diretas entre perfil, projetos, laboratórios e publicações.
+- Nova apresentação responsiva para stack e processo.
+- SIGOP permanece excluído.
+- Cache busting V14.0 aplicado aos assets.
+
+Próxima evolução sugerida:
+V14.1, homepage orientada ao posicionamento profissional e percurso rápido para evidência técnica.

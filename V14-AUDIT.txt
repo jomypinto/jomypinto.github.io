@@ -1,0 +1,12 @@
+V14.0 LOCAL AUDIT
+
+Perfil Profissional: OK
+Competências: OK
+Stack: OK
+Método: OK
+Portefólio: OK
+SIGOP excluído: OK
+Links internos: OK
+HTML analisados: 20
+Links internos quebrados: 0
+Referências SIGOP: 0
