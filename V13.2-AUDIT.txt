@@ -1,0 +1,10 @@
+V13.2 LOCAL RELEASE AUDIT
+
+SIGOP directory removed: OK
+SIGOP references removed: OK
+AMD visual evidence: OK
+Empresa Escola visual evidence: OK
+Broken internal links: OK
+HTML files checked: 20
+Broken internal links: 0
+SIGOP references: 0

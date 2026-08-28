@@ -212,3 +212,12 @@ A V13.1 reforça os três case studies com uma distinção explícita entre:
 * métricas ainda por medir.
 
 Não são fabricadas screenshots, métricas ou resultados. O SIGOP inclui os resultados funcionais já registados como OK.
+
+
+## V13.2 — foco técnico e evidência visual
+
+* SIGOP removido do site e das futuras entregas.
+* Foco nos case studies Automated Malware Defense e Empresa Escola de Cibersegurança.
+* Criado um plano de evidência visual real para cada projeto.
+* Não são utilizadas screenshots simuladas.
+* Cada evidência inclui critérios de anonimização e objetivo técnico.

@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/assets/css/styles.css" />
   <meta name="author" content="Jorge Pinto" />
   <meta name="robots" content="index, follow" />
-  <meta name="build-version" content="V13.1" />
+  <meta name="build-version" content="V13.2" />
   <link rel="canonical" href="https://jorgepinto.pt/projetos/empresa-escola-ciberseguranca/" />
   <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg" />
   <meta property="og:type" content="article" />
@@ -45,7 +45,7 @@
     <div class="flow-diagram reveal"><div>Samba AD</div><span>↓</span><div>Keycloak</div><span>↓</span><div>Apps</div><span>↓</span><div>Endpoints</div><span>↓</span><div>Wazuh</div><span>↓</span><div>Incidente</div></div>
   </div>
 </section>
-<section class="project-section"><div class="container doc-layout"><aside class="doc-nav reveal"><strong>Neste case study</strong><a href="#problema">Problema</a><a href="#objetivos">Objetivos</a><a href="#arquitetura">Arquitetura</a><a href="#decisoes">Decisões</a><a href="#cenario">Cenário</a><a href="#validacao">Validação</a><a href="#evidencia">Evidência</a><a href="#limitacoes">Limitações</a><a href="#evolucao">Evolução</a></aside><div class="doc-content">
+<section class="project-section"><div class="container doc-layout"><aside class="doc-nav reveal"><strong>Neste case study</strong><a href="#problema">Problema</a><a href="#objetivos">Objetivos</a><a href="#arquitetura">Arquitetura</a><a href="#decisoes">Decisões</a><a href="#cenario">Cenário</a><a href="#validacao">Validação</a><a href="#evidencia">Evidência</a><a href="#evidencia-visual">Evidência visual</a><a href="#limitacoes">Limitações</a><a href="#evolucao">Evolução</a></aside><div class="doc-content">
 <section class="doc-section" id="problema"><p class="eyebrow">PROBLEMA</p><h2>Aprender componentes isolados cria uma visão incompleta</h2><p>Domínio, IAM, MFA, aplicações, endpoints e SIEM são frequentemente praticados em laboratórios diferentes. Isso esconde as dependências que aparecem numa organização real. Este projeto aproxima essas camadas num único cenário para que uma alteração de identidade possa ser seguida até ao acesso à aplicação e ao evento observado no SIEM.</p></section>
 <section class="doc-section" id="objetivos"><p class="eyebrow">OBJETIVOS</p><h2>Competências que o ambiente deve permitir praticar</h2><ul><li>Criar utilizadores, grupos e políticas num domínio Samba AD.</li><li>Federar identidade no Keycloak.</li><li>Aplicar SSO, MFA e RBAC a aplicações de laboratório.</li><li>Gerar e observar falhas de autenticação.</li><li>Recolher eventos de endpoints e aplicações no Wazuh.</li><li>Correlacionar identidade, origem, cliente e timestamp durante uma investigação.</li></ul></section>
 <section class="doc-section" id="arquitetura"><p class="eyebrow">ARQUITETURA</p><h2>Identidade como eixo central</h2><div class="flow-diagram horizontal"><div>Samba AD</div><span>→</span><div>LDAP / Kerberos</div><span>→</span><div>Keycloak</div><span>→</span><div>OIDC Apps</div><span>→</span><div>Eventos</div><span>→</span><div>Wazuh</div><span>→</span><div>SOC</div></div><p>O Samba AD mantém utilizadores e grupos. O Keycloak acrescenta federação, SSO, MFA e autorização por perfis. As aplicações consomem identidade via OIDC. Os eventos de autenticação e endpoint convergem no Wazuh para investigação.</p></section>
@@ -68,6 +68,21 @@
   <div class="arch-node"><b>Acesso</b><small>Keycloak, SSO, MFA, RBAC e aplicações.</small></div>
   <div class="arch-node"><b>Operação</b><small>Endpoints, logs, Wazuh e investigação.</small></div>
 </div>
+</section>
+
+
+<!-- V13.2_CAPTURE_GUIDE -->
+<section class="doc-section" id="evidencia-visual">
+<p class="eyebrow">EVIDÊNCIA VISUAL</p>
+<h2>Plano de recolha de evidência</h2>
+<p>A documentação já descreve o percurso técnico. A V13.2 prepara a página para receber provas reais desse percurso sem apresentar screenshots artificiais.</p>
+<div class="evidence-gallery">
+ <figure class="evidence-frame"><div class="evidence-frame-head"><strong>Samba AD</strong><span class="evidence-tag">Pendente</span></div><div class="evidence-frame-body"><p>Utilizador e grupo de laboratório, com domínio e dados identificativos anonimizados quando necessário.</p></div><figcaption>Prova da origem da identidade corporativa.</figcaption></figure>
+ <figure class="evidence-frame"><div class="evidence-frame-head"><strong>Keycloak</strong><span class="evidence-tag">Pendente</span></div><div class="evidence-frame-body"><p>Federação LDAP ou configuração do cliente OIDC sem bind password, client secret ou tokens.</p></div><figcaption>Prova da federação e camada de IAM.</figcaption></figure>
+ <figure class="evidence-frame"><div class="evidence-frame-head"><strong>SSO e MFA</strong><span class="evidence-tag">Pendente</span></div><div class="evidence-frame-body"><p>Autenticação numa aplicação de laboratório e desafio MFA, evitando informação pessoal.</p></div><figcaption>Prova do percurso de autenticação.</figcaption></figure>
+ <figure class="evidence-frame"><div class="evidence-frame-head"><strong>Wazuh</strong><span class="evidence-tag">Pendente</span></div><div class="evidence-frame-body"><p>Evento LOGIN_ERROR ou equivalente recolhido e correlacionado no SIEM.</p></div><figcaption>Prova da ligação entre identidade e operação de segurança.</figcaption></figure>
+</div>
+<div class="evidence-capture-guide"><strong>Critério de publicação:</strong> uma imagem só entra no case study quando for reproduzível, relevante para a narrativa e suficientemente anonimizada.</div>
 </section>
 
 <section class="doc-section" id="limitacoes"><p class="eyebrow">LIMITAÇÕES</p><h2>Um laboratório não é produção</h2><p>O ambiente serve para reproduzir relações técnicas e operacionais. Não são apresentadas garantias de disponibilidade, escala, desempenho ou conformidade sem testes específicos. Alta disponibilidade, PKI completa, segregação de redes e recuperação de desastre pertencem a uma fase posterior.</p></section>

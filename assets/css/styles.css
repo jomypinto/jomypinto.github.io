@@ -1881,3 +1881,15 @@ body::before {
  .evidence-state{justify-self:start}
  .architecture-map{grid-template-columns:1fr}
 }
+
+
+/* V13.2 — visual evidence framework */
+.evidence-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.25rem 0}
+.evidence-frame{border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--surface)}
+.evidence-frame-head{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 1rem;border-bottom:1px solid var(--border)}
+.evidence-frame-body{padding:1.1rem;min-height:150px;display:flex;align-items:center;justify-content:center;text-align:center;background:linear-gradient(135deg,rgba(127,127,127,.035),transparent)}
+.evidence-frame-body p{margin:0;max-width:38ch;color:var(--muted)}
+.evidence-frame figcaption{padding:.85rem 1rem;color:var(--muted);font-size:.88rem;border-top:1px solid var(--border)}
+.evidence-tag{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
+.evidence-capture-guide{padding:1rem 1.1rem;border:1px dashed var(--border);border-radius:14px;margin:1rem 0}
+@media (max-width:760px){.evidence-gallery{grid-template-columns:1fr}}
