@@ -1,0 +1,11 @@
+V13.2.1 — CORREÇÃO
+
+Substituir no GitHub:
+- projetos/index.html
+- projetos/automated-malware-defense/index.html
+- projetos/empresa-escola-ciberseguranca/index.html
+- sitemap.xml
+- VERSION
+
+Confirmar que projetos/sigop/ não existe.
+Depois do commit e do deploy do GitHub Pages, executar Cloudflare Purge Everything.

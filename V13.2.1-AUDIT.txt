@@ -1,0 +1,10 @@
+V13.2.1 AUDIT
+
+2 projetos na landing: OK
+SIGOP removido: OK
+AMD V13.2: OK
+Empresa Escola V13.2: OK
+links internos: OK
+HTML: 20
+Broken links: 0
+SIGOP refs: 0
