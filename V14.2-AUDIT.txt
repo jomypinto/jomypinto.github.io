@@ -1,0 +1,10 @@
+V14.2 LOCAL AUDIT
+
+Biblioteca Técnica: OK
+6 domínios: OK
+Ligações labs: OK
+Case studies ligados: OK
+SIGOP excluído: OK
+Links internos: OK
+HTML: 20
+Links quebrados: 0

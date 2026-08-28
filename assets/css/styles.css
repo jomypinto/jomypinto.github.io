@@ -1951,3 +1951,32 @@ body::before {
  .portfolio-path a:not(:last-child),.lab-quick-grid a:not(:last-child){border-bottom:1px solid var(--border)}
  .contact-band{align-items:flex-start;flex-direction:column}
 }
+
+/* V14.2 · Biblioteca Técnica */
+.publication-domains{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border)}
+.publication-domains a{display:flex;min-height:120px;flex-direction:column;justify-content:flex-end;gap:.35rem;padding:1.2rem;text-decoration:none;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.publication-domains a:nth-child(3n){border-right:0}
+.publication-domains a:nth-last-child(-n+3){border-bottom:0}
+.publication-domains span{color:var(--muted);font-size:.84rem;line-height:1.5}
+.publication-library{display:grid;gap:4rem}
+.publication-group{scroll-margin-top:100px}
+.publication-heading{margin-bottom:1.25rem}
+.publication-card{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);gap:2rem;padding:1.5rem;border:1px solid var(--border);background:var(--bg)}
+.publication-card h3{margin:.35rem 0 .7rem}
+.publication-type{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--muted);letter-spacing:.05em}
+.publication-links{display:flex;flex-direction:column;justify-content:center;gap:.75rem}
+.publication-links a{text-decoration:none}
+.publication-method{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
+@media(max-width:900px){
+ .publication-domains{grid-template-columns:1fr 1fr}
+ .publication-domains a:nth-child(3n){border-right:1px solid var(--border)}
+ .publication-domains a:nth-child(2n){border-right:0}
+ .publication-domains a:nth-last-child(-n+3){border-bottom:1px solid var(--border)}
+ .publication-domains a:nth-last-child(-n+2){border-bottom:0}
+ .publication-card,.publication-method{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .publication-domains{grid-template-columns:1fr}
+ .publication-domains a,.publication-domains a:nth-child(2n),.publication-domains a:nth-child(3n){border-right:0}
+ .publication-domains a:not(:last-child){border-bottom:1px solid var(--border)}
+}

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
-  <meta name="build-version" content="V14.1.1" />
+  <meta name="build-version" content="V14.2" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Artigos e notas técnicas sobre cibersegurança, identidade, infraestrutura e automação." />
+  <meta name="description" content="Biblioteca técnica sobre SIEM, identidade, endpoint security, Kubernetes, Microsoft Security e automação." />
   <title>Publicações | Jorge Pinto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css?v=14.1.1" />
+  <link rel="stylesheet" href="/assets/css/styles.css?v=14.2" />
 
   <meta name="author" content="Jorge Pinto" />
   <meta name="robots" content="index, follow" />
@@ -48,43 +48,90 @@
 </header>
 
 <main id="conteudo">
-
 <section class="page-hero">
   <div class="container reveal">
     <p class="breadcrumbs"><a href="/">Início</a> / Publicações</p>
-    <p class="eyebrow">PUBLICAÇÕES</p>
-    <h1>Notas técnicas com contexto e utilidade.</h1>
-    <p class="lead">A publicação não deve existir apenas para preencher o site. Cada artigo deverá explicar um problema, uma implementação, um erro ou uma decisão técnica.</p>
+    <p class="eyebrow">BIBLIOTECA TÉCNICA</p>
+    <h1>Documentação que liga conhecimento, implementação e evidência.</h1>
+    <p class="lead">Esta biblioteca organiza conteúdos técnicos por domínio e liga cada publicação aos laboratórios e projetos onde o tema é aplicado.</p>
   </div>
 </section>
 
-<section class="section section-muted">
+<section class="section">
   <div class="container">
-    <div class="article-list">
-      <article class="article-item reveal">
-        <div class="article-meta">SECURITY<br>2026</div>
-        <div><h3>Integração Wazuh + VirusTotal</h3><p>Automatização da análise de ficheiros suspeitos e enriquecimento de alertas.</p></div>
-        <div><a class="text-link" href="/publicacoes/wazuh-virustotal/">Ler artigo →</a></div>
-      </article>
-      <article class="article-item reveal">
-        <div class="article-meta">IDENTITY<br>2026</div>
-        <div><h3>Keycloak + Active Directory</h3><p>Centralização da autenticação, SSO, MFA e controlo de acessos.</p></div>
-        <div><a class="text-link" href="/publicacoes/keycloak-active-directory/">Ler artigo →</a></div>
-      </article>
-      <article class="article-item reveal">
-        <div class="article-meta">LAB<br>2026</div>
-        <div><h3>Construir uma Empresa Escola de Cibersegurança</h3><p>Arquitetura de um laboratório empresarial orientado para aprendizagem prática.</p></div>
-        <div><a class="text-link" href="/publicacoes/empresa-escola-ciberseguranca/">Ler artigo →</a></div>
-      </article>
-      <article class="article-item reveal">
-        <div class="article-meta">MICROSOFT<br>2026</div>
-        <div><h3>Hardening de endpoints com Intune e Defender</h3><p>Políticas, controlos e validação operacional em ambientes Windows.</p></div>
-        <div><a class="text-link" href="/publicacoes/hardening-intune-defender/">Ler artigo →</a></div>
-      </article>
+    <div class="section-heading reveal">
+      <p class="eyebrow">DOMÍNIOS</p>
+      <h2>Conteúdo organizado por área técnica.</h2>
+    </div>
+    <div class="publication-domains reveal">
+      <a href="#siem"><strong>SIEM & Detection</strong><span>Wazuh, eventos, correlação e resposta</span></a>
+      <a href="#identity"><strong>Identity & Access</strong><span>AD, Keycloak, SSO, MFA e RBAC</span></a>
+      <a href="#endpoint"><strong>Endpoint Security</strong><span>EDR, investigação e hardening</span></a>
+      <a href="#cloud"><strong>Cloud & Containers</strong><span>Kubernetes, GitOps e observabilidade</span></a>
+      <a href="#automation"><strong>Automation</strong><span>APIs, webhooks, workflows e logging</span></a>
+      <a href="#microsoft"><strong>Microsoft Security</strong><span>Entra ID, Intune, Defender e ASR</span></a>
     </div>
   </div>
 </section>
 
+<section class="section section-muted">
+  <div class="container publication-library">
+    <section id="siem" class="publication-group reveal">
+      <div class="publication-heading"><p class="eyebrow">SIEM & DETECTION</p><h2>Deteção, enriquecimento e resposta</h2></div>
+      <article class="publication-card">
+        <div><span class="publication-type">GUIA TÉCNICO</span><h3>Wazuh SIEM: da instalação à resposta ativa controlada</h3><p>Arquitetura, agentes, Sysmon, FIM, VirusTotal, regras personalizadas e resposta ativa.</p></div>
+        <div class="publication-links"><a href="/laboratorio/wazuh-siem/">Laboratório associado →</a><a href="/projetos/automated-malware-defense/">Case study associado →</a></div>
+      </article>
+    </section>
+
+    <section id="identity" class="publication-group reveal">
+      <div class="publication-heading"><p class="eyebrow">IDENTITY & ACCESS</p><h2>Identidade como componente central da segurança</h2></div>
+      <article class="publication-card">
+        <div><span class="publication-type">ARQUITETURA</span><h3>Samba AD + Keycloak: identidade, SSO, MFA e RBAC</h3><p>Estrutura de diretório, federação, mapeamento de grupos, autenticação e eventos de segurança.</p></div>
+        <div class="publication-links"><a href="/laboratorio/identity-lab/">Laboratório associado →</a><a href="/projetos/empresa-escola-ciberseguranca/">Case study associado →</a></div>
+      </article>
+    </section>
+
+    <section id="endpoint" class="publication-group reveal">
+      <div class="publication-heading"><p class="eyebrow">ENDPOINT SECURITY</p><h2>Telemetria, investigação e resposta</h2></div>
+      <article class="publication-card">
+        <div><span class="publication-type">GUIA OPERACIONAL</span><h3>Do alerta EDR à investigação estruturada</h3><p>Processo, parent process, hash, timeline, contexto do utilizador e resposta reversível.</p></div>
+        <div class="publication-links"><a href="/laboratorio/endpoint-security/">Laboratório associado →</a><a href="/projetos/automated-malware-defense/">Case study associado →</a></div>
+      </article>
+    </section>
+
+    <section id="cloud" class="publication-group reveal">
+      <div class="publication-heading"><p class="eyebrow">CLOUD & CONTAINERS</p><h2>Kubernetes, observabilidade e GitOps</h2></div>
+      <article class="publication-card">
+        <div><span class="publication-type">LAB NOTE</span><h3>Kubernetes: deployment, service, ingress e validação</h3><p>Fluxo mínimo para publicar uma aplicação, validar endpoints e preparar observabilidade e GitOps.</p></div>
+        <div class="publication-links"><a href="/laboratorio/kubernetes/">Laboratório associado →</a></div>
+      </article>
+    </section>
+
+    <section id="automation" class="publication-group reveal">
+      <div class="publication-heading"><p class="eyebrow">AUTOMATION</p><h2>Integrações seguras e observáveis</h2></div>
+      <article class="publication-card">
+        <div><span class="publication-type">PADRÃO TÉCNICO</span><h3>Workflow seguro: trigger, validação, API, decisão, ação e log</h3><p>Estrutura para automações com gestão de credenciais, retries, erros e registo auditável.</p></div>
+        <div class="publication-links"><a href="/laboratorio/automation-lab/">Laboratório associado →</a><a href="/projetos/automated-malware-defense/">Case study associado →</a></div>
+      </article>
+    </section>
+
+    <section id="microsoft" class="publication-group reveal">
+      <div class="publication-heading"><p class="eyebrow">MICROSOFT SECURITY</p><h2>Identidade, dispositivos e proteção</h2></div>
+      <article class="publication-card">
+        <div><span class="publication-type">GUIA TÉCNICO</span><h3>Entra ID, Intune, Defender e ASR numa política coerente</h3><p>Identidade, conformidade, segurança do endpoint, validação e troubleshooting.</p></div>
+        <div class="publication-links"><a href="/laboratorio/microsoft-security/">Laboratório associado →</a></div>
+      </article>
+    </section>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container publication-method reveal">
+    <div><p class="eyebrow">MODELO EDITORIAL</p><h2>Publicar apenas o que pode ser explicado e validado.</h2></div>
+    <p>Cada publicação deve indicar objetivo, contexto, arquitetura, implementação, validação, limitações e ligações para o laboratório ou projeto correspondente. Quando existir evidência real, esta deve ser anonimizada e contextualizada.</p>
+  </div>
+</section>
 </main>
 
 <footer class="site-footer">
@@ -94,7 +141,7 @@
   </div>
 </footer>
 
-<script src="/assets/js/script.js?v=14.1.1" defer></script>
+<script src="/assets/js/script.js?v=14.2" defer></script>
 <button class="back-to-top" type="button" aria-label="Voltar ao topo">↑</button>
 </body>
 </html>

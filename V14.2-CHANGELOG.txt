@@ -1,0 +1,8 @@
+V14.2 · BIBLIOTECA TÉCNICA
+
+- Publicações transformadas numa biblioteca técnica.
+- Conteúdo organizado por seis domínios.
+- Ligações entre publicações, laboratórios e case studies.
+- Modelo editorial orientado a objetivo, arquitetura, implementação, validação, limitações e evidência.
+- SEO básico e responsividade revistos.
+- SIGOP permanece excluído.
