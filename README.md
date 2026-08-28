@@ -33,7 +33,7 @@ Os artigos continuam marcados como "Em preparação" ou "Planeado".
 
 /projetos/automated-malware-defense/
 /projetos/empresa-escola-ciberseguranca/
-/projetos/sigop/
+/projetos/
 
 A listagem de projetos e a homepage já apontam para estas páginas.
 

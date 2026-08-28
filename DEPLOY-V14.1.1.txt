@@ -1,0 +1,47 @@
+V14.1.1 — CORREÇÃO TOTAL DE PRODUÇÃO
+
+OBJETIVO
+Publicar integralmente a V14.1.1 e eliminar diferenças entre o ZIP e o GitHub Pages.
+
+FICHEIROS CRÍTICOS A SUBSTITUIR
+/index.html
+/sobre/index.html
+/assets/css/styles.css
+/assets/js/script.js
+/projetos/index.html
+/projetos/automated-malware-defense/index.html
+/projetos/empresa-escola-ciberseguranca/index.html
+/robots.txt
+/sitemap.xml
+/VERSION
+/version.json
+
+VALIDAÇÕES NO GITHUB ANTES DE TERMINAR
+1. index.html contém:
+   Transformo infraestrutura e segurança em sistemas compreensíveis, controláveis e verificáveis.
+
+2. sobre/index.html contém:
+   PERFIL PROFISSIONAL
+
+3. projetos/index.html contém apenas:
+   Automated Malware Defense
+   Empresa Escola de Cibersegurança
+
+4. A pasta projetos/sigop NÃO deve existir.
+
+5. VERSION deve conter:
+   V14.1.1
+
+IMPORTANTE SOBRE O GITHUB WEB
+O comando "Upload files" substitui/adiciona ficheiros, mas não elimina automaticamente ficheiros antigos.
+Quando uma versão remove ficheiros ou pastas, é necessário apagá-los manualmente no repositório.
+
+PUBLICAÇÃO
+1. Extrair este ZIP.
+2. Carregar TODO o conteúdo para a raiz do repositório GitHub Pages.
+3. Commit para main.
+4. Aguardar GitHub Pages concluir o deployment.
+5. Confirmar:
+   https://jorgepinto.pt/version.json
+   deve mostrar "V14.1.1".
+6. Só depois, se ainda aparecer conteúdo antigo, executar Cloudflare Purge Everything.

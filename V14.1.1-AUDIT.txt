@@ -1,0 +1,14 @@
+V14.1.1 — AUDITORIA LOCAL
+
+Homepage V14.1: OK
+Perfil V14: OK
+SIGOP removido: OK
+robots.txt: OK
+sitemap.xml: OK
+version.json: OK
+Links internos: OK
+
+HTML analisados: 20
+URLs no sitemap: 19
+Links internos quebrados: 0
+Referências SIGOP: 0
