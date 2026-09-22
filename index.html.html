@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Formativo de Engenharia de IA</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col font-sans">
+
+  <!-- Header / Navigation -->
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3 cursor-pointer" onclick="showCatalog()">
+        <div class="bg-blue-600 p-2 rounded-lg">
+          <i data-lucide="cpu" class="w-5 h-5 text-white"></i>
+        </div>
+        <span class="font-bold text-lg tracking-tight">Portal IA Hands-On</span>
+      </div>
+      <div class="text-xs text-slate-400">
+        13 Áreas Temáticas • Prática Direta
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8">
+
+    <!-- VISTA: CATÁLOGO DE ÁREAS -->
+    <section id="view-catalog" class="space-y-6">
+      <div>
+        <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight">Catálogo de Engenharia de IA</h1>
+        <p class="text-slate-600 mt-1">Seleciona uma área temática para aceder aos módulos de progressão e laboratórios práticos.</p>
+      </div>
+
+      <!-- Filtro rápido por categoria -->
+      <div id="category-filters" class="flex flex-wrap gap-2 pt-2 pb-4 border-b border-slate-200">
+        <!-- Gerado via JavaScript -->
+      </div>
+
+      <!-- Grelha de Cards das Áreas -->
+      <div id="areas-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Gerado via JavaScript -->
+      </div>
+    </section>
+
+    <!-- VISTA: DETALHE DA ÁREA E MÓDULOS -->
+    <section id="view-detail" class="hidden space-y-6">
+      <!-- Botão Voltar -->
+      <button onclick="showCatalog()" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i> Voltar ao Catálogo
+      </button>
+
+      <!-- Cabeçalho da Área -->
+      <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+        <div class="flex items-center gap-3">
+          <span id="detail-category-badge" class="px-3 py-1 bg-blue-100 text-blue-800 font-semibold text-xs rounded-full"></span>
+          <h2 id="detail-title" class="text-2xl md:text-3xl font-bold text-slate-900"></h2>
+        </div>
+        <p id="detail-description" class="text-slate-600 text-sm md:text-base leading-relaxed"></p>
+      </div>
+
+      <!-- Navegador de Níveis (Tabs) -->
+      <div class="border-b border-slate-200 bg-white rounded-xl px-2 shadow-sm">
+        <nav class="flex space-x-2 sm:space-x-4">
+          <button onclick="switchLevel('Iniciante')" id="tab-Iniciante" class="py-3 px-4 font-medium text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-700 flex items-center gap-2">
+            <i data-lucide="book-open" class="w-4 h-4"></i> Nível Iniciante
+          </button>
+          <button onclick="switchLevel('Intermédio')" id="tab-Intermédio" class="py-3 px-4 font-medium text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-700 flex items-center gap-2">
+            <i data-lucide="layers" class="w-4 h-4"></i> Nível Intermédio
+          </button>
+          <button onclick="switchLevel('Avançado')" id="tab-Avançado" class="py-3 px-4 font-medium text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-700 flex items-center gap-2">
+            <i data-lucide="zap" class="w-4 h-4"></i> Nível Avançado
+          </button>
+        </nav>
+      </div>
+
+      <!-- Conteúdo do Módulo Ativo -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        
+        <!-- Painel Esquerdo: Teoria, Objetivos e Dependências -->
+        <div class="space-y-6">
+          
+          <!-- Objetivo -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+              Objetivo de Aprendizagem
+            </h3>
+            <p id="module-objective" class="text-slate-700 text-sm leading-relaxed"></p>
+          </div>
+
+          <!-- Conceitos-Chave -->
+          <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-3">
+            <h3 class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="code-2" class="w-4 h-4 text-blue-600"></i>
+              Conceitos-Chave
+            </h3>
+            <ul id="module-concepts" class="space-y-2">
+              <!-- Inserido dinamicamente -->
+            </ul>
+          </div>
+
+          <!-- Dependências Técnicas -->
+          <div class="bg-amber-50/80 p-5 rounded-2xl border border-amber-200 space-y-2">
+            <h3 class="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="alert-circle" class="w-4 h-4 text-amber-600"></i>
+              Pré-requisitos Técnicos
+            </h3>
+            <div id="module-dependencies" class="flex flex-wrap gap-1.5 pt-1">
+              <!-- Inserido dinamicamente -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Painel Direito: Laboratório Hands-On -->
+        <div class="lg:col-span-2 space-y-6">
+          <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+            
+            <div class="border-b border-slate-100 pb-4">
+              <div class="flex items-center gap-2 text-xs font-bold text-purple-600 uppercase tracking-wider">
+                <i data-lucide="terminal" class="w-4 h-4"></i>
+                Laboratório Prático Hands-On
+              </div>
+              <h3 id="lab-title" class="text-xl font-bold text-slate-900 mt-1"></h3>
+              
+              <div class="mt-3 flex items-center gap-2 flex-wrap">
+                <span class="text-xs text-slate-500 font-medium">Ferramentas:</span>
+                <div id="lab-tools" class="flex flex-wrap gap-1">
+                  <!-- Inserido dinamicamente -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Passos do Laboratório -->
+            <div class="space-y-3">
+              <h4 class="text-sm font-semibold text-slate-900">Passos de Execução:</h4>
+              <ol id="lab-steps" class="space-y-3">
+                <!-- Inserido dinamicamente -->
+              </ol>
+            </div>
+
+            <!-- Bloco de Código -->
+            <div id="code-container" class="space-y-2">
+              <div class="flex items-center justify-between">
+                <h4 class="text-xs font-bold text-slate-500 uppercase tracking-wider">Script de Apoio</h4>
+                <button onclick="copyCode()" class="inline-flex items-center gap-1.5 text-xs text-slate-600 hover:text-blue-600 font-medium transition-colors">
+                  <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  <span id="copy-text">Copiar Código</span>
+                </button>
+              </div>
+              <div class="bg-slate-950 text-slate-100 p-4 rounded-xl font-mono text-xs overflow-x-auto border border-slate-800 shadow-inner">
+                <pre id="lab-code"></pre>
+              </div>
+            </div>
+
+            <!-- Resultado Esperado -->
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1">
+              <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Resultado Esperado:</h4>
+              <p id="lab-output" class="text-xs text-slate-600 font-mono leading-relaxed"></p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Base de Dados Completa (13 Áreas) em JavaScript -->
+  <script>
+    const curriculumData = [
+      {
+        id: "llm-foundation",
+        categoryNumber: 1,
+        title: "Modelos de Linguagem de Larga Escala (LLMs)",
+        shortDescription: "Domínio da arquitetura Transformer, engenharia de prompts avançada e pipelines de inferência.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Compreender a arquitetura de tokens e executar inferências básicas estruturadas usando APIs de LLM.",
+            keyConcepts: ["Tokenização e Limites de Contexto", "Temperatura e Top-P", "Formatos Estruturados (JSON Mode)"],
+            dependencies: ["Python 3.10+", "Chave API de LLM"],
+            lab: {
+              title: "Inferência Estruturada com Validação Pydantic",
+              tools: ["Python", "OpenAI/Groq SDK", "Pydantic"],
+              steps: [
+                "Instalar as dependências do SDK de LLM e Pydantic.",
+                "Configurar o cliente de inferência definindo a chave de API.",
+                "Criar um esquema Pydantic para extração estrita de dados JSON.",
+                "Executar a chamada de inferência ativando o modo de resposta JSON."
+              ],
+              codeSnippet: `from pydantic import BaseModel\nfrom openai import OpenAI\n\nclass RelatorioNoticia(BaseModel):\n    titulo: str\n    topicos_chave: list[str]\n    sentimento: str\n\nclient = OpenAI()\ncompletion = client.beta.chat.completions.parse(\n    model="gpt-4o-mini",\n    messages=[{"role": "user", "content": "Analisa o impacto da IA na medicina moderna."}],\n    response_format=RelatorioNoticia,\n)\nprint(completion.choices[0].message.parsed)`,
+              expectedOutput: "Objeto JSON validado contendo título, tópicos em lista e análise de sentimento."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Implementar técnicas de Prompt Chaining e Few-Shot Learning para raciocínio complexo.",
+            keyConcepts: ["Chain-of-Thought (CoT)", "Few-Shot In-Context Learning", "Dynamic Prompt Templating"],
+            dependencies: ["Python 3.10+", "LangChain / Jinja2"],
+            lab: {
+              title: "Pipeline de Prompt Chaining para Análise de Código",
+              tools: ["Python", "LangChain"],
+              steps: [
+                "Definir um template de prompt para identificação de bugs em snippets de código.",
+                "Criar um segundo prompt para refatoração baseada nos bugs encontrados.",
+                "Encadear as duas chamadas usando a linguagem de expressão (LCEL)."
+              ],
+              codeSnippet: `from langchain_core.prompts import ChatPromptTemplate\nfrom langchain_openai import ChatOpenAI\n\nmodel = ChatOpenAI(model="gpt-4o-mini")\nprompt_analise = ChatPromptTemplate.from_template("Encontra erros neste código Python: {codigo}")\nprompt_correcao = ChatPromptTemplate.from_template("Corrige os erros identificados: {erros}")\n\nchain = prompt_analise | model | prompt_correcao | model\n# Execução da cadeia`,
+              expectedOutput: "Relatório de refatoração passo a passo com código final corrigido."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Otimizar o débito de inferência e reduzir a latência utilizando motores de servidores LLM locais.",
+            keyConcepts: ["vLLM e PagedAttention", "Quantização (GGUF, AWQ)", "Speculative Decoding"],
+            dependencies: ["GPU NVIDIA / CUDA", "vLLM", "Docker"],
+            lab: {
+              title: "Deploy de Servidor de Inferência Local com vLLM",
+              tools: ["vLLM", "Python", "cURL"],
+              steps: [
+                "Instalar o motor vLLM com suporte a CUDA.",
+                "Iniciar o servidor compatível com a API OpenAI apontando para um modelo quantizado.",
+                "Testar o débito enviando múltiplos pedidos simultâneos via cURL."
+              ],
+              codeSnippet: `# Comando de terminal para arrancar o servidor vLLM\npython3 -m vllm.entrypoints.openai.api_server \\\n    --model TheBloke/Llama-2-7B-Chat-AWQ \\\n    --quantization awq \\\n    --port 8000`,
+              expectedOutput: "Servidor ativo em localhost:8000 a processar tokens com PagedAttention de alta velocidade."
+            }
+          }
+        ]
+      },
+      {
+        id: "rag-systems",
+        categoryNumber: 2,
+        title: "Sistemas RAG (Retrieval-Augmented Generation)",
+        shortDescription: "Construção de arquiteturas de pesquisa vetorial, indexação de documentos e re-ranking.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Criar um pipeline RAG ingénuo utilizando Embeddings e uma Base de Dados Vetorial simples.",
+            keyConcepts: ["Chunking de Documentos", "Vector Embeddings", "Semelhança por Cosseno"],
+            dependencies: ["Python", "ChromaDB", "OpenAI Embeddings"],
+            lab: {
+              title: "Indexação e Pesquisa Num Banco Vetorial Local",
+              tools: ["ChromaDB", "Python"],
+              steps: [
+                "Carregar um ficheiro de texto e segmentá-lo em blocos de 500 caracteres.",
+                "Gerar embeddings para cada bloco usando um modelo de embedding.",
+                "Armazenar no ChromaDB e executar uma pesquisa por equidade semântica."
+              ],
+              codeSnippet: `import chromadb\nfrom chromadb.utils import embedding_functions\n\nchroma_client = chromadb.Client()\ncollection = chroma_client.create_collection(name="documentos_ia")\n\ncollection.add(\n    documents=["A arquitetura Transformer usa mecanismos de atenção.", "Python é amplamente usado em dados."],\n    ids=["doc1", "doc2"]\n)\n\nresults = collection.query(query_texts=["Como funcionam os Transformers?"], n_results=1)\nprint(results['documents'])`,
+              expectedOutput: "Retorno do bloco 'A arquitetura Transformer usa mecanismos de atenção' como maior relevância."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Implementar estratégias de pesquisa híbrida e algoritmos de Re-Ranking.",
+            keyConcepts: ["Hybrid Search (BM25 + Dense)", "Cross-Encoder Re-Ranking", "Reciprocal Rank Fusion (RRF)"],
+            dependencies: ["Python", "Sentence-Transformers", "Rank-BM25"],
+            lab: {
+              title: "Pipeline de Re-Ranking com Cross-Encoder",
+              tools: ["Python", "sentence-transformers"],
+              steps: [
+                "Recuperar os 10 melhores documentos da base vetorial.",
+                "Carregar um modelo Cross-Encoder pré-treinado.",
+                "Reordenar os documentos com base na pontuação exata de afinidade pergunta-documento."
+              ],
+              codeSnippet: `from sentence_transformers import CrossEncoder\n\nmodel = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')\npergunta = "Qual a capital de Portugal?"\ndocumentos = ["Lisboa é a capital de Portugal.", "Porto é uma cidade no norte.", "Portugal fica na Europa."]\n\nscores = model.predict([(pergunta, doc) for doc in documentos])\ndocs_ordenados = [doc for _, doc in sorted(zip(scores, documentos), reverse=True)]\nprint("Documento mais relevante:", docs_ordenados[0])`,
+              expectedOutput: "Documento reordenado com precisão no topo: 'Lisboa é a capital de Portugal.'"
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Construir um sistema RAG Grafos (GraphRAG) integrando Bases de Dados Vetoriais com Knowledge Graphs.",
+            keyConcepts: ["Knowledge Graphs", "Extração de Entidades e Relações", "Graph Retrieval (Neo4j)"],
+            dependencies: ["Neo4j", "Python", "LangChain"],
+            lab: {
+              title: "Consultas Combinadas em GraphRAG com Neo4j",
+              tools: ["Neo4j", "Python", "Cypher"],
+              steps: [
+                "Modelar uma ontologia básica de entidades e relações em Neo4j.",
+                "Extrair nós e arestas de textos não estruturados usando um LLM.",
+                "Executar uma consulta Cypher híbrida combinando contexto estruturado de grafo com embeddings."
+              ],
+              codeSnippet: `# Exemplo de consulta Cypher para recuperação de contexto conexo\nMATCH (e:Entidade {nome: "Transformer"})-[:RELACIONADO_A]->(sub:Entidade)\nRETURN e.nome, sub.nome`,
+              expectedOutput: "Conjunto de conexões relacionais extraídas do grafo para injetar no prompt do LLM."
+            }
+          }
+        ]
+      },
+      {
+        id: "ai-agents",
+        categoryNumber: 3,
+        title: "Agentes de IA e Sistemas Multi-Agente",
+        shortDescription: "Orquestração de agentes autónomos com capacidade de raciocínio, ferramentas e memória.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Criar um agente individual baseado no padrão ReAct (Reasoning + Acting) com acesso a ferramentas básicas.",
+            keyConcepts: ["Padrão ReAct", "Tool Calling / Function Calling", "Loop de Decisão"],
+            dependencies: ["Python", "LangChain / CrewAI"],
+            lab: {
+              title: "Agente de Pesquisa com Acesso a Calculadora e Web",
+              tools: ["Python", "LangChain Tools"],
+              steps: [
+                "Definir ferramentas personalizadas em Python anotadas com decorators.",
+                "Inicializar um agente ReAct associando o LLM e a lista de ferramentas.",
+                "Submeter um problema numérico composto que exige chamadas sequenciais."
+              ],
+              codeSnippet: `from langchain_community.tools import DuckDuckGoSearchRun\nfrom langchain.agents import create_react_agent\n\n# Definição do loop ReAct com ferramentas externas\nsearch = DuckDuckGoSearchRun()\nprint(search.invoke("Temperatura atual em Lisboa"))`,
+              expectedOutput: "O agente decide autonomamente invocar a ferramenta de pesquisa e devolve a resposta final."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Desenvolver sistemas multi-agente cooperativos com papéis e memórias partilhadas.",
+            keyConcepts: ["Hierarquia de Agentes", "Memória de Curto/Longo Prazo", "Protocolos de Comunicação"],
+            dependencies: ["Python", "CrewAI / AutoGen"],
+            lab: {
+              title: "Equipa Multi-Agente para Criação de Artigos Técnicos",
+              tools: ["CrewAI", "Python"],
+              steps: [
+                "Definir um agente 'Investigador' focado em recolha de factos.",
+                "Definir um agente 'Redator' focado em síntese e formatação Markdown.",
+                "Criar uma tarefa sequencial onde o output do Investigador alimenta o Redator."
+              ],
+              codeSnippet: `from crewai import Agent, Task, Crew\n\ninvestigador = Agent(role='Pesquisador', goal='Encontrar tendências de IA', backstory='Analista sénior.')\nredator = Agent(role='Redator', goal='Escrever posts claros', backstory='Jornalista de tecnologia.')\n\n# Orquestração do fluxo\ncrew = Crew(agents=[investigador, redator], tasks=[...])`,
+              expectedOutput: "Relatório técnico em formato Markdown gerado autonomamente pela interação entre os dois agentes."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Construir fluxos de trabalho orientados a grafos de estados com controlo determinístico usando LangGraph.",
+            keyConcepts: ["State Graphs", "Human-in-the-Loop", "Persistência e Rollback de Estado"],
+            dependencies: ["Python", "LangGraph"],
+            lab: {
+              title: "Grafo de Estado Agêntico com Validação Humana",
+              tools: ["LangGraph", "Python"],
+              steps: [
+                "Definir a estrutura de dados de estado global (TypedDict).",
+                "Criar nós de processamento e arestas condicionais de decisão.",
+                "Inserir um ponto de interrupção (interrupt) para aprovação prévia de uma ação crítica."
+              ],
+              codeSnippet: `from langgraph.graph import StateGraph, END\nfrom typing import TypedDict\n\nclass EstadoAgente(TypedDict):\n    mensagem: str\n    aprovado: bool\n\nbuilder = StateGraph(EstadoAgente)\n# Adicionar nós, arestas condicionais e compilar o grafo com checkpointer`,
+              expectedOutput: "Fluxo pausado no nó de segurança aguardando sinalizador de aprovação para prosseguir."
+            }
+          }
+        ]
+      },
+      {
+        id: "python-ai-engineering",
+        categoryNumber: 4,
+        title: "Python e Engenharia de Software para IA",
+        shortDescription: "Boas práticas de programação assíncrona, gestão de pacotes e tipagem avançada.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Estruturar projetos Python modernos com gestão de ambientes virtuais eficientes e tipagem estática.",
+            keyConcepts: ["Gestão com UV / Poetry", "Type Hinting e MyPy", "Programação Orientada a Objetos em IA"],
+            dependencies: ["Python 3.11+", "uv"],
+            lab: {
+              title: "Configuração de Projeto Módulo com UV e Type Checking",
+              tools: ["uv", "mypy", "Python"],
+              steps: [
+                "Criar um projeto Python utilizando o gestor 'uv'.",
+                "Escrever funções com anotações de tipo explícitas.",
+                "Executar o 'mypy' para validar a integridade dos tipos antes do runtime."
+              ],
+              codeSnippet: `# Instalação e execução de verificação estática\nuv init meu-projeto-ia\ncd meu-projeto-ia\nuv add mypy\n# Executar verificação de tipos\nuv run mypy src/`,
+              expectedOutput: "Relatório de verificação de tipos 'Success: no issues found'."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Desenvolver chamadas de API paralelas e de alto débito usando I/O Assíncrono (`asyncio`).",
+            keyConcepts: ["Async/Await", "HTTP Client-side Concurrency (httpx)", "Rate Limiting e Semáforos"],
+            dependencies: ["Python", "httpx", "asyncio"],
+            lab: {
+              title: "Processador Assíncrono de Pedidos à API com Semáforo",
+              tools: ["Python", "asyncio", "httpx"],
+              steps: [
+                "Criar uma função assíncrona para efetuar pedidos HTTP a um endpoint de IA.",
+                "Utilizar um `asyncio.Semaphore` para limitar conexões simultâneas a 5.",
+                "Disparar 50 pedidos em paralelo e medir o tempo total de execução."
+              ],
+              codeSnippet: `import asyncio\nimport httpx\n\nsem = asyncio.Semaphore(5)\n\nasync def processar_item(client, item_id):\n    async with sem:\n        response = await client.get(f"https://httpbin.org/delay/1")\n        return response.status_code\n\nasync def main():\n    async with httpx.AsyncClient() as client:\n        tarefas = [processar_item(client, i) for i in range(20)]\n        resultados = await asyncio.gather(*tarefas)\n        print(f"Processados {len(resultados)} pedidos.")\n\nasyncio.run(main())`,
+              expectedOutput: "Conclusão de 20 pedidos controlados em blocos de 5 sem estourar limites de taxa."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Desenvolver extensões de elevado desempenho em C++/Rust para Python (PyO3).",
+            keyConcepts: ["Bindings C++/Rust (PyO3)", "Gestão do GIL (Global Interpreter Lock)", "Processamento Vetorial Nativo"],
+            dependencies: ["Rust/Cargo", "maturin", "Python"],
+            lab: {
+              title: "Compilação de Módulo Rust de Limpeza de Texto para Python",
+              tools: ["Rust", "PyO3", "maturin"],
+              steps: [
+                "Criar um projeto Rust da biblioteca PyO3.",
+                "Escrever uma função de higienização de tokens com paralelismo nativo em Rust.",
+                "Compilar com `maturin` e importar o binário diretamente no Python."
+              ],
+              codeSnippet: `# Código Rust (lib.rs) usando PyO3\nuse pyo3::prelude::*;\n\n#[pyfunction]\nfn limpa_texto(val: &str) -> PyResult<String> {\n    Ok(val.trim().to_lowercase())\n}\n\n#[pymodule]\nfn meu_modulo_rust(_py: Python, m: &PyModule) -> PyResult<()> {\n    m.add_function(wrap_pyfunction!(limpa_texto, m)?)?;\n    Ok(())\n}`,
+              expectedOutput: "Módulo compilado com performance nativa disponível para importação direta no Python."
+            }
+          }
+        ]
+      },
+      {
+        id: "apis-microservices",
+        categoryNumber: 5,
+        title: "APIs e Microsserviços para Aplicações de IA",
+        shortDescription: "Exposição de modelos e serviços de IA através de APIs REST/gRPC com FastAPI.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Construir uma API REST assíncrona em FastAPI para servir inferências de IA.",
+            keyConcepts: ["Endpoints RESTful", "Validação com Pydantic", "Documentação OpenAPI/Swagger"],
+            dependencies: ["Python", "FastAPI", "Uvicorn"],
+            lab: {
+              title: "Serviço de Inferência REST com FastAPI",
+              tools: ["FastAPI", "Uvicorn"],
+              steps: [
+                "Definir a aplicação FastAPI e os modelos de pedido/resposta.",
+                "Implementar um endpoint POST `/predict` com validação de payload.",
+                "Arrancar o servidor Uvicorn e testar via documentação Swagger interativa."
+              ],
+              codeSnippet: `from fastapi import FastAPI\nfrom pydantic import BaseModel\n\napp = FastAPI()\n\nclass PedidoPredict(BaseModel):\n    texto: str\n\n@app.post("/predict")\nasync def predict(dados: PedidoPredict):\n    return {"resultado": f"Processado: {dados.texto.upper()}"}`,
+              expectedOutput: "Endpoint ativo em http://localhost:8000/docs com validação automática."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Implementar Server-Sent Events (SSE) para respostas em tempo real (Streaming de Tokens).",
+            keyConcepts: ["Server-Sent Events (SSE)", "Streaming HTTP", "Event-Driven APIs"],
+            dependencies: ["FastAPI", "Python Async Generators"],
+            lab: {
+              title: "Endpoint de Streaming de Tokens com FastAPI e SSE",
+              tools: ["FastAPI", "sse-starlette"],
+              steps: [
+                "Criar um gerador assíncrono que simula a emissão progressiva de tokens.",
+                "Utilizar a classe `EventSourceResponse` do FastAPI para transmitir os dados.",
+                "Consumir a stream no terminal utilizando `curl -N`."
+              ],
+              codeSnippet: `import asyncio\nfrom fastapi import FastAPI\nfrom sse_starlette.sse import EventSourceResponse\n\napp = FastAPI()\n\nasync def gerador_tokens():\n    palavras = ["Esta", "é", "uma", "resposta", "em", "stream."]\n    for p in palavras:\n        await asyncio.sleep(0.3)\n        yield dict(data=p)\n\n@app.get("/stream")\nasync def stream():\n    return EventSourceResponse(gerador_tokens())`,
+              expectedOutput: "Tokens impressos continuamente na consola à medida que são gerados."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Construir uma arquitetura de alta performance com gRPC e Protocol Buffers para comunicação inter-serviços.",
+            keyConcepts: ["gRPC vs REST", "Protocol Buffers (.proto)", "Streaming Bidirecional gRPC"],
+            dependencies: ["Python", "grpcio", "grpcio-tools"],
+            lab: {
+              title: "Microsserviço de Inferência em gRPC com Protobuf",
+              tools: ["gRPC", "Protobuf", "Python"],
+              steps: [
+                "Definir o contrato do serviço no ficheiro `.proto`.",
+                "Compilar os ficheiros proto gerando as stubs Python.",
+                "Implementar o servidor gRPC e criar um cliente de teste."
+              ],
+              codeSnippet: `// Ficheiro: inferencia.proto\nsyntax = "proto3";\n\nmessage Pedido {\n  string texto = 1;\n}\n\nmessage Resposta {\n  string resultado = 1;\n}\n\nservice ServicoInferencia {\n  rpc Processar (Pedido) returns (Resposta);\n}`,
+              expectedOutput: "Comunicação binária de baixa latência estabelecida entre cliente e servidor gRPC."
+            }
+          }
+        ]
+      },
+      {
+        id: "vector-databases",
+        categoryNumber: 6,
+        title: "Bases de Dados Vetoriais e Motores de Pesquisa",
+        shortDescription: "Indexação de alto desempenho, algoritmos de pesquisa aproximada (ANN) e otimização de índices.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Entender e comparar métricas de distância e criar um índice básico em Qdrant ou Pinecone.",
+            keyConcepts: ["Métricas (Cosseno, Euclidiana, Dot Product)", "Coleções e Payloads", "Filtros de Metadados"],
+            dependencies: ["Python", "Qdrant Client"],
+            lab: {
+              title: "Criação de Coleção Vetorial com Filtros de Metadados",
+              tools: ["Qdrant", "Python"],
+              steps: [
+                "Iniciar uma instância local em memória do Qdrant.",
+                "Criar uma coleção especificando a dimensão dos vetores e a métrica de distância.",
+                "Inserir vetores com metadados estruturados e executar uma pesquisa filtrada."
+              ],
+              codeSnippet: `from qdrant_client import QdrantClient\nfrom qdrant_client.models import Distance, VectorParams, PointStruct\n\nclient = QdrantClient(":memory:")\nclient.create_collection(\n    collection_name="produtos",\n    vectors_config=VectorParams(size=4, distance=Distance.COSINE)\n)\n\n# Inserção de pontos com payload\nclient.upsert(\n    collection_name="produtos",\n    points=[PointStruct(id=1, vector=[0.05, 0.61, 0.76, 0.74], payload={"categoria": "eletrónica"})]\n)`,
+              expectedOutput: "Confirmação de upsert e consulta efetuada com sucesso com filtragem por categoria."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Configurar índices HNSW (Hierarchical Navigable Small World) para equilibrar precisão e velocidade.",
+            keyConcepts: ["Algoritmo HNSW", "Parâmetros m e ef_construct", "Quantização Vetorial (PQ/SQ)"],
+            dependencies: ["Python", "FAISS"],
+            lab: {
+              title: "Construção de Índice HNSW de Alta Velocidade com FAISS",
+              tools: ["FAISS", "NumPy", "Python"],
+              steps: [
+                "Gerar um conjunto de dados sintético de 10.000 vetores de 128 dimensões.",
+                "Criar um índice `IndexHNSWFlat` indicando o número de ligações por nó.",
+                "Pesquisar os K vizinhos mais próximos e medir a latência em milissegundos."
+              ],
+              codeSnippet: `import faiss\nimport numpy as np\n\nd = 128 # dimensão\nnb = 10000 # tamanho do banco\nxb = np.random.random((nb, d)).astype('float32')\n\nindex = faiss.IndexHNSWFlat(d, 32)\nindex.add(xb)\n\nq = np.random.random((1, d)).astype('float32')\nD, I = index.search(q, k=5)\nprint("Índices dos vizinhos mais próximos:", I)`,
+              expectedOutput: "Apresentação dos 5 vizinhos mais próximos recuperados em menos de 1ms."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Implementar um cluster distribuído de pesquisa vetorial de escala de biliões com réplicas e sharding.",
+            keyConcepts: ["Vector Sharding", "Replicação de Dados", "Quantização Escalar (SQ8) em Escala"],
+            dependencies: ["Milvus / Qdrant Distributed", "Docker Compose"],
+            lab: {
+              title: "Deploy de Cluster Milvus Distribuição Multi-Nó",
+              tools: ["Milvus", "Docker Compose"],
+              steps: [
+                "Configurar um ficheiro docker-compose contendo Milvus, MinIO e Etcd.",
+                "Iniciar o cluster e verificar o estado de integridade dos nós de recolha.",
+                "Criar uma coleção distribuída com sharding automático."
+              ],
+              codeSnippet: `# Trecho de verificação de cluster via CLI/SDK\nfrom pymilvus import utility\nprint("Nós ativos no cluster:", utility.get_server_version())`,
+              expectedOutput: "Cluster Milvus operacional e pronto para ingerir milhões de vetores com sharding ativo."
+            }
+          }
+        ]
+      },
+      {
+        id: "fine-tuning",
+        categoryNumber: 7,
+        title: "Fine-Tuning e Otimização de Modelos",
+        shortDescription: "Ajuste fino eficiente em parâmetros (PEFT/LoRA) e otimização de pesos.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Preparar conjuntos de dados de treino e compreender a mecânica do fine-tuning supervisionado (SFT).",
+            keyConcepts: ["Supervised Fine-Tuning (SFT)", "Formato Instruction-Tuning", "Dataset Tokenization"],
+            dependencies: ["Python", "Hugging Face Datasets"],
+            lab: {
+              title: "Tokenização e Preparação de Dataset para SFT",
+              tools: ["Hugging Face Datasets", "Transformers"],
+              steps: [
+                "Carregar um conjunto de dados bruto de perguntas e respostas.",
+                "Mapear o conjunto de dados para a estrutura de prompt do modelo pretendido.",
+                "Tokenizar os exemplos aplicando truncamento e padding estritos."
+              ],
+              codeSnippet: `from datasets import load_dataset\nfrom transformers import AutoTokenizer\n\ndataset = load_dataset("philschmid/dolly-15k-oai-style")\ntokenizer = AutoTokenizer.from_pretrained("gpt2")\n\ndef tokenizar(exemplos):\n    return tokenizer(exemplos["messages"][0]["content"], truncation=True, max_length=512)\n\ndataset_tokenizado = dataset.map(tokenizar)\nprint(dataset_tokenizado['train'][0])`,
+              expectedOutput: "Dataset tokenizado convertido para tensores prontos para o loop de treino."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Treinar um modelo utilizando adaptação de baixa ordem (LoRA/QLoRA) para poupança de memória de GPU.",
+            keyConcepts: ["LoRA (Low-Rank Adaptation)", "QLoRA (Quantized LoRA)", "Gradiente Accumulation"],
+            dependencies: ["GPU NVIDIA", "PEFT", "TRL", "BitsAndBytes"],
+            lab: {
+              title: "Fine-Tuning Eficiente de LLM com QLoRA e SFTTrainer",
+              tools: ["TRL", "PEFT", "Transformers"],
+              steps: [
+                "Carregar o modelo base quantizado em 4-bits com BitsAndBytes.",
+                "Configurar a matriz LoRA nos módulos de atenção (target_modules).",
+                "Executar o `SFTTrainer` da biblioteca TRL durante 1 época."
+              ],
+              codeSnippet: `from peft import LoraConfig\nfrom trl import SFTTrainer\n\nlora_config = LoraConfig(\n    r=8, lora_alpha=16, target_modules=["q_proj", "v_proj"], lora_dropout=0.05, bias="none"\n)\n# Passar lora_config ao SFTTrainer`,
+              expectedOutput: "Pesos LoRA treinados e guardados em ficheiro (tamanho leve ~20MB)."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Alinhar modelos de linguagem com preferências humanas utilizando DPO (Direct Preference Optimization).",
+            keyConcepts: ["DPO vs RLHF", "Preferências Escolhidas vs Rejeitadas", "Cálculo de Perda DPO"],
+            dependencies: ["GPU NVIDIA (V100/A100)", "TRL", "PyTorch"],
+            lab: {
+              title: "Alinhamento de Modelo usando DPO Trainer",
+              tools: ["TRL", "PyTorch"],
+              steps: [
+                "Carregar um dataset com triplas: (prompt, escolhido, rejeitado).",
+                "Configurar o `DPOTrainer` com o modelo treinado e um modelo de referência congelado.",
+                "Executar o ajuste fino de preferências e exportar o modelo alinhado."
+              ],
+              codeSnippet: `from trl import DPOTrainer\n\n# DPOTrainer otimiza diretamente as probabilidades do modelo de acordo com o feedback\n# sem necessidade de criar um modelo de recompensa separado`,
+              expectedOutput: "Modelo alinhado exibindo maior taxa de adesão às diretrizes do dataset de preferência."
+            }
+          }
+        ]
+      },
+      {
+        id: "llmops-eval",
+        categoryNumber: 8,
+        title: "LLMOps, Monitorização e Avaliação",
+        shortDescription: "Rastreio de execuções, avaliação da qualidade de outputs e observabilidade contínua.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Implementar tracing básico e registo de latências e custos de chamadas de LLM.",
+            keyConcepts: ["Prompt Tracing", "Cálculo de Custo por Token", "Logs Estruturados"],
+            dependencies: ["Python", "LangSmith / Phoenix / WandB"],
+            lab: {
+              title: "Tracing de Prompts com Arize Phoenix Local",
+              tools: ["Phoenix", "Python"],
+              steps: [
+                "Iniciar a plataforma de rastreio Arize Phoenix localmente.",
+                "Instrumentar a biblioteca da OpenAI para capturar chamadas automaticamente.",
+                "Visualizar a árvore de execução, tempos e custos na interface Web do Phoenix."
+              ],
+              codeSnippet: `import phoenix as px\nfrom openinference.instrumentation.openai import OpenAIInstrumentor\n\n# Iniciar servidor de traces local\npx.launch_app()\nOpenAIInstrumentor().instrument()`,
+              expectedOutput: "Painel ativo em http://localhost:6006 a registar chamadas e latências em tempo real."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Automatizar a avaliação da qualidade de sistemas RAG utilizando métricas Ragas (Fidelidade, Relevância).",
+            keyConcepts: ["Métricas RAG (Faithfulness, Answer Relevance)", "LLM-as-a-Judge", "Datasets de Avaliação"],
+            dependencies: ["Python", "Ragas", "Datasets"],
+            lab: {
+              title: "Avaliação Sintética de RAG com Métricas Ragas",
+              tools: ["Ragas", "Python"],
+              steps: [
+                "Montar um dataset com perguntas, contextos recuperados e respostas geradas.",
+                "Executar a bateria de testes de avaliação utilizando o Ragas.",
+                "Gerar um relatório com pontuações quantitativas de 0 a 1."
+              ],
+              codeSnippet: `from ragas import evaluate\nfrom ragas.metrics import faithfulness, answer_relevancy\n\n# resultado = evaluate(dataset, metrics=[faithfulness, answer_relevancy])\n# print(resultado)`,
+              expectedOutput: "Pontuação detalhada da fidelidade e relevância da resposta em relação ao contexto."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Construir um pipeline CI/CD com guardrails em tempo real para deteção de alucinações e fugas de dados.",
+            keyConcepts: ["Guardrails em Tempo Real", "Deteção de PII (Dados Pessoais)", "Prevenção de Prompt Injection"],
+            dependencies: ["Python", "Guardrails AI / NeMo Guardrails"],
+            lab: {
+              title: "Implementação de Rail de Segurança para Deteção de PII",
+              tools: ["Guardrails AI", "Python"],
+              steps: [
+                "Definir uma especificação RAIL para validar a ausência de números de cartão de crédito e NIF.",
+                "Envolver o modelo de linguagem com o wrapper do Guardrails.",
+                "Testar o bloqueio de respostas inseguras com exceção controlada."
+              ],
+              codeSnippet: `from guardrails import Guard\nfrom guardrails.hub import DetectPII\n\nguard = Guard().use(DetectPII(pii_entities=["CREDIT_CARD", "PHONE_NUMBER"], on_fail="fix"))\nresultado = guard.validate("O meu número de telefone é 912345678")\nprint(resultado.validated_output)`,
+              expectedOutput: "Output sanitizado substituindo dados sensíveis por tags genéricas [MASCARADO]."
+            }
+          }
+        ]
+      },
+      {
+        id: "multimodal-ai",
+        categoryNumber: 9,
+        title: "IA Multimodal (Visão, Áudio e Vídeo)",
+        shortDescription: "Processamento e integração de dados visuais e auditivos com modelos de linguagem.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Realizar tarefas de análise e descrição de imagens utilizando modelos de visão-linguagem (VLM).",
+            keyConcepts: ["Vision-Language Models (VLM)", "Image Encoding", "Prompts Visuais"],
+            dependencies: ["Python", "Pillow", "OpenAI/Ollama"],
+            lab: {
+              title: "Análise Visual de Imagens com LLaVA/GPT-4-Vision",
+              tools: ["Python", "Pillow"],
+              steps: [
+                "Carregar uma imagem local usando a biblioteca PIL/Pillow.",
+                "Converter a imagem para codificação Base64.",
+                "Enviar o payload multimodal solicitando a extração de texto e objetos."
+              ],
+              codeSnippet: `import base64\n# Exemplo de codificação e envio para endpoint multimodal\nwith open("imagem.jpg", "rb") as image_file:\n    base64_image = base64.b64encode(image_file.read()).decode('utf-8')`,
+              expectedOutput: "Descrição detalhada dos elementos visuais contidos na imagem."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Desenvolver um pipeline de transcrição e tradução de áudio em tempo real com Whisper.",
+            keyConcepts: ["Transcrição Automática de Fala (ASR)", "VAD (Voice Activity Detection)", "Timestamping de Áudio"],
+            dependencies: ["Python", "openai-whisper", "ffmpeg"],
+            lab: {
+              title: "Transcrição e Segmentação de Áudio Local com Whisper",
+              tools: ["Whisper", "FFmpeg", "Python"],
+              steps: [
+                "Instalar o FFmpeg e a biblioteca `openai-whisper`.",
+                "Carregar o modelo Whisper tamanho 'small' em GPU/CPU.",
+                "Processar um ficheiro `.mp3` e exportar as legendas em formato `.srt`."
+              ],
+              codeSnippet: `import whisper\n\nmodel = whisper.load_model("small")\nresult = model.transcribe("audio.mp3")\nprint(result["text"])`,
+              expectedOutput: "Texto completo transcrito com carimbos de data/hora por frase."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Implementar um pipeline de pesquisa semântica cruzada entre texto e vídeo utilizando CLIP.",
+            keyConcepts: ["Embeddings Multimodais (CLIP)", "Frame Extraction", "Cross-Modal Retrieval"],
+            dependencies: ["Python", "PyTorch", "open_clip"],
+            lab: {
+              title: "Pesquisa Semântica de Frames em Vídeo com CLIP",
+              tools: ["OpenCLIP", "OpenCV", "Python"],
+              steps: [
+                "Extrair 1 frame por segundo de um ficheiro de vídeo com OpenCV.",
+                "Gerar embeddings de visão para todos os frames usando OpenCLIP.",
+                "Executar consultas de texto (ex: 'carro vermelho a curvar') e devolver o timestamp exato."
+              ],
+              codeSnippet: `# Cálculo de semelhança entre embedding de texto e embeddings dos frames\n# similaridade = (image_features @ text_features.T)`,
+              expectedOutput: "Identificação exata do segundo do vídeo que corresponde à descrição textual."
+            }
+          }
+        ]
+      },
+      {
+        id: "deployment-cloud",
+        categoryNumber: 10,
+        title: "Arquitetura Cloud, Serverless e Deploy",
+        shortDescription: "Alojamento e escalamento de aplicações de IA em infraestruturas cloud e edge.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Empacotar uma aplicação de IA em contentores Docker para garantir reprodutibilidade.",
+            keyConcepts: ["Dockerization", "Multi-stage Builds", "Variáveis de Ambiente e Segredos"],
+            dependencies: ["Docker Engine"],
+            lab: {
+              title: "Criação de Dockerfile Otimizado para Aplicação Python IA",
+              tools: ["Docker"],
+              steps: [
+                "Escrever um `Dockerfile` multi-stage para otimizar o tamanho da imagem.",
+                "Configurar a instalação de dependências e utilizador não-root.",
+                "Compilar a imagem e arrancar o contentor exposto na porta local."
+              ],
+              codeSnippet: `FROM python:3.11-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install --no-cache-dir -r requirements.txt\nCOPY . .\nCMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]`,
+              expectedOutput: "Imagem Docker criada e executada com sucesso com footprint reduzido."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Efetuar o deploy de uma API de IA em plataformas PaaS/Serverless (Azure Static Web Apps / Container Apps).",
+            keyConcepts: ["Serverless Containers", "Autoscaling baseado em pedidos", "CI/CD com GitHub Actions"],
+            dependencies: ["Azure CLI / GitHub Actions"],
+            lab: {
+              title: "Deploy Automático para Azure Container Apps via GitHub Actions",
+              tools: ["Azure", "GitHub Actions"],
+              steps: [
+                "Criar um recurso Azure Container App na nuvem.",
+                "Configurar um workflow no GitHub Actions para compilação e push para o Azure Registry.",
+                "Validar o escalamento automático de 0 a N instâncias."
+              ],
+              codeSnippet: `# Trecho de workflow do GitHub Actions para deploy\n- name: Deploy to Azure Container App\n  uses: azure/container-apps-deploy-action@v1`,
+              expectedOutput: "URL HTTPS pública ativa a responder aos pedidos de inferência."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Orquestrar um cluster Kubernetes (K8s) com suporte a GPUs virtuais (vGPU) e autoscaling HPA.",
+            keyConcepts: ["Kubernetes Operator", "NVIDIA GPU Operator", "Horizontal Pod Autoscaler (HPA)"],
+            dependencies: ["Kubectl", "Helm", "Cluster K8s"],
+            lab: {
+              title: "Manifesto K8s para Servidor de Inferência com Alocação GPU",
+              tools: ["Kubernetes", "YAML"],
+              steps: [
+                "Criar o manifesto de Deployment solicitando o recurso `nvidia.com/gpu`.",
+                "Configurar o serviço ClusterIP e Ingress Controller.",
+                "Aplicar política de HPA para escalar pods com base na utilização de GPU."
+              ],
+              codeSnippet: `apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: servidor-llm\nspec:\n  template:\n    spec:\n      containers:\n      - name: llm\n        image: vllm/vllm-openai:latest\n        resources:\n          limits:\n            nvidia.com/gpu: 1`,
+              expectedOutput: "Pods de inferência colocados com sucesso em nós com aceleração por GPU."
+            }
+          }
+        ]
+      },
+      {
+        id: "security-privacy",
+        categoryNumber: 11,
+        title: "Segurança, Privacidade e Conformidade (AI Act)",
+        shortDescription: "Proteção contra ataques, anonimização de dados e conformidade regulatória europeia.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Identificar e mitigar vulnerabilidades clássicas como OWASP Top 10 para LLMs.",
+            keyConcepts: ["Prompt Injection (Direto e Indireto)", "Exfiltração de Dados", "Sanitização de Input"],
+            dependencies: ["Python"],
+            lab: {
+              title: "Análise e Bloqueio de Injeções de Prompt",
+              tools: ["Python"],
+              steps: [
+                "Criar um conjunto de testes contendo padrões de ataques de Prompt Injection.",
+                "Implementar uma camada de filtro por expressões regulares e verificação de intenção.",
+                "Verificar a taxa de rejeição de tentativas de bypass de instruções primárias."
+              ],
+              codeSnippet: `def sanitizar_input(prompt_usuario: str) -> str:\n    padroes_perigosos = ["ignore as instrucoes anteriores", "sistemas de seguranca desativados"]\n    for p in padroes_perigosos:\n        if p in prompt_usuario.lower():\n            raise ValueError("Tentativa de injeção detetada.")\n    return prompt_usuario`,
+              expectedOutput: "Exceção bloqueante disparada com sucesso ao detetar frases de injeção."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Implementar técnicas de Privacidade Diferencial e Anonymization em pipelines de dados de treino.",
+            keyConcepts: ["Anonymization & Pseudonymization", "Presidio Analyzer/Anonymizer", "Conformidade com o RGPD"],
+            dependencies: ["Python", "Microsoft Presidio"],
+            lab: {
+              title: "Mascaramento Automático de Dados Pessoais com Microsoft Presidio",
+              tools: ["Presidio", "Python"],
+              steps: [
+                "Instalar o `presidio-analyzer` e `presidio-anonymizer`.",
+                "Analisa um texto bruto em português para identificar nomes, NIFs e e-mails.",
+                "Aplicar regras de substituição por hashes ou marcadores genéricos."
+              ],
+              codeSnippet: `from presidio_analyzer import AnalyzerEngine\nfrom presidio_anonymizer import AnonymizerEngine\n\nanalyzer = AnalyzerEngine()\nanonymizer = AnonymizerEngine()\n\ntexto = "O João Silva, com NIF 123456789, vive em Lisboa."\nresultados = analyzer.analyze(text=texto, language="en") # Adaptado para PT\nresultado_limpo = anonymizer.anonymize(text=texto, analyzer_results=resultados)\nprint(resultado_limpo.text)`,
+              expectedOutput: "Texto resultante com PII mascarado: 'O [PERSONA], com NIF [NUMERO], vive em [CIDADE].'"
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Conceber uma auditoria técnica de conformidade com o Regulamento Europeu da Inteligência Artificial (EU AI Act).",
+            keyConcepts: ["Classificação de Risco (EU AI Act)", "Governança e Transparência", "Auditoria de Bias e Registos de Logs"],
+            dependencies: ["Checklists de Conformidade", "Python"],
+            lab: {
+              title: "Implementação de Sistema de Log de Auditoria Imutável para IA",
+              tools: ["Python", "Hashlib"],
+              steps: [
+                "Conceber uma estrutura de registos contendo prompt, resposta, modelo, timestamp e hash de integridade.",
+                "Criar uma cadeia de blocos de log encadeada (estilo blockchain) para evitar adulteração.",
+                "Exportar relatórios de transparência para sistemas de risco elevado."
+              ],
+              codeSnippet: `import hashlib\nimport json\n\ndef gerar_registro_auditoria(prompt, resposta, hash_anterior="0"):\n    dados = {"prompt": prompt, "resposta": resposta, "prev_hash": hash_anterior}\n    conteudo = json.dumps(dados, sort_keys=True).encode()\n    dados["hash"] = hashlib.sha256(conteudo).hexdigest()\n    return dados`,
+              expectedOutput: "Registo imutável gerado e pronto para auditorias de conformidade legal."
+            }
+          }
+        ]
+      },
+      {
+        id: "ui-ux-ai",
+        categoryNumber: 12,
+        title: "Interface de Utilizador e UX para Aplicações de IA",
+        shortDescription: "Desenvolvimento de interfaces reativas, streaming na UI e estados de feedback visual.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Desenvolver uma interface Web de Chat reativa utilizando frameworks modernas de UI (React/Tailwind).",
+            keyConcepts: ["Chat UI Components", "Handling Loading States", "Renderização de Markdown"],
+            dependencies: ["Node.js", "React", "Tailwind CSS"],
+            lab: {
+              title: "Componente de Chat React com Renderização de Respostas",
+              tools: ["React", "Tailwind CSS"],
+              steps: [
+                "Criar o estado da lista de mensagens (utilizador e assistente).",
+                "Construir a caixa de input com envio via tecla Enter.",
+                "Estilizar os balões de mensagem com diferenciação clara de autor."
+              ],
+              codeSnippet: `// Trecho de estado React para gestão de mensagens\nconst [messages, setMessages] = useState([]);\nconst handleSend = (text) => {\n  setMessages([...messages, { role: 'user', content: text }]);\n};`,
+              expectedOutput: "Interface de chat limpa e responsiva a renderizar mensagens no ecrã."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Implementar streaming de texto na interface de utilizador token-a-token sem bloqueio da UI.",
+            keyConcepts: ["Vercel AI SDK / Fetch Streaming", "ReadableStream", "Auto-scroll inteligente"],
+            dependencies: ["React", "Vercel AI SDK"],
+            lab: {
+              title: "Integração do Hook `useChat` para Streaming Fluído",
+              tools: ["React", "Vercel AI SDK"],
+              steps: [
+                "Instalar o pacote `ai/react`.",
+                "Utilizar o hook `useChat` para gerenciar automaticamente o estado da stream.",
+                "Implementar autoscroll que acompanha a escrita do modelo."
+              ],
+              codeSnippet: `import { useChat } from 'ai/react';\n\nexport default function Chat() {\n  const { messages, input, handleInputChange, handleSubmit } = useChat();\n  return (/* JSX de rendering da stream */);\n}`,
+              expectedOutput: "Efeito de digitação em tempo real na interface sem latência visível."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Construir interfaces Generativas Dinâmicas onde o LLM devolve componentes React executáveis (Generative UI).",
+            keyConcepts: ["Generative UI", "Streamable React Server Components", "Dynamic Widget Rendering"],
+            dependencies: ["Next.js App Router", "Vercel AI SDK"],
+            lab: {
+              title: "Renderização Dinâmica de Gráficos e Cartões via LLM",
+              tools: ["Next.js", "React Server Components"],
+              steps: [
+                "Definir componentes de UI pré-construídos (ex: Tabela, Gráfico, Cartão).",
+                "Configurar a chamada ao LLM para invocar a criação de componentes visuais em vez de texto.",
+                "Renderizar o componente diretamente na stream da interface."
+              ],
+              codeSnippet: `// O LLM devolve o nome do componente e as props JSON;\na interface renderiza dinamicamente < Componente {...props} />`,
+              expectedOutput: "A interface de chat renderiza um gráfico interativo em resposta a uma pergunta de dados."
+            }
+          }
+        ]
+      },
+      {
+        id: "autonomous-agents-code",
+        categoryNumber: 13,
+        title: "Engenharia de Software Assistida por IA e Geração de Código",
+        shortDescription: "Ferramentas de geração de código, testes automáticos e agentes de desenvolvimento autónomo.",
+        modules: [
+          {
+            level: "Iniciante",
+            learningObjective: "Utilizar ferramentas de suporte à codificação (Copilot/Cursor) com prompts de contexto estruturado.",
+            keyConcepts: ["In-line Completion", "Ficheiros de Regras (.cursorrules)", "Context-Aware Coding"],
+            dependencies: ["VS Code / Cursor Editor"],
+            lab: {
+              title: "Configuração de Ficheiro de Regras do Projeto (.cursorrules)",
+              tools: ["Cursor Editor", "Markdown"],
+              steps: [
+                "Criar o ficheiro `.cursorrules` na raiz do repositório.",
+                "Definir padrões de código obrigatórios (ex: 'Usar sempre TypeScript estrito e Tailwind CSS').",
+                "Testar a geração automática de código validando se obedece às regras estipuladas."
+              ],
+              codeSnippet: `# Ficheiro .cursorrules\n- Linguagem: TypeScript estrito\n- Estilização: Tailwind CSS\n- Não utilizar bibliotecas externas não declaradas no package.json`,
+              expectedOutput: "O assistente de código passa a gerar respostas totalmente alinhadas com as regras do projeto."
+            }
+          },
+          {
+            level: "Intermédio",
+            learningObjective: "Criar um pipeline automatizado de geração de testes unitários a partir do código-fonte.",
+            keyConcepts: ["AST Parsing", "Geração Automática de Testes", "Análise de Cobertura de Código"],
+            dependencies: ["Python", "Pytest", "LLM SDK"],
+            lab: {
+              title: "Gerador Automático de Testes Pytest usando LLM",
+              tools: ["Python", "Pytest"],
+              steps: [
+                "Ler o conteúdo de um ficheiro de código Python alvo.",
+                "Enviar o código ao LLM solicitando a criação de uma suite completa de testes `pytest`.",
+                "Guardar o código gerado num ficheiro `test_*.py` e executar o runner do `pytest`."
+              ],
+              codeSnippet: `import subprocess\n# Script lê funcao.py -> Envia ao LLM -> Guarda test_funcao.py\nresultado = subprocess.run(["pytest", "test_funcao.py"], capture_output=True)\nprint(resultado.stdout.decode())`,
+              expectedOutput: "Suite de testes gerada executada com sucesso com passar de 100% dos testes."
+            }
+          },
+          {
+            level: "Avançado",
+            learningObjective: "Desenvolver um agente de engenharia de software capaz de resolver Issues do GitHub autonomamente.",
+            keyConcepts: ["Agentes de Codificação (SWE-bench)", "Edição de Ficheiros baseada em Diff/Patch", "Ambiente de Execução Sandbox"],
+            dependencies: ["Python", "Docker", "Git"],
+            lab: {
+              title: "Agente Autónomo de Correção de Bugs com Execução em Docker",
+              tools: ["Python", "Docker", "Git"],
+              steps: [
+                "Clonar o repositório para dentro de um contentor Docker isolado.",
+                "Instruir o agente a analisar o log de erro e propor um patch `.diff`.",
+                "Aplicar o patch e executar a suite de testes no contentor para validar a resolução."
+              ],
+              codeSnippet: `# O agente gera o ficheiro patch e aplica-o:\n# git apply correcao.patch && pytest`,
+              expectedOutput: "Bug resolvido autonomamente e verificado com passagem nos testes de integração no Docker."
+            }
+          }
+        ]
+      }
+    ];
+
+    // ESTADO DA APLICAÇÃO
+    let currentArea = null;
+    let currentLevel = 'Iniciante';
+    let selectedCategoryFilter = null;
+
+    // INICIALIZAÇÃO
+    document.addEventListener('DOMContentLoaded', () => {
+      renderFilters();
+      renderCatalog();
+      lucide.createIcons();
+    });
+
+    // NAVEGAÇÃO ENTRE VISTAS
+    function showCatalog() {
+      document.getElementById('view-catalog').classList.remove('hidden');
+      document.getElementById('view-detail').classList.add('hidden');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function showDetail(areaId) {
+      currentArea = curriculumData.find(a => a.id === areaId);
+      if (!currentArea) return;
+
+      currentLevel = 'Iniciante'; // Reset ao nível ao abrir
+
+      document.getElementById('view-catalog').classList.add('hidden');
+      document.getElementById('view-detail').classList.remove('hidden');
+
+      // Preencher dados fixos da área
+      document.getElementById('detail-category-badge').textContent = `Área ${currentArea.categoryNumber}`;
+      document.getElementById('detail-title').textContent = currentArea.title;
+      document.getElementById('detail-description').textContent = currentArea.shortDescription;
+
+      renderModuleDetail();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // RENDERIZAR FILTROS DE CATEGORIA
+    function renderFilters() {
+      const filterContainer = document.getElementById('category-filters');
+      filterContainer.innerHTML = `
+        <button onclick="filterCategory(null)" id="filter-all" class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all bg-blue-600 text-white shadow-sm">
+          Todas as Áreas (13)
+        </button>
+      `;
+
+      curriculumData.forEach(area => {
+        const btn = document.createElement('button');
+        btn.id = `filter-${area.categoryNumber}`;
+        btn.onclick = () => filterCategory(area.categoryNumber);
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-medium transition-all bg-white border border-slate-200 text-slate-700 hover:bg-slate-100';
+        btn.textContent = `${area.categoryNumber}. ${area.title.split(' ')[0]}...`;
+        filterContainer.appendChild(btn);
+      });
+    }
+
+    function filterCategory(catNum) {
+      selectedCategoryFilter = catNum;
+      
+      // Atualizar estilos dos botões de filtro
+      document.querySelectorAll('#category-filters button').forEach(btn => {
+        btn.className = 'px-3 py-1.5 rounded-xl text-xs font-medium transition-all bg-white border border-slate-200 text-slate-700 hover:bg-slate-100';
+      });
+
+      if (catNum === null) {
+        document.getElementById('filter-all').className = 'px-3 py-1.5 rounded-xl text-xs font-semibold transition-all bg-blue-600 text-white shadow-sm';
+      } else {
+        document.getElementById(`filter-${catNum}`).className = 'px-3 py-1.5 rounded-xl text-xs font-semibold transition-all bg-blue-600 text-white shadow-sm';
+      }
+
+      renderCatalog();
+    }
+
+    // RENDERIZAR CATALOGO DE CARDS
+    function renderCatalog() {
+      const grid = document.getElementById('areas-grid');
+      grid.innerHTML = '';
+
+      const filteredAreas = selectedCategoryFilter 
+        ? curriculumData.filter(a => a.categoryNumber === selectedCategoryFilter)
+        : curriculumData;
+
+      filteredAreas.forEach(area => {
+        const card = document.createElement('div');
+        card.className = 'bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between cursor-pointer group';
+        card.onclick = () => showDetail(area.id);
+
+        card.innerHTML = `
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-md">
+                Área ${area.categoryNumber}
+              </span>
+              <span class="text-xs text-slate-400 font-medium">3 Níveis</span>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+              ${area.title}
+            </h3>
+            <p class="text-slate-600 text-xs line-clamp-2 leading-relaxed">
+              ${area.shortDescription}
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-700 group-hover:text-blue-600">
+            <span>Explorar Módulos e Prática</span>
+            <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+
+      lucide.createIcons();
+    }
+
+    // ALTERAR NÍVEL (TAB SWITCH)
+    function switchLevel(level) {
+      currentLevel = level;
+      renderModuleDetail();
+    }
+
+    // RENDERIZAR DETALHE DO MÓDULO SELECIONADO
+    function renderModuleDetail() {
+      if (!currentArea) return;
+
+      // Atualizar abas visuais
+      ['Iniciante', 'Intermédio', 'Avançado'].forEach(lvl => {
+        const tabBtn = document.getElementById(`tab-${lvl}`);
+        if (lvl === currentLevel) {
+          tabBtn.className = 'py-3 px-4 font-semibold text-sm border-b-2 border-blue-600 text-blue-600 flex items-center gap-2';
+        } else {
+          tabBtn.className = 'py-3 px-4 font-medium text-sm border-b-2 border-transparent text-slate-500 hover:text-slate-700 flex items-center gap-2';
+        }
+      });
+
+      // Procurar o módulo correspondente
+      const module = currentArea.modules.find(m => m.level === currentLevel) || currentArea.modules[0];
+      const lab = module.lab;
+
+      // Preencher painel teórico
+      document.getElementById('module-objective').textContent = module.learningObjective;
+      
+      const conceptsList = document.getElementById('module-concepts');
+      conceptsList.innerHTML = module.keyConcepts.map(c => `
+        <li class="text-xs text-slate-600 flex items-start gap-2">
+          <span class="h-1.5 w-1.5 rounded-full bg-blue-500 mt-1.5 flex-shrink-0"></span>
+          <span>${c}</span>
+        </li>
+      `).join('');
+
+      const depsContainer = document.getElementById('module-dependencies');
+      depsContainer.innerHTML = module.dependencies.map(d => `
+        <span class="px-2.5 py-1 bg-amber-100/80 text-amber-800 text-xs font-medium rounded-md">
+          ${d}
+        </span>
+      `).join('');
+
+      // Preencher painel prático (Laboratório)
+      document.getElementById('lab-title').textContent = lab.title;
+
+      const toolsContainer = document.getElementById('lab-tools');
+      toolsContainer.innerHTML = lab.tools.map(t => `
+        <span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-xs rounded border border-slate-200">
+          ${t}
+        </span>
+      `).join('');
+
+      const stepsList = document.getElementById('lab-steps');
+      stepsList.innerHTML = lab.steps.map((step, idx) => `
+        <li class="flex gap-3 text-sm text-slate-700">
+          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-50 text-blue-700 font-semibold text-xs flex items-center justify-center border border-blue-200">
+            ${idx + 1}
+          </span>
+          <span class="pt-0.5">${step}</span>
+        </li>
+      `).join('');
+
+      const codeContainer = document.getElementById('code-container');
+      if (lab.codeSnippet) {
+        codeContainer.classList.remove('hidden');
+        document.getElementById('lab-code').textContent = lab.codeSnippet;
+      } else {
+        codeContainer.classList.add('hidden');
+      }
+
+      document.getElementById('lab-output').textContent = lab.expectedOutput;
+
+      // Re-inicializar ícones Lucide
+      lucide.createIcons();
+    }
+
+    // COPIAR CÓDIGO
+    function copyCode() {
+      const codeText = document.getElementById('lab-code').textContent;
+      navigator.clipboard.writeText(codeText);
+
+      const copyTextEl = document.getElementById('copy-text');
+      copyTextEl.textContent = 'Copiado!';
+      setTimeout(() => {
+        copyTextEl.textContent = 'Copiar Código';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
