@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="h-full bg-slate-950 text-slate-100">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Formação: Engenharia de IA / LLM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              500: '#10b981',
+              600: '#059669',
+              900: '#064e3b',
+              950: '#022c22',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full flex overflow-hidden font-sans antialiased selection:bg-brand-500 selection:text-slate-950">
+
+  <!-- Sidebar / Navegação Lateral -->
+  <aside class="w-80 bg-slate-900 border-r border-slate-800 flex flex-col flex-shrink-0">
+    <div class="p-6 border-b border-slate-800">
+      <div class="flex items-center gap-2 text-brand-500 font-mono text-xs font-bold tracking-wider uppercase">
+        <span class="h-2 w-2 rounded-full bg-brand-500 animate-pulse"></span>
+        Plataforma Técnica
+      </div>
+      <h1 class="text-xl font-bold text-white mt-1">AI Engineering</h1>
+      <p class="text-xs text-slate-400 mt-1">Portal Técnico Hands-On • 13 Módulos</p>
+    </div>
+
+    <!-- Pesquisa no Menu -->
+    <div class="p-4 border-b border-slate-800/60">
+      <input type="text" id="menu-search" onkeyup="filterMenu()" placeholder="Filtrar módulos..." 
+             class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors">
+    </div>
+
+    <nav class="flex-1 overflow-y-auto p-3 space-y-1 text-xs" id="modules-nav">
+      <a href="#m1" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">1. LLMs de Última Geração</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M01</span>
+      </a>
+      <a href="#m2" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">2. Prompting & Evaluation</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M02</span>
+      </a>
+      <a href="#m3" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">3. Frameworks & MCP</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M03</span>
+      </a>
+      <a href="#m4" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">4. Fluxos e Orquestração</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M04</span>
+      </a>
+      <a href="#m5" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">5. Desenvolvimento Python</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M05</span>
+      </a>
+      <a href="#m6" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">6. Ecossistema .NET</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M06</span>
+      </a>
+      <a href="#m7" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">7. APIs & Arquiteturas</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M07</span>
+      </a>
+      <a href="#m8" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">8. Pipelines RAG</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M08</span>
+      </a>
+      <a href="#m9" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">9. Qualidade & Custos</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M09</span>
+      </a>
+      <a href="#m10" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">10. Ambientes Cloud (Azure/GCP)</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M10</span>
+      </a>
+      <a href="#m11" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">11. Docker, K8s & CI/CD</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M11</span>
+      </a>
+      <a href="#m12" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">12. Segurança & Red Teaming</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M12</span>
+      </a>
+      <a href="#m13" class="nav-item flex items-center justify-between px-3 py-2.5 rounded-lg font-medium text-slate-300 hover:bg-slate-800/80 hover:text-white transition-colors">
+        <span class="truncate">13. DevAssist & Copilot</span>
+        <span class="text-[10px] font-mono text-slate-500 bg-slate-950 px-1.5 py-0.5 rounded border border-slate-800">M13</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-1 overflow-y-auto bg-slate-950 scroll-smooth">
+    <header class="sticky top-0 z-10 bg-slate-950/80 backdrop-blur border-b border-slate-800/80 px-8 py-4 flex items-center justify-between">
+      <div>
+        <h2 class="text-lg font-bold text-white">Programa Formativo em Engenharia de IA</h2>
+        <p class="text-xs text-slate-400">Guias Práticos: Instalação, Configuração, Código e Boas Práticas</p>
+      </div>
+      <span class="text-xs text-slate-400 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg font-mono">
+        v2.5 • Full Edition
+      </span>
+    </header>
+
+    <div class="p-8 max-w-7xl mx-auto space-y-10" id="main-content">
+
+      <!-- MÓDULO 1 -->
+      <section id="m1" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 01</span>
+            <h3 class="text-xl font-bold text-white mt-1">Experiência Prática com LLMs de Última Geração</h3>
+            <p class="text-xs text-slate-400 mt-1">GPT, Gemini, Claude, Llama, Mistral e SLMs em produção</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m1', 'install')" id="m1-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m1', 'config')" id="m1-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m1', 'examples')" id="m1-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m1', 'practices')" id="m1-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m1-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Ambiente e Dependências</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500 space-y-1">
+              <p>curl -fsSL https://ollama.com/install.sh | sh</p>
+              <p>pip install openai anthropic google-genai vllm llama-cpp-python unsloth</p>
+            </div>
+          </div>
+          <div id="m1-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração vLLM / Local Engine</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>model: "meta-llama/Llama-3.1-8B-Instruct"
+tensor_parallel_size: 1
+gpu_memory_utilization: 0.85
+quantization: "awq"</code></pre>
+          </div>
+          <div id="m1-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Script de Medição de TTFT (Time-To-First-Token)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>import time, openai
+client = openai.OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+t0 = time.time()
+res = client.chat.completions.create(model="llama3.1", messages=[{"role": "user", "content": "Olá!"}], stream=True)
+for chunk in res:
+    if chunk.choices[0].delta.content:
+        print(f"TTFT: {time.time()-t0:.4f}s"); break</code></pre>
+          </div>
+          <div id="m1-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Utilizar quantização Q4_K_M para otimizar uso de VRAM em edge.</li>
+              <li>Implementar Gateway LiteLLM para fallback automático entre APIs.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 2 -->
+      <section id="m2" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 02</span>
+            <h3 class="text-xl font-bold text-white mt-1">Engenharia de Prompts & Avaliação Prática</h3>
+            <p class="text-xs text-slate-400 mt-1">System Prompts, Structured Outputs, Few-Shot e Frameworks de Avaliação</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m2', 'install')" id="m2-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m2', 'config')" id="m2-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m2', 'examples')" id="m2-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m2', 'practices')" id="m2-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m2-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de Frameworks de Avaliação</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              pip install pydantic instructor deepeval promptfoo
+            </div>
+          </div>
+          <div id="m2-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração Promptfoo (promptfooconfig.yaml)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>prompts: [prompts/prompt1.txt]
+providers: [openai:gpt-4o]
+tests:
+  - vars:
+      topic: "Cybersecurity"
+    assert:
+      - type: contains
+        value: "Zero Trust"</code></pre>
+          </div>
+          <div id="m2-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Output Estruturado com Pydantic e Instructor</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>import instructor, openai
+from pydantic import BaseModel
+
+class UserLog(BaseModel):
+    user_id: int
+    action: str
+    is_suspicious: bool
+
+client = instructor.from_openai(openai.OpenAI())
+log = client.chat.completions.create(
+    model="gpt-4o-mini",
+    response_model=UserLog,
+    messages=[{"role": "user", "content": "Root login via SSH no port 22 às 03:00"}]
+)
+print(log.is_suspicious)</code></pre>
+          </div>
+          <div id="m2-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Utilizar delimitadores claros (ex.: XML tags <code>&lt;context&gt;</code>) para prevenir injeções de contexto.</li>
+              <li>Validar schemas JSON estritamente usando Pydantic antes de processar em lógica de negócio.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 3 -->
+      <section id="m3" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 03</span>
+            <h3 class="text-xl font-bold text-white mt-1">Frameworks de Agentes & MCP (Model Context Protocol)</h3>
+            <p class="text-xs text-slate-400 mt-1">LangChain, LangGraph, AutoGen, CrewAI e Servidores MCP Anthropic</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m3', 'install')" id="m3-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m3', 'config')" id="m3-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m3', 'examples')" id="m3-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m3', 'practices')" id="m3-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m3-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de Frameworks e SDK MCP</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              pip install langgraph langchain-openai mcp crewai
+            </div>
+          </div>
+          <div id="m3-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração do Ficheiro MCP (claude_desktop_config.json)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>{
+  "mcpServers": {
+    "db-server": {
+      "command": "python",
+      "args": ["-m", "mcp_server_postgres", "--connection", "postgresql://user:pass@localhost/db"]
+    }
+  }
+}</code></pre>
+          </div>
+          <div id="m3-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Criação de Servidor MCP Básico em Python</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP("SystemMonitor")
+
+@mcp.tool()
+def get_system_uptime() -> str:
+    return "Uptime: 14 dias, 5 horas."
+
+if __name__ == "__main__":
+    mcp.run()</code></pre>
+          </div>
+          <div id="m3-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Adotar o protocolo MCP para desacoplar ferramentas das aplicações de Agentes.</li>
+              <li>Utilizar Grafos de Estado (LangGraph) para garantir controlo determinístico em workflows complexos.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 4 -->
+      <section id="m4" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 04</span>
+            <h3 class="text-xl font-bold text-white mt-1">Fluxos de Trabalho, Ferramentas & Orquestração</h3>
+            <p class="text-xs text-slate-400 mt-1">Function Calling, Human-in-the-Loop, Memória Persistente e Filas</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m4', 'install')" id="m4-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m4', 'config')" id="m4-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m4', 'examples')" id="m4-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m4', 'practices')" id="m4-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m4-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de Gestão de Filas e Memória</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              pip install redis celery langgraph-checkpoint-sqlite
+            </div>
+          </div>
+          <div id="m4-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração do Redis Checkpointer</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>REDIS_URL = "redis://localhost:6379/0"
+MAX_RETRIES = 3
+TIMEOUT_SECONDS = 30</code></pre>
+          </div>
+          <div id="m4-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Exemplo de Checkpointing em LangGraph (Human-in-the-Loop)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>from langgraph.checkpoint.memory import MemorySaver
+from langgraph.graph import StateGraph
+
+builder = StateGraph(dict)
+# ... definição dos nós ...
+memory = MemorySaver()
+graph = builder.compile(checkpointer=memory, interrupt_before=["aprovacao_humana"])</code></pre>
+          </div>
+          <div id="m4-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Sempre exigi aprovação humana (Human-in-the-Loop) em chamadas com impacto financeiro ou de apagar dados.</li>
+              <li>Configurar timeouts rigorosos para impedir loops infinitos entre ferramentas.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 5 -->
+      <section id="m5" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 05</span>
+            <h3 class="text-xl font-bold text-white mt-1">Desenvolvimento de Soluções com Python</h3>
+            <p class="text-xs text-slate-400 mt-1">FastAPI, Asincronismo, UV, Pytest e Unsloth para Fine-Tuning</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m5', 'install')" id="m5-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m5', 'config')" id="m5-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m5', 'examples')" id="m5-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m5', 'practices')" id="m5-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m5-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação do Gestor "uv" e FastAPI</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              curl -sSf https://astral.sh/uv/install.sh | sh<br>
+              uv venv && source .venv/bin/activate<br>
+              uv pip install fastapi uvicorn httpx pytest
+            </div>
+          </div>
+          <div id="m5-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração Uvicorn ASGI (pyproject.toml)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>[tool.uvicorn]
+factory = true
+port = 8000
+workers = 4
+loop = "uvloop"</code></pre>
+          </div>
+          <div id="m5-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Endpoint Assíncrono com Streaming SSE em FastAPI</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>from fastapi import FastAPI
+from fastapi.responses import StreamingResponse
+import asyncio
+
+app = FastAPI()
+
+async def generate_stream():
+    for i in range(5):
+        yield f"data: Token {i}\n\n"
+        await asyncio.sleep(0.2)
+
+@app.get("/stream")
+async def stream():
+    return StreamingResponse(generate_stream(), media_type="text/event-stream")</code></pre>
+          </div>
+          <div id="m5-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Utilizar <code>uv</code> em vez de <code>pip</code> para resolução de dependências até 10x mais rápida.</li>
+              <li>Utilizar chamadas I/O não-bloqueantes (`async/await`) em todas as invocações de APIs externas.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 6 -->
+      <section id="m6" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 06</span>
+            <h3 class="text-xl font-bold text-white mt-1">Desenvolvimento de Soluções no Ecossistema .NET</h3>
+            <p class="text-xs text-slate-400 mt-1">Semantic Kernel, Microsoft.Extensions.AI, C# e .NET Aspire</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m6', 'install')" id="m6-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m6', 'config')" id="m6-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m6', 'examples')" id="m6-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m6', 'practices')" id="m6-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m6-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de Pacotes .NET</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              dotnet add package Microsoft.SemanticKernel<br>
+              dotnet add package Microsoft.Extensions.AI
+            </div>
+          </div>
+          <div id="m6-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração appsettings.json</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>{
+  "AIServices": {
+    "OpenAI": { "ApiKey": "sk-...", "ModelId": "gpt-4o" }
+  }
+}</code></pre>
+          </div>
+          <div id="m6-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Exemplo Semantic Kernel em C#</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>using Microsoft.SemanticKernel;
+
+var builder = Kernel.CreateBuilder();
+builder.AddOpenAIChatCompletion("gpt-4o", "sk-...");
+var kernel = builder.Build();
+
+var result = await kernel.InvokePromptAsync("Resuma a regra de auditoria ISO 27001 em 2 frases.");
+Console.WriteLine(result);</code></pre>
+          </div>
+          <div id="m6-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Utilizar <code>Microsoft.Extensions.AI</code> para abstração agnóstica de fornecedores em .NET 9.</li>
+              <li>Aproveitar .NET Aspire para telemetria OpenTelemetry nativa de chamadas LLM.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 7 -->
+      <section id="m7" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 07</span>
+            <h3 class="text-xl font-bold text-white mt-1">Consumo de APIs, Integração & Arquiteturas</h3>
+            <p class="text-xs text-slate-400 mt-1">APIs REST, WebSockets, Rate Limiting, Resilience Pipelines (Polly) e Caching</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m7', 'install')" id="m7-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m7', 'config')" id="m7-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m7', 'examples')" id="m7-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m7', 'practices')" id="m7-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m7-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de Clientes HTTP e Gateways</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              pip install httpx tenacity redis
+            </div>
+          </div>
+          <div id="m7-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração LiteLLM Proxy (config.yaml)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>model_list:
+  - model_name: gpt-4o
+    litellm_params:
+      model: openai/gpt-4o
+      api_key: os.environ/OPENAI_API_KEY</code></pre>
+          </div>
+          <div id="m7-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Resiliência com Retry e Exponential Backoff (Tenacity)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>from tenacity import retry, stop_after_attempt, wait_exponential
+
+@retry(stop=stop_after_attempt(3), wait=wait_exponential(multiplier=1, min=2, max=10))
+def call_api_with_retry():
+    print("A tentar chamada à API...")
+    # Chamada REST aqui
+    raise Exception("Rate limit excedido 429")</code></pre>
+          </div>
+          <div id="m7-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Implementar cache de embeddings com Semantic Caching (Redis) para evitar chamadas duplicadas.</li>
+              <li>Tratar rigorosamente retornos HTTP 429 com Circuit Breakers.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 8 -->
+      <section id="m8" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 08</span>
+            <h3 class="text-xl font-bold text-white mt-1">Pipelines de RAG & Bases de Dados Vetoriais</h3>
+            <p class="text-xs text-slate-400 mt-1">Chunking, Embeddings, Qdrant, Pgvector, ColBERT e Re-ranking</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m8', 'install')" id="m8-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m8', 'config')" id="m8-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m8', 'examples')" id="m8-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m8', 'practices')" id="m8-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m8-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação Qdrant & Pgvector Client</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              docker run -p 6333:6333 qdrant/qdrant<br>
+              pip install qdrant-client sentence-transformers flashrank
+            </div>
+          </div>
+          <div id="m8-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Criar Coleção Vetorial com Métrica Conseno</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>from qdrant_client import QdrantClient, models
+
+client = QdrantClient("localhost", port=6333)
+client.recreate_collection(
+    collection_name="docs_tecnicos",
+    vectors_config=models.VectorParams(size=1536, distance=models.Distance.COSINE)
+)</code></pre>
+          </div>
+          <div id="m8-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Pesquisa Híbrida e Re-Ranking com FlashRank</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>from flashrank import Ranker, RerankRequest
+
+ranker = Ranker(model_name="ms-marco-MiniLM-L-6-v2")
+passages = [
+    {"id": 1, "text": "Regra de Firewall bloqueia o porto 22 por defeito."},
+    {"id": 2, "text": "Instalação do Docker em Ubuntu Linux."}
+]
+rerank_req = RerankRequest(query="como configurar firewall ssh", passages=passages)
+results = ranker.rerank(rerank_req)
+print(results)</code></pre>
+          </div>
+          <div id="m8-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Combinar busca vetorial densa com busca por palavra-chave BM25 (Hybrid Search).</li>
+              <li>Aplica re-ranking após a primeira fase de retrieval para aumentar a precisão top-K.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 9 -->
+      <section id="m9" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 09</span>
+            <h3 class="text-xl font-bold text-white mt-1">Qualidade, Desempenho & Gestão de Custos</h3>
+            <p class="text-xs text-slate-400 mt-1">Observabilidade, LangSmith, Phoenix, Token Metrics e Otimização de FinOps</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m9', 'install')" id="m9-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m9', 'config')" id="m9-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m9', 'examples')" id="m9-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m9', 'practices')" id="m9-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m9-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de Rastreio Arize Phoenix</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              pip install arize-phoenix openinference-instrumentation-openai
+            </div>
+          </div>
+          <div id="m9-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Variáveis de Ambiente LangSmith</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>export LANGCHAIN_TRACING_V2="true"
+export LANGCHAIN_API_KEY="ls__..."
+export LANGCHAIN_PROJECT="ai-production-monitoring"</code></pre>
+          </div>
+          <div id="m9-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instrumentação Automática de Traces com Phoenix</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>import phoenix as px
+from openinference.instrumentation.openai import OpenAIInstrumentor
+
+px.launch_app()
+OpenAIInstrumentor().instrument()
+# Todas as chamadas OpenAI serão agora rastreadas no dashboard local</code></pre>
+          </div>
+          <div id="m9-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Estipular limites orçamentais rígidos (hard caps) por chave de API no LiteLLM Proxy.</li>
+              <li>Monitorizar a latência P95 e P99 separando o tempo de pré-enchimento (Prefill) do de geração (Decode).</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 10 -->
+      <section id="m10" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 10</span>
+            <h3 class="text-xl font-bold text-white mt-1">Ambientes Cloud para Soluções de IA</h3>
+            <p class="text-xs text-slate-400 mt-1">Azure OpenAI Service, Vertex AI (GCP), AWS Bedrock e Gestão de Identity (IAM)</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m10', 'install')" id="m10-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m10', 'config')" id="m10-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m10', 'examples')" id="m10-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m10', 'practices')" id="m10-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m10-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de CLIs de Cloud</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              az extension add --name azure-openai<br>
+              gcloud components install beta
+            </div>
+          </div>
+          <div id="m10-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração Azure Managed Identity</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>AZURE_OPENAI_ENDPOINT="https://meu-recurso.openai.azure.com/"
+AZURE_CLIENT_ID="00000000-0000-0000-0000-000000000000"</code></pre>
+          </div>
+          <div id="m10-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Autenticação sem Chaves com Azure.Identity e Python</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+from openai import AzureOpenAI
+
+token_provider = get_bearer_token_provider(DefaultAzureCredential(), "https://cognitiveservices.azure.com/.default")
+client = AzureOpenAI(
+    azure_endpoint="https://meu-recurso.openai.azure.com/",
+    azure_ad_token_provider=token_provider,
+    api_version="2024-06-01"
+)</code></pre>
+          </div>
+          <div id="m10-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Eliminar o uso de chaves estáticas (`API Keys`) usando Identity Federations / Managed Identities.</li>
+              <li>Aproveitar Private Endpoints (VNet integration) para isolar o tráfego das APIs de IA na rede privada.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 11 -->
+      <section id="m11" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 11</span>
+            <h3 class="text-xl font-bold text-white mt-1">Docker, Kubernetes & CI/CD para Serviços de IA</h3>
+            <p class="text-xs text-slate-400 mt-1">Containerização com GPU, Helm, KServe e Pipelines GitHub Actions / Azure DevOps</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m11', 'install')" id="m11-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m11', 'config')" id="m11-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m11', 'examples')" id="m11-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m11', 'practices')" id="m11-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m11-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">NVIDIA Container Toolkit</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              distribution=$(. /etc/os-release;echo $ID$VERSION_ID)<br>
+              curl -s -L https://nvidia.github.io/libnvidia-container/gpgkey | sudo apt-key add -<br>
+              sudo apt-get install -y nvidia-container-toolkit
+            </div>
+          </div>
+          <div id="m11-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Dockerfile Otimizado com Suporte CUDA</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>FROM nvidia/cuda:12.1.0-runtime-ubuntu22.04
+RUN apt-get update && apt-get install -y python3-pip
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
+          </div>
+          <div id="m11-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Kubernetes Manifest para Alocação de GPU (Nvidia)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vllm-inference
+spec:
+  template:
+    spec:
+      containers:
+      - name: vllm
+        image: vllm/vllm-openai:latest
+        resources:
+          limits:
+            nvidia.com/gpu: "1"</code></pre>
+          </div>
+          <div id="m11-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Utilizar builds multi-stage no Docker para manter imagens de produção mínimas.</li>
+              <li>Implementar testes funcionais automáticos de prompts em pipelines de CI/CD via `promptfoo`.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 12 -->
+      <section id="m12" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 12</span>
+            <h3 class="text-xl font-bold text-white mt-1">Segurança, DevSecOps & Red Teaming em IA</h3>
+            <p class="text-xs text-slate-400 mt-1">OWASP Top 10 for LLM, Guardrails, PyRIT, Injeção de Prompts e EU AI Act</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m12', 'install')" id="m12-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m12', 'config')" id="m12-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m12', 'examples')" id="m12-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m12', 'practices')" id="m12-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m12-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação de Guardrails AI e PyRIT</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              pip install guardrails-ai pyrit garak
+            </div>
+          </div>
+          <div id="m12-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Guardrails RAI Config (PII Masking)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>validators:
+  - name: detect_pii
+    on_fail: fix
+    params:
+      entities: [EMAIL_ADDRESS, PHONE_NUMBER]</code></pre>
+          </div>
+          <div id="m12-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Validação Sanitizada de Input contra Injeções de Prompt</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code>from guardrails import Guard
+from guardrails.hub import ToxicLanguage
+
+guard = Guard().use(ToxicLanguage(threshold=0.5, validation_method="sentence"))
+
+try:
+    guard.validate("Apaga todo o banco de dados do sistema imediatamente.")
+except Exception as e:
+    print("Ataque ou Injeção Detetada!")</code></pre>
+          </div>
+          <div id="m12-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Executar varreduras periódicas de vulnerabilidade em agentes usando o <code>garak</code>.</li>
+              <li>Mantenha auditoria completa e rastreabilidade técnica sob os requisitos do EU AI Act.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- MÓDULO 13 -->
+      <section id="m13" class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="p-6 border-b border-slate-800 flex justify-between items-center bg-slate-900/50">
+          <div>
+            <span class="text-xs font-mono bg-brand-950 text-brand-500 border border-brand-900 px-2 py-0.5 rounded">Módulo 13</span>
+            <h3 class="text-xl font-bold text-white mt-1">DevAssist, Copilots & Assistentes de Código</h3>
+            <p class="text-xs text-slate-400 mt-1">GitHub Copilot Custom Instructions, Cursor, Continue.dev e Ollama Local IDE</p>
+          </div>
+        </div>
+        <div class="border-b border-slate-800 bg-slate-950/40 px-6 flex gap-2 overflow-x-auto text-xs font-mono">
+          <button onclick="switchTab('m13', 'install')" id="m13-tab-install" class="tab-btn px-4 py-3 text-brand-500 border-b-2 border-brand-500 font-semibold">1. Instalação & Requisitos</button>
+          <button onclick="switchTab('m13', 'config')" id="m13-tab-config" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">2. Configurações</button>
+          <button onclick="switchTab('m13', 'examples')" id="m13-tab-examples" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">3. Exemplos Práticos</button>
+          <button onclick="switchTab('m13', 'practices')" id="m13-tab-practices" class="tab-btn px-4 py-3 text-slate-400 border-b-2 border-transparent">4. Melhores Práticas</button>
+        </div>
+        <div class="p-6 text-xs text-slate-300">
+          <div id="m13-content-install" class="tab-content block space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instalação Continue.dev para VS Code</h4>
+            <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-brand-500">
+              code --install-extension Continue.continue
+            </div>
+          </div>
+          <div id="m13-content-config" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Configuração do Continue (.continue/config.json)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-slate-300"><code>{
+  "models": [
+    {
+      "title": "DeepSeek Coder Local",
+      "provider": "ollama",
+      "model": "deepseek-coder:6.7b"
+    }
+  ]
+}</code></pre>
+          </div>
+          <div id="m13-content-examples" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Instruções Customizadas (.github/copilot-instructions.md)</h4>
+            <pre class="bg-slate-950 p-4 rounded-lg border border-slate-800 font-mono text-emerald-400"><code># Regras de Código do Projeto
+- Escrever respostas exclusivamente em Português de Portugal.
+- Usar tipagem estrita em Python com Pydantic v2.
+- Adicionar documentação Google Docstring em todas as funções.</code></pre>
+          </div>
+          <div id="m13-content-practices" class="tab-content hidden space-y-4">
+            <h4 class="text-sm font-semibold text-white">Melhores Práticas</h4>
+            <ul class="list-disc pl-5 space-y-1 text-slate-400">
+              <li>Adicionar ficheiros <code>.cursorrules</code> ou <code>copilot-instructions.md</code> no repositório para uniformizar o estilo de código da equipa.</li>
+              <li>Aproveitar LLMs locais para autocompletar código em ambientes corporativos sensíveis com restrição de acesso à internet.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // Alternar entre Separadores / Tabs
+    function switchTab(moduleId, tabName) {
+      const moduleSection = document.getElementById(moduleId);
+      if (!moduleSection) return;
+
+      const contents = moduleSection.querySelectorAll('.tab-content');
+      contents.forEach(content => {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+      });
+
+      const buttons = moduleSection.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('text-brand-500', 'border-brand-500', 'font-semibold');
+        btn.classList.add('text-slate-400', 'border-transparent');
+      });
+
+      const activeContent = document.getElementById(`${moduleId}-content-${tabName}`);
+      if (activeContent) {
+        activeContent.classList.remove('hidden');
+        activeContent.classList.add('block');
+      }
+
+      const activeBtn = document.getElementById(`${moduleId}-tab-${tabName}`);
+      if (activeBtn) {
+        activeBtn.classList.add('text-brand-500', 'border-brand-500', 'font-semibold');
+        activeBtn.classList.remove('text-slate-400', 'border-transparent');
+      }
+    }
+
+    // Filtrar Módulos no Menu Lateral
+    function filterMenu() {
+      const query = document.getElementById('menu-search').value.toLowerCase();
+      const navItems = document.querySelectorAll('.nav-item');
+      
+      navItems.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = "flex";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    }
+  </script>
+</body>
+</html>
